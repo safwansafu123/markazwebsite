@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Facilities Slider Logic
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.querySelector('.facilities-track');
-    const slides = Array.from(document.querySelectorAll('.facility-card.slide'));
+    const slides = Array.from(document.querySelectorAll('.slide'));
     const nextBtn = document.querySelector('.facilities-slider-wrap .next-btn');
     const prevBtn = document.querySelector('.facilities-slider-wrap .prev-btn');
     
@@ -188,6 +188,30 @@ document.addEventListener('DOMContentLoaded', () => {
         moveToPrevSlide();
         resetAutoSlide();
     });
+
+    // Touch Swipe Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, {passive: true});
+
+    const handleSwipe = () => {
+        const swipeThreshold = 50;
+        if (touchStartX - touchEndX > swipeThreshold) {
+            moveToNextSlide(); // Swipe left
+            resetAutoSlide();
+        } else if (touchEndX - touchStartX > swipeThreshold) {
+            moveToPrevSlide(); // Swipe right
+            resetAutoSlide();
+        }
+    };
 
     // Handle Window Resize
     window.addEventListener('resize', () => {
