@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markazul Uloomi Islami, NILAMBUR</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Homepage specific styles */
+
+        .testimonial-bar {
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+
+        .testimonial-bar p {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.4;
+            color: var(--clr-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                Markazul Uloomi Islami
+                <span>Nilambur</span>
+            </a>
+            
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="academics.html">Academics</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="alumni.html">Alumni</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="page-hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('assets/images/hero-1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/hero-2.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/hero-3.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/hero-4.jpg');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content fade-up text-center">
+            <h1 style="color: var(--clr-accent); text-shadow: 0 4px 10px rgba(0,0,0,1), 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6); letter-spacing: 0.1em; margin-bottom: 0.5rem; font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 700;">WELCOME TO MARKAZ</h1>
+            <p class="hero-sub" style="color: var(--clr-white); font-family: var(--font-heading); font-style: italic; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 500; text-shadow: 0 4px 10px rgba(0,0,0,1), 0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.4);">Bringing Up Productive Generation</p>
+            <div class="btn-group" style="padding-top: 2rem; justify-content: center;">
+                <a href="about.html" class="btn btn-primary" style="background: var(--clr-primary); color: #000; box-shadow: 0 0 30px rgba(0,255,170,0.6); border: none; font-weight: 700;">MORE ABOUT US</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Get to Know Us Section -->
+    <section class="about-summary text-center">
+        <div class="container fade-up">
+            <h2 class="fade-up stagger-1" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem;">
+                <span class="highlight-accent">Get to</span> <span class="highlight-primary">Know Us</span>
+            </h2>
+            <p class="summary-text fade-up stagger-2" style="max-width: 900px; margin: 0 auto 3rem; font-size: 1.15rem; line-height: 1.8;">
+                Markazul Uloomi Islami Nilambur is a vision for a purposeful future—an inspiring convergence of education, culture, health, and innovation. Proudly holding the distinction of being a premier institution celebrating a legacy of traditional learning. Situated in Nilambur, the center stands as a vibrant hub where tradition meets transformation.
+            </p>
+            <div class="btn-group fade-up stagger-3" style="justify-content: center; margin-bottom: 5rem;">
+                <a href="about.html" class="btn btn-outline" style="padding: 1rem 2.5rem;">Know More</a>
+            </div>
+
+            <!-- Stats Divider -->
+            <div class="divider" style="margin-bottom: 4rem;"></div>
+
+            <div class="stats-grid">
+                
+                <div class="stat-card fade-up stagger-1">
+                    <div class="stat-icon icon-primary">👨‍🏫</div>
+                    <div>
+                        <h3 class="counter" data-target="20">0</h3>
+                        <p>Dedicated Staffs</p>
+                    </div>
+                </div>
+
+                <div class="stat-card fade-up stagger-2">
+                    <div class="stat-icon icon-accent">🎖️</div>
+                    <div>
+                        <h3 class="counter" data-target="18">0</h3>
+                        <p>Of Academic Excellence</p>
+                    </div>
+                </div>
+
+                <div class="stat-card fade-up stagger-3">
+                    <div class="stat-icon icon-primary">👥</div>
+                    <div>
+                        <h3 class="counter" data-target="150">0</h3>
+                        <p>Students</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="section facilities-section text-center">
+        <div class="container">
+            <div class="fade-up" style="max-width: 800px; margin: 0 auto; padding-bottom: 2rem;">
+                <h2 style="font-size: clamp(2.5rem, 5vw, 4rem);"><span class="highlight-accent">Our</span> <span class="highlight-primary">Facilities</span></h2>
+            </div>
+
+            <div class="facilities-slider-wrap">
+                <button class="slider-btn prev-btn" aria-label="Previous Slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                
+                <div class="facilities-slider">
+                    <div class="facilities-track">
+                        <!-- Facility 1: Library -->
+                        <div class="slide fade-up stagger-1">
+                            <div class="facility-card">
+                                <img src="assets/images/library.png" alt="Library">
+                                <div class="fc-content">
+                                    <h3>Markaz Library</h3>
+                                    <ul class="facility-hints">
+                                        <li>Extensive collection of classic Islamic texts</li>
+                                        <li>Wide range of modern academic resources</li>
+                                        <li>Quiet zones for independent study & research</li>
+                                    </ul>
+                                    <div class="fc-sponsor">Sponsored by 6th Batch</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Facility 2: Computer Lab -->
+                        <div class="slide fade-up stagger-2">
+                            <div class="facility-card">
+                                <img src="assets/images/lab.png" alt="Computer Lab">
+                                <div class="fc-content">
+                                    <h3>Digital Computer Lab</h3>
+                                    <ul class="facility-hints">
+                                        <li>State-of-the-art computer systems & hardware</li>
+                                        <li>High-speed connectivity for digital research</li>
+                                        <li>Comprehensive coding and IT curriculum</li>
+                                    </ul>
+                                    <div class="fc-sponsor">Sponsored by 8th Batch</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Facility 3: Smart Classroom -->
+                        <div class="slide fade-up stagger-3">
+                            <div class="facility-card">
+                                <img src="assets/images/classroom.png" alt="Smart Classroom">
+                                <div class="fc-content">
+                                    <h3>Smart Class Room</h3>
+                                    <ul class="facility-hints">
+                                        <li>Interactive smart boards for visual learning</li>
+                                        <li>Modern ergonomic seating arrangements</li>
+                                        <li>Digital tools for robust student engagement</li>
+                                    </ul>
+                                    <div class="fc-sponsor">Sponsored by Markaz Alumni</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn" aria-label="Next Slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready To Lead Section -->
+    <section class="section ready-section text-center">
+        <div class="container fade-up">
+            <h2 class="ready-title">READY TO <span class="highlight-primary">LEAD?</span></h2>
+            <p class="ready-subtitle">Join thousands of students who are shaping the future through Islamic excellence and community service.</p>
+            
+            <div class="ready-grid">
+                <div class="ready-card fade-up stagger-1">
+                    <div class="rc-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h4>Join Community</h4>
+                    <p>Become a member today</p>
+                </div>
+                
+                <div class="ready-card fade-up stagger-2">
+                    <div class="rc-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    </div>
+                    <h4>Attend Events</h4>
+                    <p>Workshops & Conferences</p>
+                </div>
+                
+                <div class="ready-card fade-up stagger-3">
+                    <div class="rc-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    <h4>Get in Touch</h4>
+                    <p>We're here to help</p>
+                </div>
+            </div>
+
+            <div class="ready-newsletter fade-up stagger-4">
+                <div class="nl-header">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.7;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>NEWSLETTER</span>
+                </div>
+                <form class="nl-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Branding Column -->
+                <div class="footer-brand fade-up stagger-1">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-markaz">Markazul Uloomi</span> <span class="logo-islami">Islami</span>
+                    </a>
+                    <p class="footer-tagline">Empowering generations through the perfect synthesis of timeless Islamic wisdom and modern academic excellence.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+                    </div>
+                </div>
+
+                <!-- Links Column 1 -->
+                <div class="footer-links fade-up stagger-2">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="about.html">About Markaz</a></li>
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="#">Our Faculty</a></li>
+                        <li><a href="alumni.html">Alumni Network</a></li>
+                    </ul>
+                </div>
+
+                <!-- Links Column 2 -->
+                <div class="footer-links fade-up stagger-3">
+                    <h4>Admissions</h4>
+                    <ul>
+                        <li><a href="admissions.html">How to Apply</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Campus Tour</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-contact fade-up stagger-4">
+                    <h4>Get in Touch</h4>
+                    <ul class="contact-info-list">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Markazul Uloomi Islami Campus<br>Nilambur, Kerala 679329</span>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <a href="mailto:admissions@markazululoomi.edu">admissions@markazululoomi.edu</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom fade-up stagger-1">
+                <p>&copy; 2026 Markazul Uloomi Islami, Nilambur. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">&middot;</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

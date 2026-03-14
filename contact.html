@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Markazul Uloomi Islami, NILAMBUR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .page-header {
+            padding: 150px 0 80px;
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            text-align: center;
+        }
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            background-color: var(--clr-bg);
+            padding: 3rem;
+            border-left: 4px solid var(--clr-accent);
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+        }
+
+        .info-item h4 {
+            color: var(--clr-text);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+            color: var(--clr-primary);
+            font-weight: 500;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            padding: 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            background-color: var(--clr-bg);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--clr-primary);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Markazul Uloomi Islami<span>Nilambur</span></a>
+            <button class="mobile-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="academics.html">Academics</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="alumni.html">Alumni</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header bg-motif">
+        <div class="container fade-up">
+            <h1 style="color: var(--clr-white);">Get in Touch</h1>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.1rem; opacity: 0.9;">We welcome inquiries from prospective students, parents, and community members.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container contact-layout">
+            
+            <div class="contact-info fade-up">
+                <h3>Contact Details</h3>
+                
+                <div class="info-item">
+                    <h4>Address</h4>
+                    <p>Markazul Uloomi Islami Campus<br>Nilambur, Kerala</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>Email</h4>
+                    <p>admissions@markazululoomi.edu</p>
+                </div>
+                
+                <div class="info-item">
+                    <h4>Phone</h4>
+                    <p>+91 XXXXX XXXXX</p>
+                </div>
+
+                <div class="info-item">
+                    <h4>Office Hours</h4>
+                    <p>Monday - Friday: 9:00 AM - 4:00 PM</p>
+                </div>
+            </div>
+
+            <div class="fade-up" style="transition-delay: 0.2s;">
+                <form class="contact-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Send Message</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: var(--clr-white); margin-bottom: 1.5rem;">Markazul Uloomi Islami<span style="color: rgba(255,255,255,0.7);">Nilambur</span></a>
+                    <p>Bridging timeless wisdom with modern academic excellence.</p>
+                    <div class="social-links"><a href="#">Fb</a><a href="#">Ig</a><a href="#">Yt</a></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a><a href="academics.html">Academics</a><a href="admissions.html">Admissions</a><a href="alumni.html">Alumni</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Markazul Uloomi Islami Campus<br>Nilambur, Kerala</p><p>admissions@markazululoomi.edu</p><p>+91 XXXXX XXXXX</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form"><input type="email" placeholder="Email Address" required><button type="submit">→</button></form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Markazul Uloomi Islami, NILAMBUR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

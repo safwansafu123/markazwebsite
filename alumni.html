@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni & Campus Life | Markazul Uloomi Islami, NILAMBUR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .page-header {
+            padding: 150px 0 80px;
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            text-align: center;
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .facility-card {
+            background: var(--clr-white);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            transition: all var(--transition-fast);
+        }
+
+        .facility-card:hover {
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            transform: translateY(-5px);
+        }
+
+        .facility-card:hover h3 {
+            color: var(--clr-accent);
+        }
+
+        .facility-card:hover .icon {
+            color: var(--clr-accent);
+        }
+
+        .facility-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            transition: color var(--transition-fast);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            color: var(--clr-primary);
+            margin-bottom: 1rem;
+            transition: color var(--transition-fast);
+        }
+
+        .feature-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .feature-split { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Markazul Uloomi Islami<span>Nilambur</span></a>
+            <button class="mobile-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="academics.html">Academics</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="alumni.html" class="active">Alumni</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header bg-motif">
+        <div class="container fade-up">
+            <h1 style="color: var(--clr-white);">Alumni & Campus Life</h1>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.1rem; opacity: 0.9;">A thriving community built on shared faith, rigorous study, and lifelong brotherhood.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container feature-split fade-up">
+            <div>
+                <img src="assets/images/mosque.png" alt="Mosque Congregation" style="width: 100%; height: 300px; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h2>Spiritual Development</h2>
+                <p>The foundation of our community is built upon daily congregational prayers, weekly Halaqahs, and dedicated mentorship programs designed to instill Taqwa (God-consciousness). Our alumni carry these spiritual habits into their diverse professional fields across the globe.</p>
+            </div>
+            <div style="background-color: var(--clr-bg); padding: 3rem; border-left: 4px solid var(--clr-accent);">
+                <img src="assets/images/football.png" alt="Students playing football" style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h2>Extracurriculars</h2>
+                <p>Beyond the classroom, we engage our students through sports programs, debate clubs, and community service initiatives. These activities build well-rounded individuals ready to serve humanity with excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--clr-white);">
+        <div class="container">
+            <div class="text-center fade-up">
+                <h2>Campus Facilities</h2>
+                <p>Our campus provides a holistic environment for studying, living, and growing.</p>
+            </div>
+            
+            <div class="facility-grid">
+                <div class="facility-card fade-up" style="transition-delay: 0.1s;">
+                    <div class="icon">🕌</div>
+                    <h3>The Grand Mosque</h3>
+                    <p>The spiritual heart of our campus, accommodating the daily prayers, Jum'ah, and major campus gatherings.</p>
+                </div>
+                <div class="facility-card fade-up" style="transition-delay: 0.2s;">
+                    <div class="icon">📚</div>
+                    <h3>The Library</h3>
+                    <p>Extensive collections of classical Arabic texts alongside modern academic resources for comprehensive research.</p>
+                </div>
+                <div class="facility-card fade-up" style="transition-delay: 0.3s;">
+                    <div class="icon">🏠</div>
+                    <h3>Residential Hostels</h3>
+                    <p>Safe, clean, and supervised boarding facilities fostering tight-knit brotherhood, discipline, and lifelong bonds among alumni.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: var(--clr-white); margin-bottom: 1.5rem;">Markazul Uloomi Islami<span style="color: rgba(255,255,255,0.7);">Nilambur</span></a>
+                    <p>Bridging timeless wisdom with modern academic excellence.</p>
+                    <div class="social-links"><a href="#">Fb</a><a href="#">Ig</a><a href="#">Yt</a></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a><a href="academics.html">Academics</a><a href="admissions.html">Admissions</a><a href="alumni.html">Alumni</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Markazul Uloomi Islami Campus<br>Nilambur, Kerala</p><p>admissions@markazululoomi.edu</p><p>+91 XXXXX XXXXX</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form"><input type="email" placeholder="Email Address" required><button type="submit">→</button></form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Markazul Uloomi Islami, NILAMBUR. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics | Markazul Uloomi Islami, NILAMBUR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .page-header {
+            padding: 150px 0 80px;
+            background-color: var(--clr-bg);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .department {
+            margin-bottom: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+
+        .department h2 {
+            border-left: 4px solid var(--clr-accent);
+            padding-left: 1rem;
+            font-size: 2.2rem;
+            position: sticky;
+            top: 100px;
+        }
+
+        .program-card {
+            background: var(--clr-white);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-radius: 4px;
+            transition: transform var(--transition-fast);
+        }
+
+        .program-card:hover {
+            transform: translateX(10px);
+            border-left: 2px solid var(--clr-primary);
+        }
+
+        .program-card h3 {
+            color: var(--clr-accent);
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .department {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .department h2 {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-mesh"></div>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Markazul Uloomi Islami<span>Nilambur</span></a>
+            <button class="mobile-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="academics.html" class="active">Academics</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="alumni.html">Alumni</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header bg-motif">
+        <div class="container fade-up">
+            <h1>Academic Programs</h1>
+            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.1rem;">Where profound tradition meets contemporary intellectual rigor.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            
+            <!-- Theology Dept -->
+            <div class="department fade-up">
+                <div>
+                    <h2>Department of<br>Islamic Theology</h2>
+                </div>
+                <div>
+                    <img src="assets/images/library.png" alt="Islamic Theology Library" style="width: 100%; height: 300px; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="program-card">
+                        <h3>Hifz-ul-Quran</h3>
+                        <p>A rigorous memorization program with a strong emphasis on Tajweed and basic comprehension. Students build a lifelong connection with the Divine word.</p>
+                    </div>
+                    <div class="program-card">
+                        <h3>Aalimiyyah Course</h3>
+                        <p>An in-depth, multi-year study of classical Islamic texts, jurisprudence (Fiqh), theology (Aqeedah), and prophetic traditions (Hadith).</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border:none; border-top:1px solid rgba(0,0,0,0.1); margin: 4rem 0;">
+
+            <!-- Contemporary Dept -->
+            <div class="department fade-up">
+                <div>
+                    <h2>Department of<br>Contemporary Sciences</h2>
+                </div>
+                <div>
+                    <img src="assets/images/lab.png" alt="Contemporary Sciences Lab" style="width: 100%; height: 300px; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <div class="program-card">
+                        <h3>Core Subjects</h3>
+                        <p>Mathematics, Natural Sciences, Humanities, and Information Technology, taught meticulously to exceed state and national academic standards.</p>
+                    </div>
+                    <div class="program-card" style="background-color: var(--clr-primary); color: var(--clr-white);">
+                        <h3 style="color: var(--clr-accent);">Methodology</h3>
+                        <p style="color: rgba(255,255,255,0.9);">We believe that all beneficial knowledge represents continuous reflection on creation. Our integrated approach ensures students naturally perceive the deep harmony between steadfast faith and piercing reason.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <!-- Exact same footer HTML -->
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: var(--clr-white); margin-bottom: 1.5rem;">Markazul Uloomi Islami<span style="color: rgba(255,255,255,0.7);">Nilambur</span></a>
+                    <p>Bridging timeless wisdom with modern academic excellence.</p>
+                    <div class="social-links"><a href="#">Fb</a><a href="#">Ig</a><a href="#">Yt</a></div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="about.html">About Us</a><a href="academics.html">Academics</a><a href="admissions.html">Admissions</a><a href="alumni.html">Alumni</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p>Markazul Uloomi Islami Campus<br>Nilambur, Kerala</p><p>admissions@markazululoomi.edu</p><p>+91 XXXXX XXXXX</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for campus news and spiritual reminders.</p>
+                    <form class="newsletter-form"><input type="email" placeholder="Email Address" required><button type="submit">→</button></form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Markazul Uloomi Islami, NILAMBUR. All rights reserved.</p>
+                <div style="display: flex; gap: 1rem;"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
