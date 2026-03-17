@@ -1,211 +1,1018 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Markazul Uloomi Islami, NILAMBUR</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Markazul Uloomi Islami</title>
+    <!-- Standard Site Styling -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    
     <style>
-        .page-header {
-            padding: 150px 0 80px;
-            background-color: var(--clr-primary);
-            color: var(--clr-white);
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green-deep: #0d3d2a;
+            --green-mid: #1a5c3e;
+            --green-light: #2a7a52;
+            --gold: #c9a84c;
+            --gold-light: #e8c97a;
+            --cream: #fdf8f0;
+            --cream-dark: #f4ede0;
+            --text-dark: #1a1a1a;
+            --text-mid: #4a4a4a;
+            --text-light: #7a7a6a;
+            --white: #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 52vh;
+            background: var(--green-deep);
+            position: relative;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+            padding-top: var(--nav-buffer); 
+        }
+        .hero-pattern {
+            position: absolute; inset: 0; opacity: .06;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,1) 40px, rgba(201,168,76,1) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,1) 40px, rgba(201,168,76,1) 41px);
+        }
+        .hero-glow {
+            position: absolute; width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(42,122,82,.45) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%,-50%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)} }
+
+        .hero-content {
+            position: relative; z-index: 2;
             text-align: center;
+            opacity: 0; transform: translateY(40px);
+            animation: fadeUp .9s .2s cubic-bezier(.22,1,.36,1) forwards;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: .5rem;
+            background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.35);
+            color: var(--gold-light); font-size: .78rem; font-weight: 600;
+            letter-spacing: .12em; text-transform: uppercase;
+            padding: .4rem 1.1rem; border-radius: 999px; margin-bottom: 1.25rem;
+        }
+        .hero-eyebrow::before { content: '✦'; font-size: .6rem; }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            color: var(--white); line-height: 1.1; font-weight: 700;
+        }
+        .hero h1 em { color: var(--gold-light); font-style: italic; }
+        .hero-sub {
+            margin-top: 1rem; color: rgba(255,255,255,.6);
+            font-size: 1rem; font-weight: 300; max-width: 480px; margin-inline: auto;
+        }
+        .hero-divider {
+            width: 60px; height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 1.5rem auto 0;
         }
 
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            margin-top: 2rem;
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            position: absolute; bottom: 1.25rem; left: 50%; transform: translateX(-50%);
+            display: flex; align-items: center; gap: .5rem;
+            color: rgba(255,255,255,0.4); font-size: .78rem;
+            opacity: 0; animation: fadeUp .7s .7s forwards;
+            z-index: 5;
+        }
+        .breadcrumb a { color: rgba(255,255,255,0.55); text-decoration: none; }
+        .breadcrumb a:hover { color: var(--gold-light); }
+        .breadcrumb span { color: var(--gold-light); }
+
+        /* ── SECTION WRAPPER ── */
+        .section { padding: 6rem 4rem; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
+
+        /* ── INFO CARDS ── */
+        .info-strip {
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,.06);
+            padding: 3.5rem 4rem;
+        }
+        .info-strip-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+            gap: 2rem;
+        }
+        .info-card {
+            display: flex; align-items: flex-start; gap: 1rem;
+            opacity: 0; transform: translateY(30px);
+            transition: opacity .6s, transform .6s;
+        }
+        .info-card.visible { opacity: 1; transform: none; }
+        .info-card:nth-child(2) { transition-delay: .1s; }
+        .info-card:nth-child(3) { transition-delay: .2s; }
+        .info-card:nth-child(4) { transition-delay: .3s; }
+        .info-icon {
+            width: 48px; height: 48px; flex-shrink: 0;
+            background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+            border-radius: 12px; display: grid; place-items: center;
+            font-size: 1.25rem;
+            box-shadow: 0 6px 20px rgba(26,92,62,.2);
+        }
+        .info-label {
+            font-size: .72rem; font-weight: 600; letter-spacing: .1em;
+            text-transform: uppercase; color: var(--green-mid); margin-bottom: .25rem;
+        }
+        .info-value {
+            font-size: .9rem; color: var(--text-dark); line-height: 1.5; font-weight: 400;
+        }
+        .info-value a { color: var(--green-mid); text-decoration: none; }
+        .info-value a:hover { color: var(--gold); }
+
+        /* ── MAIN GRID ── */
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1.55fr; gap: 4rem;
+            align-items: start;
         }
 
-        .contact-info {
-            background-color: var(--clr-bg);
+        /* ── LEFT COLUMN ── */
+        .left-col { position: sticky; top: 7rem; }
+        .section-tag {
+            display: inline-block;
+            font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+            text-transform: uppercase; color: var(--green-mid);
+            margin-bottom: .75rem;
+        }
+        .section-tag::before {
+            content: ''; display: inline-block;
+            width: 20px; height: 2px; background: var(--gold);
+            vertical-align: middle; margin-right: .5rem;
+        }
+        .col-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem,3.5vw,2.8rem);
+            color: var(--green-deep); line-height: 1.2; font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .col-heading em { color: var(--green-mid); font-style: italic; }
+        .col-desc {
+            color: var(--text-mid); font-size: .95rem; line-height: 1.75;
+            max-width: 380px; margin-bottom: 2rem;
+        }
+        .hours-box {
+            background: var(--green-deep);
+            border-radius: 16px; padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative; overflow: hidden;
+        }
+        .hours-box::before {
+            content: '🕌'; position: absolute; right: 1.25rem; top: 1rem;
+            font-size: 2rem; opacity: .12;
+        }
+        .hours-title {
+            color: var(--gold-light); font-weight: 600; font-size: .8rem;
+            letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1rem;
+        }
+        .hour-row {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: .5rem 0; border-bottom: 1px solid rgba(255,255,255,.07);
+            font-size: .875rem;
+        }
+        .hour-row:last-child { border-bottom: none; }
+        .hour-row .day { color: rgba(255,255,255,.6); }
+        .hour-row .time { color: var(--white); font-weight: 500; }
+        .hour-row .badge {
+            background: rgba(201,168,76,.2); color: var(--gold-light);
+            font-size: .68rem; padding: .2rem .55rem; border-radius: 999px;
+            font-weight: 600;
+        }
+        .social-row {
+            display: flex; gap: .75rem; flex-wrap: wrap;
+        }
+        .social-btn {
+            display: flex; align-items: center; gap: .5rem;
+            padding: .55rem 1rem; border-radius: 8px;
+            border: 1.5px solid rgba(26,92,62,.2);
+            color: var(--green-mid); font-size: .82rem; font-weight: 500;
+            text-decoration: none; transition: all .25s;
+            background: var(--white);
+        }
+        .social-btn:hover {
+            background: var(--green-deep); color: var(--gold-light);
+            border-color: var(--green-deep); transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(13,61,42,.15);
+        }
+
+        /* ── FORM ── */
+        .form-card {
+            background: var(--white);
+            border-radius: 24px;
             padding: 3rem;
-            border-left: 4px solid var(--clr-accent);
+            box-shadow: 0 4px 40px rgba(13,61,42,.08);
+            border: 1px solid rgba(201,168,76,.1);
+            opacity: 0; transform: translateX(40px);
+            transition: opacity .8s .3s, transform .8s .3s cubic-bezier(.22,1,.36,1);
         }
-
-        .contact-info h3 {
-            margin-bottom: 2rem;
-            font-size: 1.5rem;
+        .form-card.visible { opacity: 1; transform: none; }
+        .form-header { margin-bottom: 2rem; }
+        .form-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; color: var(--green-deep); font-weight: 700;
         }
+        .form-header p { color: var(--text-light); font-size: .875rem; margin-top: .35rem; }
 
-        .info-item {
-            margin-bottom: 2rem;
-        }
-
-        .info-item h4 {
-            color: var(--clr-text);
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-item p {
-            font-size: 1.1rem;
-            color: var(--clr-primary);
-            font-weight: 500;
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-group { margin-bottom: 1.25rem; }
         .form-group label {
-            font-weight: 500;
-            font-size: 0.95rem;
+            display: block; font-size: .78rem; font-weight: 600;
+            color: var(--green-deep); letter-spacing: .05em; margin-bottom: .45rem;
         }
-
+        .form-group label .req { color: var(--gold); margin-left: 2px; }
         .form-control {
-            padding: 1rem;
-            border: 1px solid rgba(0,0,0,0.1);
-            background-color: var(--clr-bg);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: border-color var(--transition-fast);
+            width: 100%; padding: .8rem 1.1rem;
+            border: 1.5px solid rgba(0,0,0,.1);
+            border-radius: 10px; font-size: .9rem; font-family: inherit;
+            color: var(--text-dark); background: var(--cream);
+            outline: none; transition: border-color .25s, box-shadow .25s, background .25s;
         }
-
         .form-control:focus {
-            outline: none;
-            border-color: var(--clr-primary);
+            border-color: var(--green-mid);
+            box-shadow: 0 0 0 3px rgba(26,92,62,.1);
+            background: var(--white);
+        }
+        .form-control::placeholder { color: #b0a898; }
+        textarea.form-control { resize: vertical; min-height: 130px; }
+
+        .select-wrapper { position: relative; }
+        .select-wrapper::after {
+            content: '▾'; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+            color: var(--text-light); pointer-events: none; font-size: .8rem;
+        }
+        select.form-control { appearance: none; cursor: pointer; }
+
+        .checkbox-group { display: flex; align-items: flex-start; gap: .65rem; }
+        .checkbox-group input[type=checkbox] {
+            width: 16px; height: 16px; margin-top: 2px;
+            accent-color: var(--green-mid); cursor: pointer; flex-shrink: 0;
+        }
+        .checkbox-group span { font-size: .82rem; color: var(--text-mid); line-height: 1.5; }
+        .checkbox-group a { color: var(--green-mid); text-decoration: none; }
+
+        .btn-submit {
+            width: 100%; padding: 1rem;
+            background: linear-gradient(135deg, var(--green-deep), var(--green-mid));
+            color: var(--white); font-size: .95rem; font-weight: 600;
+            border: none; border-radius: 12px; cursor: pointer;
+            font-family: inherit; letter-spacing: .03em;
+            position: relative; overflow: hidden;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .btn-submit::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            opacity: 0; transition: opacity .3s;
+        }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(13,61,42,.3); }
+        .btn-submit:hover::before { opacity: 1; }
+        .btn-submit span { position: relative; z-index: 1; color: var(--white); }
+        .btn-submit:hover span { color: var(--green-deep); }
+        .btn-submit .arrow {
+            display: inline-block; transition: transform .3s;
+            position: relative; z-index: 1;
+        }
+        .btn-submit:hover .arrow { transform: translateX(4px); }
+
+        /* ── SUCCESS STATE ── */
+        .success-msg {
+            display: none; text-align: center; padding: 2rem;
+            animation: fadeUp .6s forwards;
+        }
+        .success-msg .check-circle {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--green-mid), var(--green-light));
+            display: grid; place-items: center; margin: 0 auto 1.25rem;
+            font-size: 1.75rem;
+            animation: scaleIn .5s .1s cubic-bezier(.22,1,.36,1) both;
+        }
+        @keyframes scaleIn { from{transform:scale(0)} to{transform:scale(1)} }
+        .success-msg h4 {
+            font-family: 'Playfair Display',serif; font-size: 1.4rem;
+            color: var(--green-deep); margin-bottom: .5rem;
+        }
+        .success-msg p { color: var(--text-mid); font-size: .9rem; }
+
+        /* ── MAP SECTION ── */
+        .map-section {
+            background: var(--cream-dark);
+            padding: 5rem 4rem;
+        }
+        .map-inner { max-width: 1200px; margin: 0 auto; }
+        .map-header { text-align: center; margin-bottom: 3rem; }
+        .map-grid {
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+            align-items: stretch;
+        }
+        .map-frame {
+            border-radius: 20px; overflow: hidden;
+            height: 420px;
+            box-shadow: 0 8px 40px rgba(13,61,42,.14);
+            border: 3px solid rgba(201,168,76,.2);
+            opacity: 0; transform: translateY(30px);
+            transition: opacity .8s, transform .8s cubic-bezier(.22,1,.36,1);
+        }
+        .map-frame.visible { opacity: 1; transform: none; }
+        .map-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+        /* ── FAQ ── */
+        .faq-section { padding: 5rem 4rem; background: var(--white); }
+        .faq-inner { max-width: 760px; margin: 0 auto; }
+        .faq-header { text-align: center; margin-bottom: 3rem; }
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,.08);
+            opacity: 0; transform: translateY(20px);
+            transition: opacity .6s, transform .6s;
+        }
+        .faq-item.visible { opacity: 1; transform: none; }
+        .faq-q {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.25rem 0; cursor: pointer;
+            font-weight: 600; color: var(--green-deep); font-size: .95rem;
+            user-select: none; gap: 1rem;
+        }
+        .faq-icon {
+            width: 28px; height: 28px; flex-shrink: 0;
+            background: var(--cream-dark); border-radius: 50%;
+            display: grid; place-items: center;
+            color: var(--green-mid); font-size: .8rem;
+            transition: background .25s, transform .35s;
+        }
+        .faq-item.open .faq-icon { background: var(--green-mid); color: white; transform: rotate(45deg); }
+        .faq-a {
+            overflow: hidden; max-height: 0;
+            color: var(--text-mid); font-size: .875rem; line-height: 1.75;
+            transition: max-height .4s cubic-bezier(.22,1,.36,1), padding .4s;
+        }
+        .faq-item.open .faq-a { max-height: 200px; padding-bottom: 1.25rem; }
+
+        /* ── FOOTER ── */
+        .site-footer { background: var(--green-deep); }
+
+        /* CTA Band */
+        .footer-cta-band {
+            background: linear-gradient(135deg, #0a3224, #1a5c3e);
+            border-bottom: 1px solid rgba(201,168,76,.18);
+            padding: 3.5rem 4rem;
+            position: relative; overflow: hidden;
+        }
+        .footer-cta-band::before {
+            content: '';
+            position: absolute; inset: 0; opacity: .04;
+            background-image: repeating-linear-gradient(45deg, rgba(201,168,76,1) 0, rgba(201,168,76,1) 1px, transparent 0, transparent 50%);
+            background-size: 18px 18px;
+        }
+        .footer-cta-inner {
+            max-width: 1200px; margin: 0 auto; position: relative;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 3rem; flex-wrap: wrap;
+        }
+        .cta-band-eyebrow {
+            color: var(--gold-light); font-size: .75rem; font-weight: 700;
+            letter-spacing: .15em; text-transform: uppercase; margin-bottom: .6rem;
+        }
+        .cta-band-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.9rem); color: var(--white); line-height: 1.3;
+        }
+        .cta-band-text h2 em { color: var(--gold-light); font-style: italic; }
+        .cta-band-actions {
+            display: flex; gap: 2rem; flex-wrap: wrap;
+        }
+        .cta-band-item {
+            display: flex; align-items: center; gap: .85rem;
+            opacity: 0; transform: translateY(20px);
+            transition: opacity .6s, transform .6s;
+        }
+        .cta-band-item.visible { opacity: 1; transform: none; }
+        .cta-band-item:nth-child(2) { transition-delay: .1s; }
+        .cta-band-item:nth-child(3) { transition-delay: .2s; }
+        .cta-band-icon {
+            width: 44px; height: 44px; flex-shrink: 0;
+            background: rgba(201,168,76,.15);
+            border: 1px solid rgba(201,168,76,.25);
+            border-radius: 10px; display: grid; place-items: center; font-size: 1.1rem;
+        }
+        .cta-band-item strong { display: block; color: var(--white); font-size: .9rem; }
+        .cta-band-item span { color: rgba(255,255,255,.5); font-size: .78rem; }
+
+        /* Footer Body */
+        .footer-body { padding: 4rem 4rem 2.5rem; }
+        .footer-body-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+        }
+        .footer-logo {
+            display: flex; align-items: center; gap: .75rem;
+            text-decoration: none; margin-bottom: 1rem;
+        }
+        .footer-logo-icon {
+            width: 40px; height: 40px; flex-shrink: 0;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            border-radius: 9px; display: grid; place-items: center; font-size: 1.15rem;
+        }
+        .footer-logo-text strong { display: block; color: var(--white); font-size: .85rem; font-weight: 600; }
+        .footer-logo-text span { color: var(--gold-light); font-size: .7rem; font-weight: 300; }
+        .footer-desc {
+            color: rgba(255,255,255,.5); font-size: .875rem; line-height: 1.75;
+            margin-bottom: 1.5rem; max-width: 320px;
+        }
+        .newsletter-label {
+            font-size: .68rem; font-weight: 700; letter-spacing: .15em;
+            color: var(--gold-light); margin-bottom: .6rem;
+        }
+        .newsletter-row { display: flex; gap: .5rem; }
+        .newsletter-input {
+            flex: 1; padding: .6rem .9rem;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+            border-radius: 8px; color: var(--white); font-size: .82rem;
+            font-family: inherit; outline: none;
+            transition: border-color .25s, background .25s;
+        }
+        .newsletter-input::placeholder { color: rgba(255,255,255,.3); }
+        .newsletter-input:focus { border-color: var(--gold); background: rgba(255,255,255,.12); }
+        .newsletter-btn {
+            padding: .6rem 1.1rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--green-deep); font-size: .8rem; font-weight: 700;
+            border: none; border-radius: 8px; cursor: pointer; font-family: inherit;
+            transition: transform .2s, box-shadow .2s;
+        }
+        .newsletter-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(201,168,76,.35); }
+
+        .footer-col-title {
+            color: var(--white); font-size: .8rem; font-weight: 700;
+            letter-spacing: .1em; text-transform: uppercase;
+            margin-bottom: 1.25rem; padding-bottom: .6rem;
+            border-bottom: 1px solid rgba(201,168,76,.2);
+        }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
+        .footer-links a {
+            color: rgba(255,255,255,.55); font-size: .875rem; text-decoration: none;
+            transition: color .2s, padding-left .2s;
+        }
+        .footer-links a:hover { color: var(--gold-light); padding-left: 4px; }
+        .footer-contact li {
+            display: flex; align-items: flex-start; gap: .6rem;
+            color: rgba(255,255,255,.55); font-size: .875rem; line-height: 1.55;
+        }
+        .fc-icon { font-size: .95rem; margin-top: 1px; flex-shrink: 0; }
+        .footer-contact a { color: rgba(255,255,255,.55); text-decoration: none; }
+        .footer-contact a:hover { color: var(--gold-light); }
+
+        /* Bottom Bar */
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.08);
+            padding: 1.25rem 4rem;
+        }
+        .footer-bottom-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: .75rem;
+        }
+        .footer-bottom span { color: rgba(255,255,255,.35); font-size: .8rem; }
+        .footer-bottom-links { display: flex; align-items: center; gap: .75rem; }
+        .footer-bottom-links a { color: rgba(255,255,255,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+        .footer-bottom-links a:hover { color: var(--gold-light); }
+        .footer-bottom-links .sep { color: rgba(255,255,255,.2); font-size: .75rem; }
+
+        @media (max-width: 1024px) {
+            .footer-body-inner { grid-template-columns: 1fr 1fr; }
+            .footer-cta-band { padding: 2.5rem 2rem; }
+            .footer-cta-inner { flex-direction: column; gap: 2rem; }
+            .footer-body { padding: 3rem 2rem 2rem; }
+            .footer-bottom { padding: 1.25rem 2rem; }
+        }
+        @media (max-width: 640px) {
+            .footer-body-inner { grid-template-columns: 1fr; }
+            .cta-band-actions { flex-direction: column; gap: 1.25rem; }
+            .footer-bottom-inner { flex-direction: column; align-items: flex-start; }
         }
 
-        textarea.form-control {
-            resize: vertical;
-            min-height: 150px;
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @media (max-width: 768px) {
-            .contact-layout { grid-template-columns: 1fr; }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .section { padding: 4rem 2rem; }
+            .info-strip { padding: 2.5rem 2rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .left-col { position: static; }
+            .map-section { padding: 4rem 2rem; }
+            .map-grid { grid-template-columns: 1fr; }
+            .map-frame { height: 280px; }
+            .faq-section { padding: 4rem 2rem; }
+        }
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .form-card { padding: 2rem 1.5rem; }
         }
     </style>
 </head>
+
 <body>
     <div class="bg-mesh"></div>
 
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Markazul Uloomi Islami<span>Nilambur</span></a>
-            <button class="mobile-toggle" aria-label="Toggle Menu"><span></span><span></span><span></span></button>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="academics.html">Academics</a>
-                <a href="admissions.html">Admissions</a>
-                <a href="alumni.html">Alumni</a>
-                <a href="contact.html" class="active">Contact</a>
+            <a href="index.html" class="logo">
+                <div class="logo-text">
+                    <span class="m-full">Markazul Uloomi</span> <span class="m-accent">Islami</span>
+                </div>
+                <span class="logo-tag">Nilambur · Established 1993</span>
+            </a>
+
+            <div class="nav-links-wrapper">
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="academics.html">Academics</a>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="alumni.html">Alumni Network</a>
+                    <a href="contact.html" class="active">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="admissions.html" class="btn-nav-cta">
+                        <span>Join Us</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
             </div>
+
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <div class="burger-box">
+                    <div class="burger-inner"></div>
+                </div>
+            </button>
         </div>
     </nav>
 
-    <header class="page-header bg-motif">
-        <div class="container fade-up">
-            <h1 style="color: var(--clr-white);">Get in Touch</h1>
-            <p style="max-width: 600px; margin: 1rem auto 0; font-size: 1.1rem; opacity: 0.9;">We welcome inquiries from prospective students, parents, and community members.</p>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Get in Touch</div>
+            <h1>We're Here<br>to <em>Help You</em></h1>
+            <p class="hero-sub">Reach out to our team for admissions, academics, or any question. We'd love to hear from you.</p>
+            <div class="hero-divider"></div>
         </div>
-    </header>
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> › <a href="about.html">About</a> › <span>Contact Us</span>
+        </div>
+    </section>
 
-    <section class="section">
-        <div class="container contact-layout">
-            
-            <div class="contact-info fade-up">
-                <h3>Contact Details</h3>
-                
-                <div class="info-item">
-                    <h4>Address</h4>
-                    <p>Markazul Uloomi Islami Campus<br>Nilambur, Kerala</p>
-                </div>
-                
-                <div class="info-item">
-                    <h4>Email</h4>
-                    <p>admissions@markazululoomi.edu</p>
-                </div>
-                
-                <div class="info-item">
-                    <h4>Phone</h4>
-                    <p>+91 XXXXX XXXXX</p>
-                </div>
+    <!-- INFO STRIP -->
 
-                <div class="info-item">
-                    <h4>Office Hours</h4>
-                    <p>Monday - Friday: 9:00 AM - 4:00 PM</p>
+    <div class="info-strip">
+        <div class="info-strip-inner">
+            <div class="info-card">
+                <div class="info-icon">📍</div>
+                <div>
+                    <div class="info-label">Our Address</div>
+                    <div class="info-value">Markazul Uloomi Islami Campus<br>Nilambur, Kerala 679329</div>
                 </div>
             </div>
+            <div class="info-card">
+                <div class="info-icon">📞</div>
+                <div>
+                    <div class="info-label">Phone</div>
+                    <div class="info-value">
+                        <a href="tel:+919876543210">+91 98765 43210</a><br>
+                        <a href="tel:+914931200000">+91 4931 200000</a>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">✉️</div>
+                <div>
+                    <div class="info-label">Email</div>
+                    <div class="info-value">
+                        <a href="mailto:admissions@markazululoomi.edu">admissions@markazululoomi.edu</a><br>
+                        <a href="mailto:info@markazululoomi.edu">info@markazululoomi.edu</a>
+                    </div>
+                </div>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🕐</div>
+                <div>
+                    <div class="info-label">Office Hours</div>
+                    <div class="info-value">Sat – Thu: 8:00 AM – 5:00 PM<br>Friday: Closed</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <div class="fade-up" style="transition-delay: 0.2s;">
-                <form class="contact-form">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" required>
+    <!-- MAIN CONTACT SECTION -->
+
+    <section class="section">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <!-- LEFT -->
+                <div class="left-col">
+                    <div class="section-tag">Contact Us</div>
+                    <h2 class="col-heading">Send Us a <em>Message</em></h2>
+                    <p class="col-desc">
+                        Whether you have a question about admissions, academics, campus life, or anything else — our team is ready to answer all your questions.
+                    </p>
+
+                    <div class="hours-box">
+                        <div class="hours-title">📅 Office Hours</div>
+                        <div class="hour-row">
+                            <span class="day">Saturday – Monday</span>
+                            <span class="time">8:00 AM – 5:00 PM</span>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" class="form-control">
+                        <div class="hour-row">
+                            <span class="day">Tuesday – Wednesday</span>
+                            <span class="time">8:00 AM – 5:00 PM</span>
+                        </div>
+                        <div class="hour-row">
+                            <span class="day">Thursday</span>
+                            <span class="time">8:00 AM – 3:00 PM</span>
+                        </div>
+                        <div class="hour-row">
+                            <span class="day">Friday</span>
+                            <span class="badge">Closed</span>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" required>
+
+                    <div class="social-row">
+                        <a href="#" class="social-btn">🐦 Twitter</a>
+                        <a href="#" class="social-btn">📘 Facebook</a>
+                        <a href="#" class="social-btn">📸 Instagram</a>
+                        <a href="#" class="social-btn">▶️ YouTube</a>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" class="form-control" required>
+                </div>
+
+                <!-- RIGHT: FORM -->
+                <div class="form-card" id="formCard">
+                    <div class="form-header">
+                        <h3>Write to Us</h3>
+                        <p>We typically respond within 1–2 business days.</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
+
+                    <div id="formBody">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <span class="req">*</span></label>
+                                <input type="text" class="form-control" placeholder="Ahmad" id="fname" />
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span class="req">*</span></label>
+                                <input type="text" class="form-control" placeholder="Rashid" id="lname" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email Address <span class="req">*</span></label>
+                            <input type="email" class="form-control" placeholder="you@example.com" id="email" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="+91 98765 43210" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Subject <span class="req">*</span></label>
+                            <div class="select-wrapper">
+                                <select class="form-control" id="subject">
+                                    <option value="" disabled selected>Select a subject…</option>
+                                    <option>Admissions Inquiry</option>
+                                    <option>Academic Programs</option>
+                                    <option>Scholarships & Fee</option>
+                                    <option>Campus & Facilities</option>
+                                    <option>Alumni Network</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Message <span class="req">*</span></label>
+                            <textarea class="form-control" placeholder="Tell us how we can help you…" id="message"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="consent" />
+                                <span>I agree to the <a href="#">Privacy Policy</a> and consent to being contacted by Markazul Uloomi Islami regarding my inquiry.</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-submit" onclick="submitForm()">
+                            <span>Send Message &nbsp;<span class="arrow">→</span></span>
+                        </button>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Send Message</button>
-                </form>
+
+                    <div class="success-msg" id="successMsg">
+                        <div class="check-circle">✓</div>
+                        <h4>Message Sent!</h4>
+                        <p>JazākaAllāhu Khayran! We've received your message and will get back to you within 1–2 business days.</p>
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="index.html" class="logo" style="color: var(--clr-white); margin-bottom: 1.5rem;">Markazul Uloomi Islami<span style="color: rgba(255,255,255,0.7);">Nilambur</span></a>
-                    <p>Bridging timeless wisdom with modern academic excellence.</p>
-                    <div class="social-links"><a href="#">Fb</a><a href="#">Ig</a><a href="#">Yt</a></div>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <a href="about.html">About Us</a><a href="academics.html">Academics</a><a href="admissions.html">Admissions</a><a href="alumni.html">Alumni</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact Us</h4>
-                    <p>Markazul Uloomi Islami Campus<br>Nilambur, Kerala</p><p>admissions@markazululoomi.edu</p><p>+91 XXXXX XXXXX</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Newsletter</h4>
-                    <form class="newsletter-form"><input type="email" placeholder="Email Address" required><button type="submit">→</button></form>
-                </div>
+    <!-- MAP SECTION -->
+
+    <section class="map-section">
+        <div class="map-inner">
+            <div class="map-header">
+                <div class="section-tag">Find Us</div>
+                <h2 class="col-heading" style="text-align:center">Our <em>Location</em></h2>
+                <p style="color:var(--text-mid);font-size:.95rem;max-width:460px;margin:0 auto">Nestled in the serene town of Nilambur, Kerala — a legacy of learning since 1993.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Markazul Uloomi Islami, NILAMBUR. All rights reserved.</p>
+            <div class="map-grid">
+                <div class="map-frame" id="mapFrame">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.5745927607!2d76.2190!3d11.2770!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDE2JzM3LjIiTiA3NsKwMTMnMDguNCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="faq-section">
+        <div class="faq-inner">
+            <div class="faq-header">
+                <div class="section-tag">FAQ</div>
+                <h2 class="col-heading" style="text-align:center">Common <em>Questions</em></h2>
+            </div>
+            <div id="faqList">
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        When are admissions open for the next academic year?
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-a">Admissions for the 2025–26 academic year are now open. Applications can be submitted online or in person at the admissions office. The last date for applications is typically April 30th.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        What documents are required for the admission process?
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-a">You will need your previous academic certificates, transfer certificate, birth certificate, two passport-size photographs, and a valid government-issued ID. International students may need additional documentation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Are scholarships or fee waivers available?
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-a">Yes. We offer merit-based and need-based scholarships. Students with exceptional academic records or from financially disadvantaged backgrounds are encouraged to apply. Contact the admissions office for details.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Is hostel accommodation available for outstation students?
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-a">We provide comfortable and secure residential facilities for students who are not local. The hostel includes study rooms, communal spaces, and meals. Limited seats are available, so early registration is recommended.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        How can alumni stay connected with the institution?
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-a">Alumni can register on our Alumni Network portal, attend annual reunions, and join department-specific WhatsApp and Telegram groups. We regularly host alumni lectures and career networking events.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <!-- Top CTA Band -->
+
+        <div class="footer-cta-band">
+            <div class="footer-cta-inner">
+                <div class="cta-band-text">
+                    <div class="cta-band-eyebrow">✦ Ready to Lead? ✦</div>
+                    <h2>Join thousands of students shaping the future through<br><em>Islamic excellence</em> and community service.</h2>
+                </div>
+                <div class="cta-band-actions">
+                    <div class="cta-band-item">
+                        <div class="cta-band-icon">🤝</div>
+                        <div>
+                            <strong>Join Community</strong>
+                            <span>Become a member today</span>
+                        </div>
+                    </div>
+                    <div class="cta-band-item">
+                        <div class="cta-band-icon">🎓</div>
+                        <div>
+                            <strong>Attend Events</strong>
+                            <span>Workshops &amp; Conferences</span>
+                        </div>
+                    </div>
+                    <div class="cta-band-item">
+                        <div class="cta-band-icon">📞</div>
+                        <div>
+                            <strong>Get in Touch</strong>
+                            <span>We're here to help</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Body -->
+
+        <div class="footer-body">
+            <div class="footer-body-inner">
+                <!-- Col 1: Brand -->
+                <div class="footer-col footer-brand">
+                    <a href="#" class="footer-logo">
+                        <div class="footer-logo-icon">🕌</div>
+                        <div class="footer-logo-text">
+                            <strong>Markazul Uloomi Islami</strong>
+                            <span>Nilambur · Established 1993</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">
+                        Empowering generations through the perfect synthesis of timeless Islamic wisdom and modern academic excellence.
+                    </p>
+                    <!-- Newsletter -->
+                    <div class="newsletter-label">NEWSLETTER</div>
+                    <div class="newsletter-row">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" />
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+
+                <!-- Col 2: Discover -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Discover</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Markaz</a></li>
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="#">Our Faculty</a></li>
+                        <li><a href="alumni.html">Alumni Network</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Admissions -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Admissions</h4>
+                    <ul class="footer-links">
+                        <li><a href="admissions.html">How to Apply</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Campus Tour</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Get in Touch -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Get in Touch</h4>
+                    <ul class="footer-links footer-contact">
+                        <li>
+                            <span class="fc-icon">📍</span>
+                            <span>Markazul Uloomi Islami Campus<br>Nilambur, Kerala 679329</span>
+                        </li>
+                        <li>
+                            <span class="fc-icon">✉️</span>
+                            <a href="mailto:admissions@markazululoomi.edu">admissions@markazululoomi.edu</a>
+                        </li>
+                        <li>
+                            <span class="fc-icon">📞</span>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom Bar -->
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <span>© 2026 Markazul Uloomi Islami, Nilambur. All rights reserved.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="sep">·</span>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        /* ── Intersection Observer for scroll animations ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    // stagger children
+                    e.target.querySelectorAll('.info-card, .faq-item').forEach((el, i) => {
+                        setTimeout(() => el.classList.add('visible'), i * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.12 });
+
+        document.querySelectorAll('.info-strip-inner, .form-card, .map-frame, #faqList').forEach(el => observer.observe(el));
+        document.querySelectorAll('.faq-item, .cta-band-item').forEach(el => observer.observe(el));
+
+        /* ── FAQ Accordion ── */
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
+
+        /* ── Form Submit ── */
+        function submitForm() {
+            const fname = document.getElementById('fname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            const consent = document.getElementById('consent').checked;
+
+            if (!fname || !email || !subject || !message) {
+                shakeForm(); return;
+            }
+            if (!consent) {
+                alert('Please agree to the privacy policy to continue.'); return;
+            }
+
+            // Animate success
+            const formBody = document.getElementById('formBody');
+            const successMsg = document.getElementById('successMsg');
+            formBody.style.transition = 'opacity .3s, transform .3s';
+            formBody.style.opacity = '0';
+            formBody.style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                formBody.style.display = 'none';
+                successMsg.style.display = 'block';
+            }, 320);
+        }
+
+        function shakeForm() {
+            const card = document.getElementById('formCard');
+            card.style.animation = 'none';
+            card.style.transform = 'translateX(-6px)';
+            setTimeout(() => card.style.transform = 'translateX(6px)', 80);
+            setTimeout(() => card.style.transform = 'translateX(-4px)', 160);
+            setTimeout(() => card.style.transform = 'translateX(4px)', 240);
+            setTimeout(() => card.style.transform = 'translateX(0)', 320);
+        }
+
+        /* ── Form focus glow on inputs ── */
+        document.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.closest('.form-group') && (input.closest('.form-group').querySelector('label').style.color = 'var(--green-mid)');
+            });
+            input.addEventListener('blur', () => {
+                input.closest('.form-group') && (input.closest('.form-group').querySelector('label').style.color = '');
+            });
+        });
+    </script>
+
 </body>
+
 </html>

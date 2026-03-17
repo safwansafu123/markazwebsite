@@ -42,10 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
   if (mobileToggle && navLinksWrapper) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileToggle.classList.toggle('active');
       navLinksWrapper.classList.toggle('active');
-      
+
       // Lock/Unlock scroll
       if (navLinksWrapper.classList.contains('active')) {
         body.style.overflow = 'hidden';
