@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +7,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Syne:wght@400;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Outfit:wght@200;300;400;500;700&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         /* Homepage specific styles */
 
@@ -33,983 +29,54 @@
             line-height: 1.4;
             color: var(--clr-accent);
         }
-
-        /* ══ HERO PREMIUM DESKTOP REFINEMENTS ══ */
-        /* ══════════════════════════════════════
-           SPACING VARIABLES
-           ══════════════════════════════════════ */
-        :root {
-            --pad-outer: 18vh;
-            --gap-sections: 5vh;
-            --gap-inner: 3.5vh;
-        }
-
-        /* ════════════════════════════════
-           BACKGROUND
-           ════════════════════════════════ */
-        #bg-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-        }
-
-        .bs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0;
-            transition: opacity 2.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 6vw;
-        }
-
-        .bs.on {
-            opacity: 1;
-        }
-
-        .bs-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 25%;
-            display: none;
-            transform: scale(1.06);
-            transition: transform 9s linear;
-        }
-
-        .bs.on .bs-img {
-            transform: scale(1.0);
-        }
-
-        .bs-img.has-image {
-            display: block;
-        }
-
-        /* per-slide gradients */
-        #bs0 {
-            background: linear-gradient(135deg, #04080a 0%, #0d1f0d 45%, #152b10 100%);
-        }
-
-        #bs1 {
-            background: linear-gradient(135deg, #04080a 0%, #0c1a0c 45%, #1a2a10 100%);
-        }
-
-        #bs2 {
-            background: linear-gradient(135deg, #04080a 0%, #0e1a0a 45%, #182812 100%);
-        }
-
-        #bs3 {
-            background: linear-gradient(135deg, #04080a 0%, #0b1a08 45%, #152215 100%);
-        }
-
-        /* emoji */
-        .slide-emoji {
-            font-size: clamp(7rem, 22vw, 18rem);
-            opacity: 0.12;
-            user-select: none;
-            pointer-events: none;
-            line-height: 1;
-            filter: drop-shadow(0 0 40px rgba(46, 125, 50, 0.25));
-            position: relative;
-            z-index: 1;
-        }
-
-        /* overlays */
-        .ov-l {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 1;
-            pointer-events: none;
-            background: linear-gradient(to right, rgba(4, 8, 10, 0.98) 0%, rgba(4, 8, 10, 0.88) 25%, rgba(4, 8, 10, 0.55) 52%, transparent 78%);
-        }
-
-        .ov-b {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 35%;
-            z-index: 1;
-            pointer-events: none;
-            background: linear-gradient(to top, rgba(4, 8, 10, 0.96), transparent);
-        }
-
-        .stripe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 3px;
-            z-index: 9;
-            pointer-events: none;
-            background: linear-gradient(to bottom, transparent, #43a047 35%, #d4a020 65%, transparent);
-            animation: sa 4s ease-in-out infinite;
-        }
-
-        @keyframes sa {
-
-            0%,
-            100% {
-                opacity: .15;
-            }
-
-            50% {
-                opacity: .85;
-            }
-        }
-
-        /* ════════════════════════════════
-           BOTTOM BAR
-           ════════════════════════════════ */
-        #bb {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 52px;
-            z-index: 900;
-            background: rgba(4, 8, 10, .96);
-            backdrop-filter: blur(18px);
-            border-top: 1px solid rgba(244, 246, 240, .07);
-            display: flex; flex-direction: column;
-            opacity: 0; animation: aFU .7s ease 1.3s forwards;
-        }
-
-        .bb-prog {
-            height: 2px;
-            flex-shrink: 0;
-            background: rgba(244, 246, 240, .07);
-            overflow: hidden;
-        }
-
-        .bb-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, #43a047, #d4a020);
-        }
-
-        .bb-fill.go {
-            animation: fillH 7000ms linear forwards;
-        }
-
-        @keyframes fillH {
-            from {
-                width: 0%
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        .bb-row {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .bb-row::-webkit-scrollbar {
-            display: none;
-        }
-
-        .bb-item {
-            flex: 0 0 auto;
-            height: 100%;
-            min-width: 90px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 0 10px;
-            border-right: 1px solid rgba(244, 246, 240, .06);
-            cursor: pointer;
-            transition: background .2s;
-        }
-
-        .bb-item:last-child {
-            border-right: none;
-        }
-
-        .bb-item:hover {
-            background: rgba(46, 125, 50, .10);
-        }
-
-        .bb-ic {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            border: 1px solid rgba(212, 160, 32, .22);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: .58rem;
-        }
-
-        .bb-txt strong {
-            display: block;
-            font-size: .55rem;
-            font-weight: 600;
-            color: #f4f6f0;
-            white-space: nowrap;
-        }
-
-        .bb-txt span {
-            font-size: .38rem;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            color: rgba(244, 246, 240, .30);
-            white-space: nowrap;
-            display: block;
-        }
-
-        /* ════════════════════════════════
-           HERO — mobile first
-           ════════════════════════════════ */
-        #hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            background: #04080a;
-        }
-
-        #hero-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 52px;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding: var(--pad-outer) 20px 2vh 20px;
-            gap: var(--gap-sections);
-        }
-
-        /* Headlines */
-        .top-group {
-            display: flex;
-            flex-direction: column;
-            gap: var(--gap-inner);
-            flex-shrink: 0;
-        }
-
-        .hlines {
-            overflow: visible;
-            flex-shrink: 0;
-        }
-
-        .hlw {
-            overflow: visible;
-            line-height: .92;
-            margin-bottom: 2px;
-        }
-
-        .hlw:last-child {
-            margin-bottom: 0;
-        }
-
-        .hlt {
-            display: block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.4rem, 12vw, 5.5rem);
-            font-weight: 700;
-            letter-spacing: -.015em;
-            color: #f4f6f0;
-            transform: translateY(108%);
-            animation: slideUp 1.1s cubic-bezier(.16, 1, .3, 1) forwards;
-            white-space: normal;
-            overflow: visible;
-        }
-
-        #hl1 {
-            animation-delay: .20s;
-        }
-
-        #hl2 {
-            animation-delay: .32s;
-            font-style: italic;
-            font-weight: 600;
-            color: rgba(244, 246, 240, .32);
-        }
-
-        #hl3 {
-            animation-delay: .44s;
-        }
-
-        /* Description */
-        .h-desc {
-            flex-shrink: 0;
-            margin-top: 0;
-            opacity: 0;
-            animation: aFR .7s ease .80s forwards;
-        }
-
-        .h-desc p {
-            font-size: clamp(.78rem, 2.2vw, .94rem);
-            line-height: 1.58;
-            font-weight: 300;
-            color: rgba(244, 246, 240, .60);
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            margin-bottom: 0;
-        }
-
-        /* CTA buttons */
-        .h-cta {
-            flex-shrink: 0;
-            margin-top: 0;
-            display: flex;
-            align-items: stretch;
-            gap: 10px;
-            pointer-events: all;
-            opacity: 0;
-            animation: aFR .7s ease .92s forwards;
-        }
-
-        .btn-main {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: #2e7d32;
-            color: #f4f6f0;
-            border: none;
-            padding: clamp(12px, 2.8vh, 20px) 16px;
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: clamp(.60rem, 1.9vw, .74rem);
-            letter-spacing: .12em;
-            text-transform: uppercase;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: transform .18s, box-shadow .2s;
-            white-space: nowrap;
-        }
-
-        .btn-main:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 7px 20px rgba(46, 125, 50, .42);
-        }
-
-        .btn-main::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, .13);
-            transform: translateX(-100%);
-            transition: transform .35s;
-        }
-
-        .btn-main:hover::after {
-            transform: translateX(0);
-        }
-
-        .btn-sec {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: rgba(244, 246, 240, .07);
-            border: 1px solid rgba(244, 246, 240, .22);
-            color: rgba(244, 246, 240, .68);
-            padding: clamp(12px, 2.8vh, 20px) 12px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: clamp(.60rem, 1.9vw, .74rem);
-            letter-spacing: .10em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all .3s;
-            white-space: nowrap;
-        }
-
-        .btn-sec:hover {
-            border-color: #d4a020;
-            color: #d4a020;
-        }
-
-        /* Stats — mobile: 2×2 grid */
-        .h-stats {
-            flex-shrink: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3vh 0;
-            border-top: 1px solid rgba(244, 246, 240, .10);
-            padding-top: 2.5vh;
-            padding-bottom: 1vh;
-            margin-top: 0;
-            opacity: 0;
-            animation: aFR .7s ease 1.04s forwards;
-        }
-
-        .stat {
-            display: flex;
-            flex-direction: column;
-            padding-right: 12px;
-            border-right: 1px solid rgba(244, 246, 240, .09);
-        }
-
-        .stat:nth-child(even) {
-            border-right: none;
-            padding-right: 0;
-            padding-left: 12px;
-        }
-
-        .s-n {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: clamp(2rem, 9vw, 3.2rem);
-            letter-spacing: -.02em;
-            color: #f4f6f0;
-            line-height: 1;
-            white-space: nowrap;
-        }
-
-        .s-n em {
-            color: #d4a020;
-            font-style: normal;
-        }
-
-        .s-l {
-            font-size: clamp(.52rem, 1.4vw, .65rem);
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: rgba(244, 246, 240, .28);
-            margin-top: 6px;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        /* Dots */
-        #hero-dots {
-            position: absolute;
-            right: 12px;
-            bottom: calc(52px + 10px);
-            z-index: 800;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            opacity: 0;
-            animation: aFU .7s ease 1.35s forwards;
-        }
-
-        .dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: rgba(244, 246, 240, .22);
-            cursor: pointer;
-            transition: all .28s;
-        }
-
-        .dot.on {
-            background: #d4a020;
-            transform: scale(1.5);
-        }
-
-        .sl {
-            transition: opacity .40s ease, transform .32s ease;
-        }
-
-        .sl.out {
-            opacity: 0;
-            transform: translateY(7px);
-        }
-
-        @keyframes slideUp {
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes aFR {
-            from {
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes aFU {
-            from {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ════════════════════════════════
-           TABLET  (≥600px, <1024px)
-           ════════════════════════════════ */
-        @media(min-width:600px) and (max-width:1023px) {
-            #hero-content {
-                padding: 4vh 32px 2.5vh 32px;
-            }
-
-            .hlt {
-                font-size: clamp(3.5rem, 12vw, 7rem);
-            }
-
-            .h-desc p {
-                -webkit-line-clamp: 3;
-                font-size: .94rem;
-            }
-
-            /* stats: 4 columns on tablet */
-            .h-stats {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 0;
-            }
-
-            .stat {
-                padding-right: 16px;
-                border-right: 1px solid rgba(244, 246, 240, .09);
-            }
-
-            .stat:nth-child(even) {
-                padding-left: 0;
-                padding-right: 16px;
-                border-right: 1px solid rgba(244, 246, 240, .09);
-            }
-
-            .stat:last-child {
-                border-right: none;
-            }
-
-            .s-n {
-                font-size: clamp(1.6rem, 4vw, 2.2rem);
-            }
-
-            .s-l {
-                font-size: .50rem;
-            }
-
-            .btn-main,
-            .btn-sec {
-                font-size: .72rem;
-                padding: 14px 20px;
-            }
-
-            #bb {
-                height: 56px;
-            }
-
-            .bb-item {
-                min-width: 110px;
-                padding: 0 14px;
-            }
-
-            .bb-txt strong {
-                font-size: .60rem;
-            }
-
-            .slide-emoji {
-                font-size: clamp(8rem, 20vw, 14rem);
-            }
-
-            #hero-dots {
-                display: none;
-            }
-        }
-
-        /* ════════════════════════════════
-           DESKTOP  (≥1024px)
-           ════════════════════════════════ */
-        @media(min-width:1024px) {
-            #hero-content {
-                padding: 5vh 80px 3vh 80px;
-                flex-direction: row;
-                align-items: center;
-                gap: 0;
-                justify-content: flex-start;
-            }
-
-            /* left: content */
-            .hero-left {
-                flex: 1;
-                min-width: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 0;
-                padding-right: 60px;
-            }
-
-            .top-group {
-                flex-shrink: 0;
-            }
-
-            /* right: emoji large */
-            .hero-right {
-                flex-shrink: 0;
-                width: 42%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .slide-emoji {
-                font-size: clamp(12rem, 22vw, 28rem);
-                opacity: 0.16;
-            }
-
-            .h-desc p {
-                -webkit-line-clamp: 3;
-                font-size: 1.0rem;
-            }
-
-            .hlt {
-                font-size: clamp(4rem, 8vw, 9rem);
-            }
-
-            /* stats: 4 columns */
-            .h-stats {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 0;
-                margin-top: 3vh;
-            }
-
-            .stat {
-                padding-right: 24px;
-                border-right: 1px solid rgba(244, 246, 240, .09);
-            }
-
-            .stat:nth-child(even) {
-                padding-left: 0;
-                padding-right: 24px;
-                border-right: 1px solid rgba(244, 246, 240, .09);
-            }
-
-            .stat:last-child {
-                border-right: none;
-            }
-
-            .s-n {
-                font-size: 2.2rem;
-            }
-
-            .s-l {
-                font-size: .54rem;
-            }
-
-            .btn-main,
-            .btn-sec {
-                font-size: .78rem;
-                padding: 16px 28px;
-            }
-
-            #bb {
-                height: 60px;
-            }
-
-            #hero-content {
-                bottom: 60px;
-            }
-
-            .bb-item {
-                min-width: 130px;
-                padding: 0 20px;
-            }
-
-            .bb-txt strong {
-                font-size: .66rem;
-            }
-
-            .bb-txt span {
-                font-size: .46rem;
-            }
-
-            #hero-dots {
-                display: none;
-            }
-
-            /* desktop thumbnail strip */
-            #thumbs {
-                display: flex !important;
-            }
-        }
-
-        /* Thumbnail strip (desktop only) */
-        #thumbs {
-            position: absolute;
-            right: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 600;
-            flex-direction: column;
-            gap: 8px;
-            display: none;
-            opacity: 0;
-            animation: aFU .7s ease 1.2s forwards;
-        }
-
-        .rth {
-            width: 58px;
-            height: 42px;
-            overflow: hidden;
-            border: 2px solid transparent;
-            position: relative;
-            cursor: pointer;
-            transition: border-color .3s, transform .3s;
-        }
-
-        .rth img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-            filter: brightness(.38) saturate(.5);
-            transition: filter .3s;
-            display: block;
-        }
-
-        .rth.on {
-            border-color: #d4a020;
-            transform: translateX(-6px);
-        }
-
-        .rth.on img {
-            filter: brightness(.90) saturate(1.1);
-        }
-
-        .rth:hover img {
-            filter: brightness(.65);
-        }
-
-        .rth-n {
-            position: absolute;
-            bottom: 2px;
-            right: 3px;
-            font-family: 'Syne', sans-serif;
-            font-size: .40rem;
-            color: rgba(255, 255, 255, .8);
-        }
-
-        /* desktop hero layout helper */
-        @media(min-width:1024px) {
-            #hero-content {
-                display: grid;
-                grid-template-columns: 1fr auto;
-                grid-template-rows: 1fr;
-                align-items: center;
-            }
-
-            .top-group {
-                grid-column: 1;
-                grid-row: 1;
-            }
-
-            .h-stats {
-                grid-column: 1;
-                grid-row: 1;
-                align-self: end;
-            }
-
-            .hero-left {
-                grid-column: 1;
-                display: contents;
-            }
-
-            .hero-right {
-                grid-column: 2;
-                grid-row: 1;
-            }
-        }
-
-
     </style>
 </head>
-
 <body>
     <div class="bg-mesh"></div>
-
+    <div class="indicator-circle"></div>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-text">
-                    <span class="m-full">Markazul Uloomi</span> <span class="m-accent">Islami</span>
-                </div>
-                <span class="logo-tag">Nilambur · Established 1993</span>
+                Markazul Uloomi Islami
+                <span>Nilambur</span>
             </a>
-
-            <div class="nav-links-wrapper">
-                <div class="nav-links">
-                    <a href="index.html" class="active">Home</a>
-                    <a href="about.html">About Us</a>
-                    <a href="academics.html">Academics</a>
-                    <a href="admissions.html">Admissions</a>
-                    <a href="alumni.html">Alumni Network</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="nav-actions">
-                    <a href="admissions.html" class="btn-nav-cta">
-                        <span>Join Us</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                            <polyline points="7 7 17 7 17 17"></polyline>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
+            
             <button class="mobile-toggle" aria-label="Toggle Menu">
-                <div class="burger-box">
-                    <div class="burger-inner"></div>
-                </div>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="academics.html">Academics</a>
+                <a href="admissions.html">Admissions</a>
+                <a href="alumni.html">Alumni</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <section id="hero-section">
-        <div id="bg-container">
-            <!-- slides -->
-            <div class="bs on" id="bs0">
-                <img class="bs-img has-image" src="assets/images/hero-1.jpg" alt="Hero 1">
-                <div class="hero-right">
-                    <div class="slide-emoji">🕌</div>
-                </div>
-            </div>
-            <div class="bs" id="bs1">
-                <img class="bs-img has-image" src="assets/images/hero-2.jpg" alt="Hero 2">
-                <div class="hero-right">
-                    <div class="slide-emoji">📚</div>
-                </div>
-            </div>
-            <div class="bs" id="bs2">
-                <img class="bs-img has-image" src="assets/images/hero-3.jpg" alt="Hero 3">
-                <div class="hero-right">
-                    <div class="slide-emoji">🎓</div>
-                </div>
-            </div>
-            <div class="bs" id="bs3">
-                <img class="bs-img has-image" src="assets/images/hero-1.jpg" alt="Hero 4">
-                <div class="hero-right">
-                    <div class="slide-emoji">💪</div>
-                </div>
-            </div>
-
-            <div class="ov-l"></div>
-            <div class="ov-b"></div>
-            <div class="stripe"></div>
+    <!-- Hero Section -->
+    <header class="page-hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('assets/images/hero-1.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/hero-2.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/hero-3.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/images/hero-4.jpg');"></div>
         </div>
-
-        <div id="hero-content" class="container">
-            <div class="hero-left">
-                <div class="top-group">
-                    <div class="hlines">
-                        <div class="hlw"><span class="hlt sl" id="hl1">Knowledge</span></div>
-                        <div class="hlw"><span class="hlt sl" id="hl2">Faith &amp;</span></div>
-                        <div class="hlw"><span class="hlt sl" id="hl3">Excellence.</span></div>
-                    </div>
-                    <div class="h-desc">
-                        <p class="sl" id="hDesc">Markazul Uloomi Islami Nilambur — a beacon of Islamic education nurturing scholars grounded in faith, discipline and academic excellence.</p>
-                    </div>
-                    <div class="h-cta">
-                        <button class="btn-main">Explore Programs <svg style="width:12px; height:12px; margin-left:4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg></button>
-                        <button class="btn-sec">📞 Contact Us</button>
-                    </div>
-                </div>
-
-                <div class="h-stats">
-                    <div class="stat">
-                        <div class="s-n">500<em>+</em></div>
-                        <div class="s-l">Students</div>
-                    </div>
-                    <div class="stat">
-                        <div class="s-n">33<em>+</em></div>
-                        <div class="s-l">Years Legacy</div>
-                    </div>
-                    <div class="stat">
-                        <div class="s-n">20<em>+</em></div>
-                        <div class="s-l">Programs</div>
-                    </div>
-                    <div class="stat">
-                        <div class="s-n">95<em>%</em></div>
-                        <div class="s-l">Placement</div>
-                    </div>
-                </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content fade-up text-center">
+            <h1 style="color: var(--clr-accent); text-shadow: 0 4px 10px rgba(0,0,0,1), 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.6); letter-spacing: 0.1em; margin-bottom: 0.5rem; font-size: clamp(3.5rem, 8vw, 6.5rem); font-weight: 700;">WELCOME TO MARKAZ</h1>
+            <p class="hero-sub" style="color: var(--clr-white); font-family: var(--font-heading); font-style: italic; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 500; text-shadow: 0 4px 10px rgba(0,0,0,1), 0 0 15px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.4);">Bringing Up Productive Generation</p>
+            <div class="btn-group" style="padding-top: 2rem; justify-content: center;">
+                <a href="about.html" class="btn btn-primary" style="background: var(--clr-primary); color: #000; box-shadow: 0 0 30px rgba(0,255,170,0.6); border: none; font-weight: 700;">MORE ABOUT US</a>
             </div>
         </div>
-
-        <!-- NAVIGATION -->
-        <div id="hero-dots">
-            <div class="dot on" data-i="0"></div>
-            <div class="dot" data-i="1"></div>
-            <div class="dot" data-i="2"></div>
-            <div class="dot" data-i="3"></div>
-        </div>
-
-        <div id="thumbs">
-            <div class="rth on" data-i="0"><img src="assets/images/hero-1.jpg" alt="Thumb 1"><span class="rth-n">01</span></div>
-            <div class="rth" data-i="1"><img src="assets/images/hero-2.jpg" alt="Thumb 2"><span class="rth-n">02</span></div>
-            <div class="rth" data-i="2"><img src="assets/images/hero-3.jpg" alt="Thumb 3"><span class="rth-n">03</span></div>
-            <div class="rth" data-i="3"><img src="assets/images/hero-1.jpg" alt="Thumb 4"><span class="rth-n">04</span></div>
-        </div>
-
-        <!-- BOTTOM BAR -->
-        <div id="bb">
-            <div class="bb-prog">
-                <div class="bb-fill go" id="bbFill"></div>
-            </div>
-            <div class="bb-row">
-                <div class="bb-item">
-                    <div class="bb-ic">🕌</div>
-                    <div class="bb-txt"><strong>Admissions</strong><span>2024–25 Open</span></div>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-ic">🎓</div>
-                    <div class="bb-txt"><strong>Islamic Studies</strong><span>Comprehensive</span></div>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-ic">🌟</div>
-                    <div class="bb-txt"><strong>Campus</strong><span>Nilambur, Kerala</span></div>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-ic">🏆</div>
-                    <div class="bb-txt"><strong>Excellence</strong><span>Academic Rank</span></div>
-                </div>
-                <div class="bb-item">
-                    <div class="bb-ic">📞</div>
-                    <div class="bb-txt"><strong>Contact</strong><span>Join Now</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </header>
 
     <!-- Get to Know Us Section -->
     <section class="about-summary text-center">
@@ -1017,12 +84,8 @@
             <h2 class="fade-up stagger-1" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1.5rem;">
                 <span class="highlight-accent">Get to</span> <span class="highlight-primary">Know Us</span>
             </h2>
-            <p class="summary-text fade-up stagger-2"
-                style="max-width: 900px; margin: 0 auto 3rem; font-size: 1.15rem; line-height: 1.8;">
-                Markazul Uloomi Islami Nilambur is a vision for a purposeful future—an inspiring convergence of
-                education, culture, health, and innovation. Proudly holding the distinction of being a premier
-                institution celebrating a legacy of traditional learning. Situated in Nilambur, the center stands as a
-                vibrant hub where tradition meets transformation.
+            <p class="summary-text fade-up stagger-2" style="max-width: 900px; margin: 0 auto 3rem; font-size: 1.15rem; line-height: 1.8;">
+                Markazul Uloomi Islami Nilambur is a vision for a purposeful future—an inspiring convergence of education, culture, health, and innovation. Proudly holding the distinction of being a premier institution celebrating a legacy of traditional learning. Situated in Nilambur, the center stands as a vibrant hub where tradition meets transformation.
             </p>
             <div class="btn-group fade-up stagger-3" style="justify-content: center; margin-bottom: 5rem;">
                 <a href="about.html" class="btn btn-outline" style="padding: 1rem 2.5rem;">Know More</a>
@@ -1032,7 +95,7 @@
             <div class="divider" style="margin-bottom: 4rem;"></div>
 
             <div class="stats-grid">
-
+                
                 <div class="stat-card fade-up stagger-1">
                     <div class="stat-icon icon-primary">👨‍🏫</div>
                     <div>
@@ -1062,364 +125,103 @@
     </section>
 
     <!-- Facilities Section -->
-    <section class="section facilities-section-new" id="facilities">
-        <div class="container text-center fade-up">
-            <h2 class="facilities-title">Our <em>Facilities</em></h2>
-            <p class="facilities-subtitle">Experience excellence through our world-class campus</p>
-        </div>
-
-        <div class="facilities-slider-container fade-up stagger-1">
-            <div class="facilities-slider-track" id="facilities-slider-track">
-                <!-- Card 1: Library -->
-                <div class="facility-card-new">
-                    <div class="fc-top">
-                        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80" alt="Islamic Library">
-                        <div class="fc-badge">Library</div>
-                        <div class="fc-gradient-overlay"></div>
-                    </div>
-                    <div class="fc-bottom">
-                        <div class="fc-gold-line"></div>
-                        <div>
-                            <h3 class="fc-title">Central Library</h3>
-                            <p class="fc-desc">A vast haven of knowledge featuring classical Islamic texts and modern academic resources.</p>
-                        </div>
-                        <div class="fc-row">
-                            <span class="fc-meta">25k+ Books · Digital Hub</span>
-                            <button class="fc-arrow-btn" aria-label="View Facilities">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2: Smart Classrooms -->
-                <div class="facility-card-new">
-                    <div class="fc-top">
-                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Smart Classrooms">
-                        <div class="fc-badge">Tech</div>
-                        <div class="fc-gradient-overlay"></div>
-                    </div>
-                    <div class="fc-bottom">
-                        <div class="fc-gold-line"></div>
-                        <div>
-                            <h3 class="fc-title">Smart Classrooms</h3>
-                            <p class="fc-desc">Modern learning spaces equipped with the latest interactive technologies for effective education.</p>
-                        </div>
-                        <div class="fc-row">
-                            <span class="fc-meta">Interactive · Air Conditioned</span>
-                            <button class="fc-arrow-btn" aria-label="View Facilities">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3: Science Labs -->
-                <div class="facility-card-new">
-                    <div class="fc-top">
-                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80" alt="Advanced Labs">
-                        <div class="fc-badge">Research</div>
-                        <div class="fc-gradient-overlay"></div>
-                    </div>
-                    <div class="fc-bottom">
-                        <div class="fc-gold-line"></div>
-                        <div>
-                            <h3 class="fc-title">Advanced Labs</h3>
-                            <p class="fc-desc">State-of-the-art laboratory facilities for physics, chemistry, and biological researches.</p>
-                        </div>
-                        <div class="fc-row">
-                            <span class="fc-meta">Modern Gear · Expert Guidance</span>
-                            <button class="fc-arrow-btn" aria-label="View Facilities">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4: Sports Complex -->
-                <div class="facility-card-new">
-                    <div class="fc-top">
-                        <img src="https://images.unsplash.com/photo-1540747913346-19e3adca174f?auto=format&fit=crop&w=800&q=80" alt="Athletic Ground">
-                        <div class="fc-badge">Sports</div>
-                        <div class="fc-gradient-overlay"></div>
-                    </div>
-                    <div class="fc-bottom">
-                        <div class="fc-gold-line"></div>
-                        <div>
-                            <h3 class="fc-title">Athletic Ground</h3>
-                            <p class="fc-desc">Extensive sports facilities encouraging physical health, discipline, and competitive spirit.</p>
-                        </div>
-                        <div class="fc-row">
-                            <span class="fc-meta">Multi-Sport · Professional Turf</span>
-                            <button class="fc-arrow-btn" aria-label="View Facilities">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5: Prayer Hall -->
-                <div class="facility-card-new">
-                    <div class="fc-top">
-                        <img src="https://images.unsplash.com/photo-1564769041249-14a93ca3acc8?auto=format&fit=crop&w=800&q=80" alt="Prayer Hall">
-                        <div class="fc-badge">Spiritual</div>
-                        <div class="fc-gradient-overlay"></div>
-                    </div>
-                    <div class="fc-bottom">
-                        <div class="fc-gold-line"></div>
-                        <div>
-                            <h3 class="fc-title">Prayer Hall</h3>
-                            <p class="fc-desc">A serene and spacious spiritual center for daily prayers and religious gatherings.</p>
-                        </div>
-                        <div class="fc-row">
-                            <span class="fc-meta">1000+ Capacity · Peaceful</span>
-                            <button class="fc-arrow-btn" aria-label="View Facilities">
-                                <span class="view-label">View Facilities</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6: Residential Block -->
-                <div class="facility-card-new">
-                    <div class="fc-top">
-                        <img src="https://images.unsplash.com/photo-1555854811-8aa427a92f20?auto=format&fit=crop&w=800&q=80" alt="Campus Life">
-                        <div class="fc-badge">Living</div>
-                        <div class="fc-gradient-overlay"></div>
-                    </div>
-                    <div class="fc-bottom">
-                        <div class="fc-gold-line"></div>
-                        <div>
-                            <h3 class="fc-title">Residential Block</h3>
-                            <p class="fc-desc">Comfortable and secure residential facilities providing a home away from home.</p>
-                        </div>
-                        <div class="fc-row">
-                            <span class="fc-meta">Safe · Communal · Modern</span>
-                            <button class="fc-arrow-btn" aria-label="View Facilities">
-                                <span class="view-label">View Facilities</span>
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <section class="section facilities-section text-center">
+        <div class="pattern-overlay"></div>
+        <div class="container">
+            <div class="fade-up" style="max-width: 800px; margin: 0 auto; padding-bottom: 2rem;">
+                <h2 style="font-size: clamp(2.5rem, 5vw, 4rem);"><span class="highlight-accent">Our</span> <span class="highlight-primary">Facilities</span></h2>
             </div>
 
-            <!-- Navigation Controls -->
-            <div class="fc-nav-container">
-                <button class="fc-nav-btn fc-prev" aria-label="Previous Slide">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
+            <div class="facilities-slider-wrap">
+                <button class="slider-btn prev-btn" aria-label="Previous Slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <div class="fc-dots">
-                    <!-- Dots mapped to cards -->
-                    <div class="fc-dot active" data-i="0"></div>
-                    <div class="fc-dot" data-i="1"></div>
-                    <div class="fc-dot" data-i="2"></div>
-                    <div class="fc-dot" data-i="3"></div>
-                    <div class="fc-dot" data-i="4"></div>
-                    <div class="fc-dot" data-i="5"></div>
+                
+                <div class="facilities-slider">
+                    <div class="facilities-track">
+                        <!-- Facility 1: Library -->
+                        <div class="slide fade-up stagger-1">
+                            <div class="facility-card">
+                                <img src="assets/images/library.png" alt="Library">
+                                <div class="fc-content">
+                                    <h3>Markaz Library</h3>
+                                    <ul class="facility-hints">
+                                        <li>Extensive collection of classic Islamic texts</li>
+                                        <li>Wide range of modern academic resources</li>
+                                        <li>Quiet zones for independent study & research</li>
+                                    </ul>
+                                    <div class="fc-sponsor">Sponsored by 6th Batch</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Facility 2: Computer Lab -->
+                        <div class="slide fade-up stagger-2">
+                            <div class="facility-card">
+                                <img src="assets/images/lab.png" alt="Computer Lab">
+                                <div class="fc-content">
+                                    <h3>Digital Computer Lab</h3>
+                                    <ul class="facility-hints">
+                                        <li>State-of-the-art computer systems & hardware</li>
+                                        <li>High-speed connectivity for digital research</li>
+                                        <li>Comprehensive coding and IT curriculum</li>
+                                    </ul>
+                                    <div class="fc-sponsor">Sponsored by 8th Batch</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Facility 3: Smart Classroom -->
+                        <div class="slide fade-up stagger-3">
+                            <div class="facility-card">
+                                <img src="assets/images/classroom.png" alt="Smart Classroom">
+                                <div class="fc-content">
+                                    <h3>Smart Class Room</h3>
+                                    <ul class="facility-hints">
+                                        <li>Interactive smart boards for visual learning</li>
+                                        <li>Modern ergonomic seating arrangements</li>
+                                        <li>Digital tools for robust student engagement</li>
+                                    </ul>
+                                    <div class="fc-sponsor">Sponsored by Markaz Alumni</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button class="fc-nav-btn fc-next" aria-label="Next Slide">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
+
+                <button class="slider-btn next-btn" aria-label="Next Slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
             </div>
         </div>
-    </section>
-
-    <!-- COLLEGE COMMITTEE SECTION -->
-    <section class="section committee-section" id="committee">
-        <canvas id="particles"></canvas>
-
-        <header class="committee-header-new">
-            <div class="tag">✦ Academic Excellence ✦</div>
-            <h1>Meet Our <em>Committee</em><br />Members</h1>
-            <p>The pillars of academic leadership &amp; innovation</p>
-            <div class="hline"></div>
-        </header>
-
-        <section class="slider-section">
-            <div class="viewport" id="viewport">
-                <div class="stage" id="stage">
-                    <div class="member" data-i="0">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/men/32.jpg"
-                                    alt="Dr. Arjun Mehta"></div>
-                            <div class="badge">Chairman</div>
-                        </div>
-                        <div class="mname">Dr. Arjun Mehta</div>
-                        <div class="mdept">Computer Science</div>
-                    </div>
-
-                    <div class="member" data-i="1">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/women/44.jpg"
-                                    alt="Prof. Priya Sharma"></div>
-                            <div class="badge">Vice-Chair</div>
-                        </div>
-                        <div class="mname">Prof. Priya Sharma</div>
-                        <div class="mdept">Electronics Dept.</div>
-                    </div>
-
-                    <div class="member" data-i="2">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/men/56.jpg"
-                                    alt="Mr. Rahul Verma"></div>
-                            <div class="badge">Secretary</div>
-                        </div>
-                        <div class="mname">Mr. Rahul Verma</div>
-                        <div class="mdept">Mechanical Dept.</div>
-                    </div>
-
-                    <div class="member" data-i="3">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/women/68.jpg"
-                                    alt="Dr. Sneha Rao"></div>
-                            <div class="badge">Treasurer</div>
-                        </div>
-                        <div class="mname">Dr. Sneha Rao</div>
-                        <div class="mdept">Civil Engineering</div>
-                    </div>
-
-                    <div class="member" data-i="4">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/men/77.jpg"
-                                    alt="Prof. Vikram Nair"></div>
-                            <div class="badge">Joint Secy.</div>
-                        </div>
-                        <div class="mname">Prof. Vikram Nair</div>
-                        <div class="mdept">Mathematics</div>
-                    </div>
-
-                    <div class="member" data-i="5">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/women/12.jpg"
-                                    alt="Ms. Ananya Joshi"></div>
-                            <div class="badge">Coordinator</div>
-                        </div>
-                        <div class="mname">Ms. Ananya Joshi</div>
-                        <div class="mdept">Information Tech.</div>
-                    </div>
-
-                    <div class="member" data-i="6">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/men/23.jpg"
-                                    alt="Dr. Karthik Iyer"></div>
-                            <div class="badge">Member</div>
-                        </div>
-                        <div class="mname">Dr. Karthik Iyer</div>
-                        <div class="mdept">Biotechnology</div>
-                    </div>
-
-                    <div class="member" data-i="7">
-                        <div class="circle-wrap">
-                            <div class="r1"></div>
-                            <div class="r2"></div>
-                            <div class="r3"></div>
-                            <div class="photo"><img src="https://randomuser.me/api/portraits/women/90.jpg"
-                                    alt="Prof. Meena Krishnan"></div>
-                            <div class="badge">Advisor</div>
-                        </div>
-                        <div class="mname">Prof. Meena Krishnan</div>
-                        <div class="mdept">Physics Dept.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="dots" id="dots"></div>
-            <div class="arrows">
-                <button class="arr" id="prev" aria-label="Previous Member">&#8592;</button>
-                <button class="arr" id="next" aria-label="Next Member">&#8594;</button>
-            </div>
-        </section>
-
-        <footer>&copy; 2024 <span>College Committee</span> &mdash; All Rights Reserved</footer>
     </section>
 
     <!-- Ready To Lead Section -->
     <section class="section ready-section text-center">
         <div class="container fade-up">
             <h2 class="ready-title">READY TO <span class="highlight-primary">LEAD?</span></h2>
-            <p class="ready-subtitle">Join thousands of students who are shaping the future through Islamic excellence
-                and community service.</p>
-
+            <p class="ready-subtitle">Join thousands of students who are shaping the future through Islamic excellence and community service.</p>
+            
             <div class="ready-grid">
                 <div class="ready-card fade-up stagger-1">
                     <div class="rc-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                     </div>
                     <h4>Join Community</h4>
                     <p>Become a member today</p>
                 </div>
-
+                
                 <div class="ready-card fade-up stagger-2">
                     <div class="rc-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     </div>
                     <h4>Attend Events</h4>
                     <p>Workshops & Conferences</p>
                 </div>
-
+                
                 <div class="ready-card fade-up stagger-3">
                     <div class="rc-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     </div>
                     <h4>Get in Touch</h4>
                     <p>We're here to help</p>
@@ -1428,11 +230,7 @@
 
             <div class="ready-newsletter fade-up stagger-4">
                 <div class="nl-header">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.7;">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.7;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     <span>NEWSLETTER</span>
                 </div>
                 <form class="nl-form">
@@ -1454,32 +252,12 @@
                     <a href="index.html" class="footer-logo">
                         <span class="logo-markaz">Markazul Uloomi</span> <span class="logo-islami">Islami</span>
                     </a>
-                    <p class="footer-tagline">Empowering generations through the perfect synthesis of timeless Islamic
-                        wisdom and modern academic excellence.</p>
+                    <p class="footer-tagline">Empowering generations through the perfect synthesis of timeless Islamic wisdom and modern academic excellence.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg></a>
-                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg></a>
-                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                                </path>
-                            </svg></a>
-                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z">
-                                </path>
-                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                            </svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#" aria-label="Twitter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
                     </div>
                 </div>
 
@@ -1510,29 +288,15 @@
                     <h4>Get in Touch</h4>
                     <ul class="contact-info-list">
                         <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             <span>Markazul Uloomi Islami Campus<br>Nilambur, Kerala 679329</span>
                         </li>
                         <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                             <a href="mailto:admissions@markazululoomi.edu">admissions@markazululoomi.edu</a>
                         </li>
                         <li>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path
-                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                </path>
-                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             <a href="tel:+919876543210">+91 98765 43210</a>
                         </li>
                     </ul>
@@ -1551,80 +315,6 @@
     </footer>
 
     <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // ══ PREMIUM HERO SLIDER LOGIC ══
-            const slides = document.querySelectorAll('.bs');
-            const dots = document.querySelectorAll('.dot');
-            const thumbs = document.querySelectorAll('.rth');
-            const fill = document.getElementById('bbFill');
-            const h1Lines = [document.getElementById('hl1'), document.getElementById('hl2'), document.getElementById('hl3')];
-            const hDesc = document.getElementById('hDesc');
-            
-            let cur = 0;
-            let timer;
-
-            const slideData = [
-                { h1: ["Knowledge", "Faith &", "Excellence."], p: "Markazul Uloomi Islami Nilambur — a beacon of Islamic education nurturing scholars grounded in faith, discipline and academic excellence." },
-                { h1: ["Timeless", "Islamic", "Wisdom."], p: "Preserving the rich heritage of Islamic scholarship through traditional dars systems and modern educational methodologies." },
-                { h1: ["Modern", "Academic", "Vision."], p: "Equipping our students with contemporary knowledge and skills to lead and excel in an ever-evolving global landscape." },
-                { h1: ["Future", "Scholarly", "Leaders."], p: "Empowering the next generation with values, ethics and wisdom to serve the community and the nation with distinction." }
-            ];
-
-            function go(idx) {
-                if (idx === cur && timer) return;
-                
-                // Hide current text
-                h1Lines.forEach(l => l.classList.add('out'));
-                hDesc.classList.add('out');
-
-                setTimeout(() => {
-                    slides[cur].classList.remove('on');
-                    dots[cur].classList.remove('on');
-                    thumbs[cur].classList.remove('on');
-
-                    cur = idx;
-
-                    slides[cur].classList.add('on');
-                    dots[cur].classList.add('on');
-                    thumbs[cur].classList.add('on');
-
-                    // Update Text
-                    h1Lines[0].textContent = slideData[cur].h1[0];
-                    h1Lines[1].textContent = slideData[cur].h1[1];
-                    h1Lines[2].textContent = slideData[cur].h1[2];
-                    hDesc.textContent = slideData[cur].p;
-
-                    // Show new text
-                    h1Lines.forEach(l => l.classList.remove('out'));
-                    hDesc.classList.remove('out');
-
-                    // Reset Progress
-                    fill.classList.remove('go');
-                    void fill.offsetWidth;
-                    fill.classList.add('go');
-
-                    resetTimer();
-                }, 400);
-            }
-
-            function resetTimer() {
-                clearInterval(timer);
-                timer = setInterval(() => {
-                    go((cur + 1) % slides.length);
-                }, 7000);
-            }
-
-            dots.forEach(d => d.onclick = () => go(parseInt(d.dataset.i)));
-            thumbs.forEach(t => t.onclick = () => go(parseInt(t.dataset.i)));
-
-            resetTimer();
-
-
-        });
-    </script>
 </body>
-
 </html>
