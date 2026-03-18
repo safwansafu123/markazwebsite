@@ -9,6 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600&family=Amiri:wght@400;700&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <style>
     *,
     *::before,
@@ -848,7 +849,10 @@ SECTION 2 — COMMITTEE MEMBERS
 
     .r1 {
       position: absolute;
-      inset: -18px;
+      top: -18px;
+      left: -18px;
+      width: 256px;
+      height: 256px;
       border-radius: 50%;
       border: 1.5px dashed rgba(184, 134, 42, .28);
       animation: cw 20s linear infinite;
@@ -856,7 +860,10 @@ SECTION 2 — COMMITTEE MEMBERS
 
     .r2 {
       position: absolute;
-      inset: -8px;
+      top: -8px;
+      left: -8px;
+      width: 236px;
+      height: 236px;
       border-radius: 50%;
       border: 2.5px solid transparent;
       border-top-color: var(--gold);
@@ -866,7 +873,10 @@ SECTION 2 — COMMITTEE MEMBERS
 
     .r3 {
       position: absolute;
-      inset: 2px;
+      top: 2px;
+      left: 2px;
+      width: 216px;
+      height: 216px;
       border-radius: 50%;
       border: 1px dotted rgba(184, 134, 42, .22);
       animation: cw 7s linear infinite;
@@ -5363,42 +5373,44 @@ COMPLETE RESPONSIVE DESIGN
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="index.html" class="logo">
-        <div class="logo-text">
-          <span class="m-full">Markazul Uloomi</span> <span class="m-accent">Islami</span>
-        </div>
-        <span class="logo-tag">Nilambur · Established 1993</span>
-      </a>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-text">
+                    <span class="m-full">Markazul Uloomi</span> <span class="m-accent">Islami</span>
+                </div>
+                <span class="logo-tag">Nilambur · Established 1993</span>
+            </a>
 
-      <div class="nav-links-wrapper">
-        <div class="nav-links">
-          <a href="index.html" class="active">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="academics.html">Academics</a>
-          <a href="admissions.html">Admissions</a>
-          <a href="alumni.html">Alumni Network</a>
-          <a href="contact.html">Contact</a>
-        </div>
-        <div class="nav-actions">
-          <a href="admissions.html" class="btn-nav-cta">
-            <span>Join Us</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        </div>
-      </div>
+            <div class="nav-links-wrapper">
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="academics.html">Academics</a>
+                    <a href="admissions.html">Admissions</a>
+                    <a href="alumni.html">Alumni Network</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="admissions.html" class="btn-nav-cta">
+                        <span>Join Us</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
 
-      <button class="mobile-toggle" aria-label="Toggle Menu">
-        <div class="burger-box">
-          <div class="burger-inner"></div>
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <div class="burger-box">
+                    <div class="burger-inner"></div>
+                </div>
+            </button>
         </div>
-      </button>
-    </div>
-  </nav>
+    </nav>
 
   <div id="scrollProgress"></div>
 
@@ -6920,6 +6932,7 @@ COMPLETE RESPONSIVE DESIGN
     })();
   </script>
 
+  <script src="assets/js/main.js"></script>
 </body>
 
 </html>
