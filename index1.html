@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html lang="en">
 
@@ -22,13 +22,13 @@
     /* ══ GLOBAL ══ */
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
 
     body {
       background: #04080a;
-      color: #ffffff;
+      color: #f4f6f0;
       font-family: ‘DM Sans’, sans-serif;
+      overflow-x: hidden;
     }
 
     img {
@@ -189,7 +189,7 @@ SECTION 1 — HERO
       top: 0;
       left: 0;
       right: 0;
-      bottom: 97px;
+      bottom: 52px;
       z-index: 100;
       display: flex;
       flex-direction: column;
@@ -200,7 +200,7 @@ SECTION 1 — HERO
 
     @media(min-width:600px) {
       #hero-content {
-        padding: var(--nav-buffer, 80px) 40px 0% 40px;
+        padding: var(--nav-buffer, 80px) 40px 8vh 40px;
       }
     }
 
@@ -236,7 +236,7 @@ SECTION 1 — HERO
       font-size: clamp(3.8rem, 15vw, 11rem);
       font-weight: 700;
       letter-spacing: -.015em;
-      color: #ffffff;
+      color: #f4f6f0;
       transform: translateY(108%);
       animation: slideUp 1.1s cubic-bezier(.16, 1, .3, 1) forwards;
       white-space: nowrap;
@@ -251,7 +251,7 @@ SECTION 1 — HERO
       animation-delay: .32s;
       font-style: italic;
       font-weight: 600;
-      color: rgba(255, 255, 255, .32);
+      color: rgba(244, 246, 240, .32);
     }
 
     #hl3 {
@@ -267,7 +267,7 @@ SECTION 1 — HERO
       font-size: clamp(.78rem, 2.2vw, .92rem);
       line-height: 1.7;
       font-weight: 300;
-      color: rgba(255, 255, 255, .55);
+      color: rgba(244, 246, 240, .55);
       max-width: 480px;
     }
 
@@ -280,7 +280,7 @@ SECTION 1 — HERO
       align-items: center;
       gap: 6px;
       background: linear-gradient(135deg, #2e7d32, #43a047);
-      color: #ffffff;
+      color: #f4f6f0;
       border: none;
       padding: 9px 16px;
       border-radius: 50px;
@@ -325,7 +325,7 @@ SECTION 1 — HERO
       gap: 6px;
       background: transparent;
       border: 1px solid rgba(244, 246, 240, .25);
-      color: rgba(255, 255, 255, .6);
+      color: rgba(244, 246, 240, .6);
       padding: 9px 14px;
       border-radius: 50px;
       font-family: ‘Syne’, sans-serif;
@@ -338,7 +338,7 @@ SECTION 1 — HERO
     }
 
     .btn-sec:hover {
-      border-color: rgba(0, 0, 102, .7);
+      border-color: rgba(212, 160, 32, .7);
       color: #000066;
       background: rgba(212, 160, 32, .06);
       transform: translateY(-3px) scale(1.03);
@@ -462,7 +462,7 @@ SECTION 1 — HERO
       font-weight: 800;
       font-size: clamp(2rem, 9vw, 2.4rem);
       letter-spacing: -.02em;
-      color: #ffffff;
+      color: #f4f6f0;
       line-height: 1;
     }
 
@@ -475,7 +475,7 @@ SECTION 1 — HERO
       font-size: .55rem;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .28);
+      color: rgba(244, 246, 240, .28);
       margin-top: 6px;
       font-weight: 500;
     }
@@ -572,7 +572,7 @@ SECTION 1 — HERO
       display: block;
       font-size: .56rem;
       font-weight: 600;
-      color: #ffffff;
+      color: #f4f6f0;
       white-space: nowrap;
     }
 
@@ -580,7 +580,7 @@ SECTION 1 — HERO
       font-size: .40rem;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .30);
+      color: rgba(244, 246, 240, .30);
       white-space: nowrap;
       display: block;
     }
@@ -695,14 +695,14 @@ SECTION 2 — COMMITTEE MEMBERS
     }
 
     :root {
-      --gold: #000066;
-      --gold-l: #000066;
-      --gold-pale: #000066;
+      --gold: #b8862a;
+      --gold-l: #d4a847;
+      --gold-pale: #f0d080;
       --bg: #f7f2ea;
       --bg2: #ede5d0;
-      --text: #000000;
-      --sub: #000066;
-      --muted: rgba(0, 0, 0, .5);
+      --text: #1c1405;
+      --sub: #7a6230;
+      --muted: #a89060;
       --shadow: rgba(184, 134, 42, .18);
     }
 
@@ -735,7 +735,7 @@ SECTION 2 — COMMITTEE MEMBERS
     .tag {
       display: inline-block;
       border: 1.5px solid rgba(184, 134, 42, .3);
-      color: #000066;
+      color: var(--gold);
       font-size: 10px;
       letter-spacing: 5px;
       text-transform: uppercase;
@@ -751,18 +751,18 @@ SECTION 2 — COMMITTEE MEMBERS
       font-size: clamp(1.9rem, 5vw, 3.5rem);
       font-weight: 900;
       line-height: 1.1;
-      color: #000000;
+      color: var(--text);
     }
 
     .comm-header h2 em {
-      color: #000066;
+      color: var(--gold);
       font-style: normal;
     }
 
     .comm-header p {
       margin-top: 10px;
       font-size: .87rem;
-      color: rgba(0, 0, 0, .5);
+      color: var(--muted);
       letter-spacing: .4px;
     }
 
@@ -859,7 +859,10 @@ SECTION 2 — COMMITTEE MEMBERS
 
     .r1 {
       position: absolute;
-      inset: -18px;
+      top: -18px;
+      left: -18px;
+      width: 256px;
+      height: 256px;
       border-radius: 50%;
       border: 1.5px dashed rgba(184, 134, 42, .28);
       animation: cw 20s linear infinite;
@@ -867,17 +870,23 @@ SECTION 2 — COMMITTEE MEMBERS
 
     .r2 {
       position: absolute;
-      inset: -8px;
+      top: -8px;
+      left: -8px;
+      width: 236px;
+      height: 236px;
       border-radius: 50%;
       border: 2.5px solid transparent;
-      border-top-color: #b8862a;
+      border-top-color: var(--gold);
       border-right-color: rgba(184, 134, 42, .2);
       animation: ccw 10s linear infinite;
     }
 
     .r3 {
       position: absolute;
-      inset: 2px;
+      top: 2px;
+      left: 2px;
+      width: 216px;
+      height: 216px;
       border-radius: 50%;
       border: 1px dotted rgba(184, 134, 42, .22);
       animation: cw 7s linear infinite;
@@ -888,7 +897,7 @@ SECTION 2 — COMMITTEE MEMBERS
     }
 
     .member.active .r2 {
-      border-top-color: #d4a847;
+      border-top-color: var(--gold-l);
       filter: drop-shadow(0 0 6px rgba(184, 134, 42, .45));
     }
 
@@ -911,7 +920,7 @@ SECTION 2 — COMMITTEE MEMBERS
     }
 
     .member.active .photo {
-      border-color: #b8862a;
+      border-color: var(--gold);
       box-shadow: 0 0 40px 8px rgba(184, 134, 42, .22), 0 10px 36px rgba(184, 134, 42, .18);
     }
 
@@ -951,7 +960,7 @@ SECTION 2 — COMMITTEE MEMBERS
       left: 50%;
       transform: translateX(-50%);
       background: linear-gradient(135deg, var(--gold), var(--gold-pale), var(--gold));
-      color: #ffffff;
+      color: #fff8e8;
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 2.5px;
@@ -968,17 +977,17 @@ SECTION 2 — COMMITTEE MEMBERS
       font-family: ‘Playfair Display’, serif;
       font-size: 1.12rem;
       font-weight: 700;
-      color: #000000;
+      color: var(--text);
       transition: color .3s;
     }
 
     .member.active .mname {
-      color: #000066;
+      color: var(--gold);
     }
 
     .mdept {
       font-size: .7rem;
-      color: #000066;
+      color: var(--sub);
       letter-spacing: 2px;
       text-transform: uppercase;
       margin-top: 5px;
@@ -1017,7 +1026,7 @@ SECTION 2 — COMMITTEE MEMBERS
       border-radius: 50%;
       border: 1.5px solid rgba(184, 134, 42, .38);
       background: rgba(255, 255, 255, .65);
-      color: #000066;
+      color: var(--gold);
       font-size: 1.1rem;
       cursor: pointer;
       display: flex;
@@ -1088,7 +1097,7 @@ SECTION 3 — FACILITIES
       right: -1rem;
       font-family: ‘Amiri’, serif;
       font-size: 10rem;
-      color: rgba(0, 0, 102, .06);
+      color: rgba(184, 134, 42, .06);
       pointer-events: none;
       line-height: 1;
       z-index: 0;
@@ -1109,7 +1118,7 @@ SECTION 3 — FACILITIES
       font-size: .68rem;
       font-weight: 700;
       letter-spacing: .18em;
-      color: #000066;
+      color: #b8862a;
       text-transform: uppercase;
       margin-bottom: .8rem;
     }
@@ -1133,12 +1142,12 @@ SECTION 3 — FACILITIES
     }
 
     .s-title.light {
-      color: #000000;
+      color: #1a1a1a;
     }
 
     .s-title.light em {
       font-style: italic;
-      color: #000066;
+      color: #b8862a;
     }
 
     .gold-rule {
@@ -1162,7 +1171,7 @@ SECTION 3 — FACILITIES
 
     .gold-rule span {
       font-family: ‘Amiri’, serif;
-      color: #000066;
+      color: #b8862a;
       font-size: .9rem;
       white-space: nowrap;
     }
@@ -1176,7 +1185,7 @@ SECTION 3 — FACILITIES
 
     /* sub-header desc override */
     .sub-header p {
-      color: rgba(0, 0, 0, .5) !important;
+      color: rgba(30, 30, 30, .5) !important;
     }
 
     .sub-tabs {
@@ -1197,7 +1206,7 @@ SECTION 3 — FACILITIES
       border-radius: 100px;
       border: 1px solid rgba(184, 134, 42, .25);
       background: rgba(255, 255, 255, .7);
-      color: rgba(0, 0, 0, .5);
+      color: rgba(30, 30, 30, .5);
       font-size: .78rem;
       font-weight: 500;
       letter-spacing: .04em;
@@ -1215,14 +1224,14 @@ SECTION 3 — FACILITIES
     .sub-tab:hover {
       background: rgba(184, 134, 42, .1);
       border-color: rgba(184, 134, 42, .4);
-      color: #000000;
+      color: #1a1a1a;
       transform: translateY(-2px);
     }
 
     .sub-tab.active {
       background: #b8862a;
       color: #fff;
-      border-color: #000066;
+      border-color: #b8862a;
       font-weight: 600;
       box-shadow: 0 4px 18px rgba(184, 134, 42, .35);
       transform: translateY(-3px) scale(1.04);
@@ -1353,7 +1362,7 @@ SECTION 3 — FACILITIES
 
     .sp-head-text p {
       font-size: .82rem;
-      color: rgba(255, 255, 255, .75);
+      color: rgba(255, 255, 255, .45);
       line-height: 1.7;
       max-width: 480px;
     }
@@ -1372,7 +1381,7 @@ SECTION 3 — FACILITIES
     .sp-head-count {
       background: linear-gradient(135deg, rgba(201, 168, 76, .2), rgba(201, 168, 76, .08));
       border: 1px solid rgba(201, 168, 76, .35);
-      color: #000066;
+      color: #e8c96a;
       font-family: ‘Syne’, sans-serif;
       font-size: .65rem;
       font-weight: 700;
@@ -1402,7 +1411,7 @@ SECTION 3 — FACILITIES
     }
 
     .sp-head-ornament em {
-      color: #000066;
+      color: #c9a84c;
       font-style: normal;
       font-size: .55rem;
     }
@@ -1462,7 +1471,7 @@ SECTION 3 — FACILITIES
       top: 20px;
       left: 20px;
       background: linear-gradient(135deg, #b8862a, #e8c96a);
-      color: #000000;
+      color: #041610;
       font-family: ‘Syne’, sans-serif;
       font-size: .58rem;
       font-weight: 800;
@@ -1571,14 +1580,14 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 700;
-      color: #000000;
+      color: #1a1a1a;
       line-height: 1.1;
       margin-bottom: .6rem;
     }
 
     .fs-sub {
       font-size: .82rem;
-      color: rgba(0, 0, 0, .5);
+      color: rgba(30, 30, 30, .5);
       margin-bottom: 1.6rem;
       line-height: 1.6;
     }
@@ -1597,7 +1606,7 @@ SECTION 3 — FACILITIES
     }
 
     .fs-divider-gem {
-      color: #000066;
+      color: #b8862a;
       font-size: .55rem;
     }
 
@@ -1628,12 +1637,12 @@ SECTION 3 — FACILITIES
 
     .fs-detail-text {
       font-size: .8rem;
-      color: rgba(0, 0, 0, .55);
+      color: rgba(30, 30, 30, .55);
       line-height: 1.5;
     }
 
     .fs-detail-text strong {
-      color: #000000;
+      color: #1a1a1a;
       font-weight: 600;
       display: block;
       font-size: .82rem;
@@ -1674,13 +1683,13 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: 1.3rem;
       font-weight: 700;
-      color: #000066;
+      color: #b8862a;
       line-height: 1;
     }
 
     .fs-stat-lbl {
       font-size: .52rem;
-      color: rgba(0, 0, 0, .4);
+      color: rgba(30, 30, 30, .4);
       letter-spacing: .08em;
       margin-top: .2rem;
       text-transform: uppercase;
@@ -1702,7 +1711,7 @@ SECTION 3 — FACILITIES
 
     .fs-sponsor-label {
       font-size: .55rem;
-      color: rgba(0, 0, 0, .35);
+      color: rgba(30, 30, 30, .35);
       letter-spacing: .1em;
       text-transform: uppercase;
     }
@@ -1710,7 +1719,7 @@ SECTION 3 — FACILITIES
     .fs-sponsor-name {
       font-size: .75rem;
       font-weight: 600;
-      color: #000066;
+      color: #b8862a;
       margin-left: 2px;
     }
 
@@ -1778,7 +1787,7 @@ SECTION 3 — FACILITIES
       top: 10px;
       left: 10px;
       background: rgba(201, 168, 76, .92);
-      color: #000000;
+      color: #041610;
       font-family: ‘Syne’, sans-serif;
       font-size: .52rem;
       font-weight: 700;
@@ -1820,7 +1829,7 @@ SECTION 3 — FACILITIES
 
     .fac-sub {
       font-size: .67rem;
-      color: #000066;
+      color: #c9a84c;
       letter-spacing: .05em;
       margin-bottom: 10px;
       font-weight: 500;
@@ -1843,7 +1852,7 @@ SECTION 3 — FACILITIES
 
     .fac-detail-row::before {
       content: ‘▸’;
-      color: rgba(0, 0, 102, .6);
+      color: rgba(201, 168, 76, .6);
       font-size: .5rem;
       flex-shrink: 0;
     }
@@ -1868,7 +1877,7 @@ SECTION 3 — FACILITIES
     .fac-sponsor-name {
       font-size: .68rem;
       font-weight: 600;
-      color: #000066;
+      color: #e8c96a;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -1876,7 +1885,7 @@ SECTION 3 — FACILITIES
 
     .fac-sponsor-star {
       margin-left: auto;
-      color: #000066;
+      color: #c9a84c;
       font-size: .65rem;
       opacity: .7;
     }
@@ -1907,7 +1916,7 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: 1.5rem;
       font-weight: 600;
-      color: #000066;
+      color: #c9a84c;
       line-height: 1;
     }
 
@@ -2086,7 +2095,7 @@ SECTION 3 — FACILITIES
 
     .wave-sparkle {
       position: absolute;
-      color: #000066;
+      color: #c9a84c;
       font-size: 1rem;
       animation: sparkleFade 3s ease-in-out infinite;
       pointer-events: none;
@@ -2194,7 +2203,7 @@ SECTION 3 — FACILITIES
       position: absolute;
       font-family: ‘Amiri’, serif;
       font-size: clamp(6rem, 18vw, 14rem);
-      color: rgba(0, 0, 102, .04);
+      color: rgba(46, 125, 50, .04);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -2207,53 +2216,14 @@ SECTION 3 — FACILITIES
 
     .knowus-inner {
       max-width: 900px;
-      margin: 0px auto;
-      padding: 3px 0px 0px;
+      margin: 0 auto;
+      padding: 90px 32px 70px;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       position: relative;
       z-index: 1;
-    }
-
-    /* ══ KNOWUS LOGO ══ */
-    .knowus-logo-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: kuFadeUp .7s .05s ease forwards;
-    }
-
-    .knowus-logo {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: #fff;
-      border: 2.5px solid rgba(0, 0, 102, .18);
-      box-shadow: 0 4px 22px rgba(0, 0, 102, .12), 0 1px 6px rgba(0, 0, 0, .08);
-      padding: 8px;
-    }
-
-    /* Demo fallback — src ഇല്ലെങ്കിൽ കാണിക്കും */
-    .knowus-logo-demo {
-      width: 90px;
-      height: 90px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #000066, #2a2a8a);
-      border: 2.5px solid rgba(0, 0, 102, .3);
-      box-shadow: 0 4px 22px rgba(0, 0, 102, .2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: #ffffff;
-      letter-spacing: .08em;
     }
 
     /* tag label */
@@ -2264,7 +2234,7 @@ SECTION 3 — FACILITIES
       font-size: .62rem;
       font-weight: 700;
       letter-spacing: .25em;
-      color: #000066;
+      color: #2e7d32;
       text-transform: uppercase;
       margin-bottom: 22px;
       opacity: 0;
@@ -2291,7 +2261,7 @@ SECTION 3 — FACILITIES
       font-size: clamp(2.8rem, 9vw, 5.5rem);
       font-weight: 900;
       letter-spacing: -.02em;
-      color: #000000;
+      color: #1a2e1a;
       line-height: 1.2;
       margin-bottom: 8px;
       overflow: visible;
@@ -2342,7 +2312,7 @@ SECTION 3 — FACILITIES
 
     .knowus-title-em {
       font-style: italic;
-      color: #000066;
+      color: #2e7d32;
       position: relative;
     }
 
@@ -2410,7 +2380,7 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: clamp(1.15rem, 2.8vw, 1.5rem);
       line-height: 1.9;
-      color: #000000;
+      color: #2d3d2d;
       font-weight: 400;
       max-width: 700px;
       margin-bottom: 44px;
@@ -2421,7 +2391,7 @@ SECTION 3 — FACILITIES
 
     /* highlight first sentence */
     .knowus-desc strong {
-      color: #000000;
+      color: #1a2e1a;
       font-weight: 600;
     }
 
@@ -2437,7 +2407,7 @@ SECTION 3 — FACILITIES
       align-items: center;
       gap: 10px;
       border: 1.5px solid #2e7d32;
-      color: #000066;
+      color: #2e7d32;
       background: transparent;
       font-family: ‘Syne’, sans-serif;
       font-size: .7rem;
@@ -2550,7 +2520,6 @@ SECTION 3 — FACILITIES
     #sec-events {
       background: #faf8f4;
 
-      width: 100%;
       position: relative;
       overflow: hidden;
     }
@@ -2572,7 +2541,7 @@ SECTION 3 — FACILITIES
       bottom: 1rem;
       font-family: ‘Amiri’, serif;
       font-size: 9rem;
-      color: rgba(0, 0, 102, .04);
+      color: rgba(184, 134, 42, .04);
       pointer-events: none;
       line-height: 1;
     }
@@ -2603,7 +2572,7 @@ SECTION 3 — FACILITIES
       font-size: .6rem;
       font-weight: 700;
       letter-spacing: .2em;
-      color: #000066;
+      color: #b8862a;
       text-transform: uppercase;
       margin-bottom: .6rem;
     }
@@ -2621,13 +2590,13 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 700;
-      color: #000000;
+      color: #1a1a1a;
       line-height: 1.1;
     }
 
     .ev-title em {
       font-style: italic;
-      color: #000066;
+      color: #b8862a;
     }
 
     .ev-view-all {
@@ -2639,7 +2608,7 @@ SECTION 3 — FACILITIES
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: #000066;
+      color: #2e7d32;
       text-decoration: none;
       border: 1.5px solid rgba(46, 125, 50, .3);
       padding: 8px 18px;
@@ -2651,7 +2620,7 @@ SECTION 3 — FACILITIES
     .ev-view-all:hover {
       background: #2e7d32;
       color: #fff;
-      border-color: #000066;
+      border-color: #2e7d32;
     }
 
     /* event list */
@@ -2719,7 +2688,7 @@ SECTION 3 — FACILITIES
       font-weight: 700;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: #000066;
+      color: #7a6230;
       margin-bottom: .2rem;
     }
 
@@ -2728,7 +2697,7 @@ SECTION 3 — FACILITIES
       font-size: 2.4rem;
       font-weight: 700;
       line-height: 1;
-      color: #000066;
+      color: #b8862a;
     }
 
     /* content */
@@ -2747,7 +2716,7 @@ SECTION 3 — FACILITIES
       font-size: .65rem;
       font-weight: 600;
       letter-spacing: .06em;
-      color: #000066;
+      color: #2e7d32;
       margin-bottom: .45rem;
     }
 
@@ -2759,7 +2728,7 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: 1.05rem;
       font-weight: 700;
-      color: #000000;
+      color: #1a1a1a;
       line-height: 1.35;
       margin-bottom: .35rem;
     }
@@ -2773,7 +2742,7 @@ SECTION 3 — FACILITIES
 
     .ev-loc {
       font-size: .65rem;
-      color: rgba(0, 0, 0, .4);
+      color: rgba(30, 30, 30, .4);
       display: flex;
       align-items: center;
       gap: 4px;
@@ -2795,12 +2764,12 @@ SECTION 3 — FACILITIES
 
     .ev-badge.upcoming {
       background: rgba(46, 125, 50, .1);
-      color: #000066;
+      color: #2e7d32;
     }
 
     .ev-badge.special {
       background: rgba(184, 134, 42, .12);
-      color: #000066;
+      color: #b8862a;
     }
 
     /* arrow */
@@ -2810,12 +2779,12 @@ SECTION 3 — FACILITIES
       align-items: center;
       padding: 0 1.2rem;
       font-size: 1rem;
-      color: rgba(0, 0, 0, .2);
+      color: rgba(30, 30, 30, .2);
       transition: color .2s, transform .2s;
     }
 
     .ev-card:hover .ev-arrow {
-      color: #000066;
+      color: #b8862a;
       transform: translateX(4px);
     }
 
@@ -2829,7 +2798,8 @@ SECTION 3 — FACILITIES
     /* ══ NOTIFICATIONS & ADMISSION SECTION ══ */
     #sec-notif {
       position: relative;
-      background: #faf8f4;
+      overflow: hidden;
+      background: #04080a;
     }
 
     /* ── TOP: Notifications strip ── */
@@ -2872,7 +2842,7 @@ SECTION 3 — FACILITIES
       font-size: .58rem;
       font-weight: 700;
       letter-spacing: .2em;
-      color: #000066;
+      color: #b8862a;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
@@ -2893,13 +2863,13 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: clamp(1.6rem, 4vw, 2.4rem);
       font-weight: 700;
-      color: #000000;
+      color: #1a1a1a;
       line-height: 1.1;
     }
 
     .notif-heading em {
       font-style: italic;
-      color: #000066;
+      color: #b8862a;
     }
 
     .notif-all {
@@ -2907,7 +2877,7 @@ SECTION 3 — FACILITIES
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: #000066;
+      color: #2e7d32;
       text-decoration: none;
       border: 1.5px solid rgba(46, 125, 50, .3);
       padding: 7px 16px;
@@ -2919,7 +2889,7 @@ SECTION 3 — FACILITIES
     .notif-all:hover {
       background: #2e7d32;
       color: #fff;
-      border-color: #000066;
+      border-color: #2e7d32;
     }
 
     /* notification cards */
@@ -2959,7 +2929,7 @@ SECTION 3 — FACILITIES
       align-items: center;
       gap: 6px;
       font-size: .65rem;
-      color: rgba(0, 0, 0, .4);
+      color: rgba(30, 30, 30, .4);
       font-weight: 500;
     }
 
@@ -2971,7 +2941,7 @@ SECTION 3 — FACILITIES
       font-family: ‘Cormorant Garamond’, serif;
       font-size: 1.1rem;
       font-weight: 700;
-      color: #000000;
+      color: #1a1a1a;
       line-height: 1.3;
     }
 
@@ -2991,7 +2961,7 @@ SECTION 3 — FACILITIES
       align-items: center;
       gap: 5px;
       font-size: .62rem;
-      color: rgba(0, 0, 0, .4);
+      color: rgba(30, 30, 30, .4);
       font-weight: 500;
     }
 
@@ -3003,7 +2973,7 @@ SECTION 3 — FACILITIES
       font-size: .62rem;
       font-weight: 700;
       letter-spacing: .08em;
-      color: #000066;
+      color: #b8862a;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -3013,7 +2983,7 @@ SECTION 3 — FACILITIES
 
     .notif-read:hover {
       gap: 8px;
-      color: #000066;
+      color: #2e7d32;
     }
 
     /* ── BOTTOM: Admission CTA ── */
@@ -3021,9 +2991,8 @@ SECTION 3 — FACILITIES
       position: relative;
       overflow: hidden;
       padding: 5rem 2rem;
-      background: #03224F;
-      margin: 0 1.5rem 1.5rem;
-      border-radius: 24px;
+      background: linear-gradient(135deg, #061624 0%, #0a2640 40%, #0d3050 100%);
+      margin-bottom: 0;
     }
 
     /* ── moving grid overlay ── */
@@ -3034,8 +3003,8 @@ SECTION 3 — FACILITIES
       pointer-events: none;
       z-index: 0;
       background-image:
-        linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+        linear-gradient(rgba(201, 168, 76, .04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 168, 76, .04) 1px, transparent 1px);
       background-size: 60px 60px;
       animation: gridMove 20s linear infinite;
     }
@@ -3058,9 +3027,9 @@ SECTION 3 — FACILITIES
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(ellipse 50% 60% at 10% 50%, rgba(255, 255, 255, .06) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 50% at 90% 30%, rgba(255, 255, 255, .04) 0%, transparent 60%),
-        radial-gradient(ellipse 30% 40% at 50% 80%, rgba(255, 255, 255, .04) 0%, transparent 60%);
+        radial-gradient(ellipse 50% 60% at 10% 50%, rgba(20, 100, 180, .12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 90% 30%, rgba(201, 168, 76, .08) 0%, transparent 60%),
+        radial-gradient(ellipse 30% 40% at 50% 80%, rgba(20, 140, 200, .07) 0%, transparent 60%);
       animation: auroraShift 8s ease-in-out infinite alternate;
     }
 
@@ -3261,7 +3230,7 @@ SECTION 3 — FACILITIES
       font-weight: 700;
       letter-spacing: .25em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, .7);
+      color: #e8c96a;
       margin-bottom: 1rem;
       opacity: 0;
       animation: none;
@@ -3305,7 +3274,7 @@ SECTION 3 — FACILITIES
       align-items: center;
       gap: 10px;
       background: transparent;
-      border: 2px solid rgba(255, 255, 255, .7);
+      border: 2px solid rgba(255, 255, 255, .4);
       color: #fff;
       font-family: ‘Syne’, sans-serif;
       font-size: .75rem;
@@ -3316,7 +3285,6 @@ SECTION 3 — FACILITIES
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      border-radius: 50px;
       transition: border-color .3s, color .3s, transform .2s;
       text-decoration: none;
       opacity: 0;
@@ -3331,7 +3299,7 @@ SECTION 3 — FACILITIES
       content: ’’;
       position: absolute;
       inset: 0;
-      background: #ffffff;
+      background: linear-gradient(135deg, #e8c96a, #b8862a);
       transform: translateY(101%);
       transition: transform .4s cubic-bezier(.22, 1, .36, 1);
     }
@@ -3342,7 +3310,7 @@ SECTION 3 — FACILITIES
 
     .adm-btn:hover {
       border-color: transparent;
-      color: #000066;
+      color: #041610;
       transform: translateY(-3px);
     }
 
@@ -3499,247 +3467,265 @@ SECTION 3 — FACILITIES
 
     /* ══ FOOTER ══ */
     footer {
-      background: #031b3e;
-      display: block;
+      background: #faf8f4;
       position: relative;
-      width: 100%;
-      max-width: none;
-      margin: 0;
-      padding: 0;
       overflow: hidden;
-      border-top: none;
-      text-align: center;
-      box-sizing: border-box;
+      border-top: 1px solid rgba(184, 134, 42, .12);
     }
 
     footer::before {
-      display: none;
+      content: ’’;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 10% 80%, rgba(184, 134, 42, .04), transparent),
+        radial-gradient(ellipse 40% 40% at 90% 20%, rgba(184, 134, 42, .03), transparent);
     }
 
     .ft-inner {
-      max-width: 860px;
+      max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3.5rem 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.5fr;
+      gap: 3rem;
+      padding: 4rem 2rem 2.5rem;
       position: relative;
       z-index: 1;
     }
 
-    .ft-logo-circle {
-      width: 108px;
-      height: 108px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.6rem;
-    }
-
-    .ft-logo-circle img {
-      width: 68px;
-      height: 68px;
-      object-fit: contain;
-      opacity: 0.92;
-    }
-
+    /* brand col */
     .ft-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
+      font-family: ‘Cormorant Garamond’, serif;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a1a1a;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 0.9rem;
-      letter-spacing: 0.03em;
+      gap: 8px;
+      margin-bottom: 1rem;
     }
 
     .ft-logo span {
-      color: #ffffff;
+      color: #b8862a;
     }
 
     .ft-tagline {
-      font-size: 0.86rem;
+      font-size: .78rem;
       line-height: 1.75;
-      color: #adc0d8;
-      max-width: 640px;
-      margin-bottom: 0;
-    }
-
-    .ft-center-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.25);
-      margin: 2rem 0;
-    }
-
-    .ft-links {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem 2.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .ft-links a {
-      font-size: 0.9rem;
-      color: #c5d5e8;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.25s;
-      display: inline-block;
-      opacity: 1;
-      transform: none;
-    }
-
-    footer.ft-vis .ft-links a {
-      opacity: 1;
-      transform: none;
-    }
-
-    .ft-links a:hover {
-      color: #ffffff;
-    }
-
-    .ft-contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .ft-contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.88rem;
-      color: #aabedd;
-    }
-
-    .ft-ci-ico {
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .ft-contact-item a {
-      color: #aabedd;
-      text-decoration: none;
-      transition: color 0.25s;
-    }
-
-    .ft-contact-item a:hover {
-      color: #ffffff;
-    }
-
-    .ft-follow-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      max-width: 340px;
-      margin-bottom: 1.8rem;
-    }
-
-    .ft-follow-line {
-      flex: 1;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .ft-follow-text {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      color: #c5d5e8;
-      white-space: nowrap;
+      color: rgba(30, 30, 30, .45);
+      margin-bottom: 1.4rem;
     }
 
     .ft-socials {
       display: flex;
-      gap: 1.3rem;
+      gap: 8px;
     }
 
     .ft-soc {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: #fff;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform .25s, box-shadow .25s;
     }
 
     .ft-soc svg {
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       flex-shrink: 0;
+      transition: transform .25s;
     }
 
     .ft-soc:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
     }
 
+    .ft-soc:hover svg {
+      transform: scale(1.12);
+    }
+
+    /* Facebook */
     .ft-soc-fb {
       background: #1877F2;
-      box-shadow: 0 4px 18px rgba(24, 119, 242, 0.45);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(24, 119, 242, .3);
     }
 
     .ft-soc-fb:hover {
-      box-shadow: 0 8px 28px rgba(24, 119, 242, 0.65);
+      box-shadow: 0 6px 18px rgba(24, 119, 242, .5);
     }
 
+    /* Instagram */
     .ft-soc-ig {
       background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
-      box-shadow: 0 4px 18px rgba(220, 39, 67, 0.45);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(220, 39, 67, .3);
     }
 
     .ft-soc-ig:hover {
-      box-shadow: 0 8px 28px rgba(220, 39, 67, 0.65);
+      box-shadow: 0 6px 18px rgba(220, 39, 67, .5);
     }
 
+    /* YouTube */
     .ft-soc-yt {
       background: #FF0000;
-      box-shadow: 0 4px 18px rgba(255, 0, 0, 0.45);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(255, 0, 0, .3);
     }
 
     .ft-soc-yt:hover {
-      box-shadow: 0 8px 28px rgba(255, 0, 0, 0.65);
+      box-shadow: 0 6px 18px rgba(255, 0, 0, .5);
+    }
+
+    /* cols */
+    .ft-col-title {
+      font-family: ‘Syne’, sans-serif;
+      font-size: .62rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #b8862a;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ft-col-title::after {
+      content: ’’;
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(184, 134, 42, .25), transparent);
+    }
+
+    .ft-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+    }
+
+    .ft-links a {
+      font-size: .8rem;
+      color: rgba(30, 30, 30, .45);
+      text-decoration: none;
+      transition: color .2s, transform .2s;
+      display: inline-block;
+    }
+
+    .ft-links a:hover {
+      color: #1a1a1a;
+      transform: translateX(4px);
+    }
+
+    /* contact */
+    .ft-contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .ft-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .6rem;
+      font-size: .76rem;
+      color: rgba(30, 30, 30, .45);
+      line-height: 1.6;
+    }
+
+    .ft-ci-ico {
+      font-size: .8rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .ft-contact-item a {
+      color: rgba(30, 30, 30, .45);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .ft-contact-item a:hover {
+      color: #b8862a;
+    }
+
+    /* newsletter */
+    .ft-newsletter-label {
+      font-size: .7rem;
+      color: rgba(30, 30, 30, .35);
+      margin-bottom: .7rem;
+      line-height: 1.5;
+    }
+
+    .ft-newsletter {
+      display: flex;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(30, 30, 30, .14);
+    }
+
+    .ft-email {
+      flex: 1;
+      background: rgba(0, 0, 0, .03);
+      border: none;
+      outline: none;
+      padding: .65rem .9rem;
+      font-size: .75rem;
+      color: #1a1a1a;
+      font-family: ‘DM Sans’, sans-serif;
+    }
+
+    .ft-email::placeholder {
+      color: rgba(30, 30, 30, .3);
+    }
+
+    .ft-submit {
+      background: #b8862a;
+      border: none;
+      cursor: pointer;
+      padding: 0 1rem;
+      font-size: 1rem;
+      color: #fff;
+      transition: background .2s, transform .15s;
+      flex-shrink: 0;
+    }
+
+    .ft-submit:hover {
+      background: #d4a847;
+      transform: scale(1.05);
     }
 
     .ft-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 1.6rem 2rem;
+      border-top: 1px solid rgba(30, 30, 30, .08);
+      padding: 1.4rem 2rem 1.6rem;
       position: relative;
       z-index: 1;
     }
 
     .ft-bottom-row {
-      max-width: 860px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.7rem;
+      justify-content: center;
+      gap: .6rem;
       text-align: center;
     }
 
     .footer-copy {
-      font-size: 0.82rem;
-      color: #7b8fae;
-      letter-spacing: 0.02em;
-      opacity: 1;
-      transform: none;
+      font-size: .78rem;
+      color: rgba(30, 30, 30, .3);
+      letter-spacing: .03em;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .6s .48s ease, transform .6s .48s ease;
     }
 
     footer.ft-vis .footer-copy {
@@ -3748,23 +3734,24 @@ SECTION 3 — FACILITIES
     }
 
     .footer-copy span {
-      color: #92a3bd;
-      font-weight: 600;
+      color: rgba(30, 30, 30, .5);
+      font-weight: 500;
     }
 
     .ft-bottom-links {
       display: flex;
-      gap: 1.8rem;
+      gap: 28px;
     }
 
     .ft-bottom-links a {
-      font-size: 0.82rem;
-      color: #7b8fae;
+      font-size: .72rem;
+      color: rgba(30, 30, 30, .28);
       text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: color 0.25s;
-      opacity: 1;
-      transform: none;
+      letter-spacing: .04em;
+      transition: color .2s;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .5s .6s ease, transform .5s .6s ease, color .2s;
     }
 
     footer.ft-vis .ft-bottom-links a {
@@ -3772,26 +3759,118 @@ SECTION 3 — FACILITIES
       transform: none;
     }
 
+    footer.ft-vis .ft-bottom-links a:nth-child(2) {
+      transition-delay: .68s;
+    }
+
     .ft-bottom-links a:hover {
-      color: #ffffff;
+      color: #b8862a;
     }
 
-    @media(max-width: 700px) {
-      .ft-contact-row {
+    /* footer motion */
+    .ft-col {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    footer.ft-vis .ft-col:nth-child(1) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .05s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(2) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .15s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(3) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .25s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(4) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .35s;
+    }
+
+    .ft-links a {
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity .4s ease, transform .4s ease, color .2s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(2) .ft-links a:nth-child(1) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .28s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(2) .ft-links a:nth-child(2) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .34s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(2) .ft-links a:nth-child(3) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .40s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(2) .ft-links a:nth-child(4) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .46s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(3) .ft-links a:nth-child(1) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .38s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(3) .ft-links a:nth-child(2) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .44s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(3) .ft-links a:nth-child(3) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .50s;
+    }
+
+    footer.ft-vis .ft-col:nth-child(3) .ft-links a:nth-child(4) {
+      opacity: 1;
+      transform: none;
+      transition-delay: .56s;
+    }
+
+    @media(max-width:900px) {
+      .ft-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media(max-width:580px) {
+      .ft-inner {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding: 2.5rem 1.2rem 1.5rem;
+      }
+
+      .ft-bottom-row {
         flex-direction: column;
-        gap: 1rem;
-      }
-
-      .ft-links {
-        gap: 0.5rem 1.5rem;
-      }
-
-      .ft-follow-row {
-        max-width: 80%;
+        text-align: center;
       }
     }
-
-
 
     /* ══ GLOBAL MOTION ══ */
 
@@ -4243,7 +4322,7 @@ COMPLETE RESPONSIVE DESIGN
 
       /* EVENTS */
       #sec-events {
-        padding: -1rem 1.2rem 3.5rem;
+        padding: 3rem 1.2rem 3.5rem;
       }
 
       .ev-header {
@@ -4978,35 +5057,30 @@ COMPLETE RESPONSIVE DESIGN
     /* Section header orchestrated entrance */
     .ev-header-left {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s .05s ease, transform .7s .05s cubic-bezier(.16, 1, .3, 1);
+      transform: translateY(28px);
+      transition: none;
     }
 
     .ev-view-all {
       opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .6s .2s ease, transform .6s .2s cubic-bezier(.16, 1, .3, 1);
+      transform: translateY(20px);
+    }
+
+    #sec-events.ev-ready .ev-header-left {
+      animation: evFadeUp .75s .05s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    #sec-events.ev-ready .ev-view-all {
+      animation: evFadeUp .6s .25s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    /* Tag line within header */
+    #sec-events.ev-ready .ev-tag {
+      animation: evTagSlide .5s .4s ease forwards;
     }
 
     .ev-tag {
       opacity: 0;
-      transform: translateX(-16px);
-      transition: opacity .5s .35s ease, transform .5s .35s ease;
-    }
-
-    #sec-events.ev-ready .ev-header-left {
-      opacity: 1;
-      transform: none;
-    }
-
-    #sec-events.ev-ready .ev-view-all {
-      opacity: 1;
-      transform: none;
-    }
-
-    #sec-events.ev-ready .ev-tag {
-      opacity: 1;
-      transform: none;
     }
 
     /* Event cards — stagger via JS-set --i */
@@ -5036,7 +5110,7 @@ COMPLETE RESPONSIVE DESIGN
 
     /* Arrow shimmer on hover */
     .ev-card:hover .ev-arrow {
-      color: #000066;
+      color: #b8862a;
       transform: translateX(6px);
       transition: transform .2s, color .2s;
     }
@@ -5303,682 +5377,6 @@ COMPLETE RESPONSIVE DESIGN
         --nav-offset: 0.75rem;
       }
     }
-
-
-
-
-    /* ══════════════════════════════
-       CAMPUS LIVE SLIDESHOW
-    ════════════════════════════════ */
-    .cl-wrap {
-      position: relative;
-      margin-bottom: 2rem;
-      max-width: 400px;
-      /* Adjust this value as needed */
-      margin-left: auto;
-      /* Center it if desired */
-      margin-right: auto;
-    }
-
-    /* Add File button */
-    #clAddBtn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #000066;
-      color: #fff;
-      border: none;
-      border-radius: 50px;
-      padding: 6px 14px;
-      margin-bottom: 12px;
-      cursor: pointer;
-      font-family: 'Syne', sans-serif;
-      font-size: .58rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      box-shadow: 0 3px 12px rgba(0, 0, 102, .25);
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-
-    #clAddBtn:hover {
-      background: #0000aa;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 102, .35);
-    }
-
-    /* Slider box */
-    #clSlider {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 18px;
-      overflow: hidden;
-      background: #111;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, .2);
-    }
-
-    /* Slides */
-    .cl-slide {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity .8s ease;
-      pointer-events: none;
-    }
-
-    .cl-slide.cl-active {
-      opacity: 1;
-      pointer-events: auto;
-      z-index: 1;
-    }
-
-    .cl-slide img,
-    .cl-slide video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      display: block;
-      pointer-events: none;
-      transform: scale(1.12);
-      transition: transform 0s;
-    }
-
-    .cl-slide.cl-active img {
-      animation: clZoomInOut 8s ease-in-out infinite alternate;
-    }
-
-    .cl-slide.cl-active video {
-      animation: clZoomInOut 12s ease-in-out infinite alternate;
-    }
-
-    @keyframes clZoomInOut {
-      0% {
-        transform: scale(1.12);
-      }
-
-      100% {
-        transform: scale(1.0);
-      }
-    }
-
-    /* Overlay */
-    .cl-ov {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background: rgba(0, 0, 0, .28);
-    }
-
-    /* Caption */
-    .cl-cap {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 3;
-      padding: 3rem 1.6rem 1.4rem;
-      background: linear-gradient(to top, rgba(0, 0, 0, .75), transparent);
-    }
-
-    .cl-cap-tag {
-      display: inline-block;
-      margin-bottom: .5rem;
-      font-family: 'Syne', sans-serif;
-      font-size: .58rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: #fff;
-      background: rgba(0, 0, 102, .7);
-      border: 1px solid rgba(255, 255, 255, .2);
-      padding: 3px 12px;
-      border-radius: 50px;
-      backdrop-filter: blur(4px);
-    }
-
-    .cl-cap-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(.95rem, 2.4vw, 1.3rem);
-      font-weight: 600;
-      color: #fff;
-      line-height: 1.45;
-      max-width: 500px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, .5);
-    }
-
-    .cl-vid-badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 4;
-      background: rgba(0, 0, 0, .5);
-      color: #fff;
-      backdrop-filter: blur(6px);
-      font-family: 'Syne', sans-serif;
-      font-size: .56rem;
-      font-weight: 700;
-      letter-spacing: .13em;
-      padding: 4px 12px;
-      border-radius: 50px;
-      border: 1px solid rgba(255, 255, 255, .2);
-    }
-
-    /* Arrows */
-    .cl-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, .38);
-      border: 1.5px solid rgba(255, 255, 255, .3);
-      color: #fff;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(6px);
-      transition: background .2s, transform .2s;
-    }
-
-    .cl-arrow:hover {
-      background: rgba(0, 0, 102, .65);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    #clPrev {
-      left: 12px;
-    }
-
-    #clNext {
-      right: 12px;
-    }
-
-    /* Dots */
-    #clDots {
-      position: absolute;
-      bottom: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .cl-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .35);
-      cursor: pointer;
-      transition: all .3s;
-      border: none;
-      padding: 0;
-    }
-
-    .cl-dot.cl-dot-on {
-      background: #fff;
-      transform: scale(1.5);
-    }
-
-    /* Progress */
-    #clProg {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      z-index: 10;
-      background: rgba(255, 255, 255, .1);
-    }
-
-    #clProgFill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #000066, #4455cc);
-    }
-
-    /* Count */
-    #clCount {
-      position: absolute;
-      top: 12px;
-      left: 14px;
-      z-index: 10;
-      background: rgba(0, 0, 0, .45);
-      color: #fff;
-      backdrop-filter: blur(6px);
-      font-family: 'Syne', sans-serif;
-      font-size: .56rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      letter-spacing: .1em;
-      border: 1px solid rgba(255, 255, 255, .18);
-    }
-
-    /* ══ PASSWORD MODAL ══ */
-    #clPwOverlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 50000;
-      background: rgba(0, 0, 0, .6);
-      backdrop-filter: blur(4px);
-      align-items: center;
-      justify-content: center;
-    }
-
-    #clPwOverlay.cl-show {
-      display: flex;
-    }
-
-    #clPwBox {
-      background: #fff;
-      border-radius: 22px;
-      padding: 32px 28px 24px;
-      width: min(340px, 88vw);
-      text-align: center;
-      box-shadow: 0 28px 72px rgba(0, 0, 0, .3);
-      animation: clPopIn .3s cubic-bezier(.34, 1.56, .64, 1);
-    }
-
-    #clPwBox.cl-shake {
-      animation: clShake .4s ease;
-    }
-
-    @keyframes clPopIn {
-      from {
-        transform: scale(.88);
-        opacity: 0;
-      }
-
-      to {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes clShake {
-
-      0%,
-      100% {
-        transform: translateX(0);
-      }
-
-      20% {
-        transform: translateX(-8px);
-      }
-
-      40% {
-        transform: translateX(8px);
-      }
-
-      60% {
-        transform: translateX(-5px);
-      }
-
-      80% {
-        transform: translateX(5px);
-      }
-    }
-
-    .cl-pw-icon {
-      font-size: 2.4rem;
-      margin-bottom: 10px;
-    }
-
-    .cl-pw-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      color: #000066;
-      margin: 0 0 4px;
-    }
-
-    .cl-pw-sub {
-      font-size: .74rem;
-      color: rgba(0, 0, 0, .4);
-      margin: 0 0 18px;
-    }
-
-    .cl-pw-row {
-      position: relative;
-      margin-bottom: 6px;
-    }
-
-    #clPwInput {
-      width: 100%;
-      padding: 12px 44px 12px 16px;
-      border-radius: 12px;
-      border: 2px solid rgba(0, 0, 102, .18);
-      font-size: 1.4rem;
-      letter-spacing: .3em;
-      text-align: center;
-      outline: none;
-      font-family: 'DM Sans', sans-serif;
-      box-sizing: border-box;
-      transition: border-color .2s, box-shadow .2s;
-    }
-
-    #clPwInput:focus {
-      border-color: #000066;
-      box-shadow: 0 0 0 4px rgba(0, 0, 102, .1);
-    }
-
-    #clPwBox.cl-err #clPwInput {
-      border-color: #cc0000;
-      box-shadow: 0 0 0 4px rgba(200, 0, 0, .1);
-    }
-
-    #clPwEye {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: .9rem;
-      opacity: .4;
-      padding: 4px;
-      transition: opacity .2s;
-    }
-
-    #clPwEye:hover {
-      opacity: .9;
-    }
-
-    #clPwErr {
-      font-size: .68rem;
-      color: #cc0000;
-      min-height: 18px;
-      margin: 0 0 12px;
-      font-weight: 600;
-    }
-
-    #clPwOk {
-      width: 100%;
-      padding: 13px;
-      background: #000066;
-      color: #fff;
-      border: none;
-      border-radius: 11px;
-      font-family: 'Syne', sans-serif;
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      margin-bottom: 8px;
-      transition: background .2s, transform .15s;
-    }
-
-    #clPwOk:hover {
-      background: #0000aa;
-      transform: scale(1.02);
-    }
-
-    #clPwCancel {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: .72rem;
-      color: rgba(0, 0, 0, .35);
-      font-family: 'DM Sans', sans-serif;
-      padding: 4px 10px;
-      transition: color .2s;
-    }
-
-    #clPwCancel:hover {
-      color: rgba(0, 0, 0, .7);
-    }
-
-    /* ══ UPLOAD PANEL ══ */
-    #clPanelOverlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      z-index: 50000;
-      background: rgba(0, 0, 0, .55);
-      backdrop-filter: blur(3px);
-      align-items: center;
-      justify-content: center;
-    }
-
-    #clPanelOverlay.cl-show {
-      display: flex;
-    }
-
-    #clPanelBox {
-      background: #fff;
-      border-radius: 20px;
-      width: min(480px, 94vw);
-      max-height: 88vh;
-      overflow-y: auto;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, .25);
-      animation: clPopIn .28s cubic-bezier(.34, 1.56, .64, 1);
-    }
-
-    #clPanelHead {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      border-bottom: 1px solid rgba(0, 0, 0, .08);
-      font-family: 'Syne', sans-serif;
-      font-size: .82rem;
-      font-weight: 700;
-      color: #000066;
-      letter-spacing: .06em;
-      position: sticky;
-      top: 0;
-      background: #fff;
-      z-index: 2;
-    }
-
-    #clPanelClose {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      color: rgba(0, 0, 0, .4);
-      padding: 4px 8px;
-      border-radius: 6px;
-      transition: background .2s;
-    }
-
-    #clPanelClose:hover {
-      background: #f0f0f0;
-      color: #000;
-    }
-
-    #clDrop {
-      margin: 16px 20px 0;
-      border: 2px dashed rgba(0, 0, 102, .22);
-      border-radius: 14px;
-      padding: 28px 20px;
-      text-align: center;
-      cursor: pointer;
-      background: rgba(0, 0, 102, .03);
-      transition: border-color .2s, background .2s;
-    }
-
-    #clDrop:hover,
-    #clDrop.cl-over {
-      border-color: #000066;
-      background: rgba(0, 0, 102, .07);
-    }
-
-    .cl-drop-ico {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    .cl-drop-txt {
-      font-size: .82rem;
-      color: rgba(0, 0, 0, .45);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .cl-drop-txt b {
-      color: #000066;
-    }
-
-    .cl-field {
-      padding: 12px 20px 0;
-    }
-
-    .cl-field label {
-      display: block;
-      font-size: .66rem;
-      font-weight: 700;
-      color: rgba(0, 0, 0, .4);
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .cl-field input {
-      width: 100%;
-      padding: 9px 13px;
-      border-radius: 9px;
-      border: 1.5px solid rgba(0, 0, 0, .14);
-      outline: none;
-      box-sizing: border-box;
-      font-family: 'DM Sans', sans-serif;
-      font-size: .82rem;
-      transition: border-color .2s;
-    }
-
-    .cl-field input:focus {
-      border-color: #000066;
-    }
-
-    #clPanelAdd {
-      display: block;
-      width: calc(100% - 40px);
-      margin: 16px 20px 0;
-      background: #000066;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 13px;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: .78rem;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background .2s, transform .15s;
-    }
-
-    #clPanelAdd:hover {
-      background: #0000aa;
-    }
-
-    #clPanelAdd:disabled {
-      background: rgba(0, 0, 0, .2);
-      cursor: not-allowed;
-    }
-
-    #clMediaList {
-      padding: 10px 20px 4px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .cl-mitem {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(0, 0, 0, .03);
-      border-radius: 10px;
-      padding: 8px 10px;
-      border: 1px solid rgba(0, 0, 0, .07);
-    }
-
-    .cl-mthumb {
-      width: 50px;
-      height: 50px;
-      border-radius: 7px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-
-    .cl-mthumb-vid {
-      width: 50px;
-      height: 50px;
-      border-radius: 7px;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .cl-minfo {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .cl-mname {
-      font-size: .74rem;
-      font-weight: 600;
-      color: #000;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .cl-mcap {
-      font-size: .62rem;
-      color: rgba(0, 0, 0, .4);
-      margin-top: 2px;
-    }
-
-    .cl-mdel {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: rgba(180, 0, 0, .5);
-      font-size: 1rem;
-      padding: 4px 8px;
-      border-radius: 6px;
-      flex-shrink: 0;
-      transition: background .2s, color .2s;
-    }
-
-    .cl-mdel:hover {
-      background: #fff0f0;
-      color: red;
-    }
-
-    @media(max-width:600px) {
-      #clSlider {
-        border-radius: 12px;
-      }
-
-      .cl-cap-text {
-        font-size: .9rem;
-      }
-
-      .cl-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: .9rem;
-      }
-    }
   </style>
 
 
@@ -6178,18 +5576,6 @@ COMPLETE RESPONSIVE DESIGN
   <section id="sec-knowus">
     <div class="knowus-watermark">معرفة</div>
     <div class="knowus-inner" id="knowusInner">
-
-      <!-- ══ LOGO — ഇവിടെ നിങ്ങളുടെ logo img src മാറ്റുക ══ -->
-      <div class="knowus-logo-wrap">
-        <img src="assets/images/logo.png" alt="Markazul Uloomi Islami Logo" class="knowus-logo"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-        <!-- Demo placeholder — logo ഇല്ലെങ്കിൽ ഇത് കാണിക്കും -->
-        <div class="knowus-logo-demo" style="display:none;">
-          <span>MUI</span>
-        </div>
-      </div>
-      <!-- ════════════════════════════════════ -->
-
       <div class="knowus-tag">✦ Markazul Uloomi Islami ✦</div>
 
       <h2 class="knowus-title">
@@ -6244,79 +5630,6 @@ COMPLETE RESPONSIVE DESIGN
 
 
 
-      <!-- ══ PASSWORD MODAL ══ -->
-      <div id="clPwOverlay">
-        <div id="clPwBox">
-          <div class="cl-pw-icon">🔒</div>
-          <p class="cl-pw-title">Admin Access</p>
-          <p class="cl-pw-sub">Enter password to manage media</p>
-          <div class="cl-pw-row">
-            <input type="password" id="clPwInput" placeholder="••••" maxlength="10" autocomplete="off" />
-            <button id="clPwEye">👁</button>
-          </div>
-          <p id="clPwErr"></p>
-          <button id="clPwOk">Unlock →</button>
-          <button id="clPwCancel">Cancel</button>
-        </div>
-      </div>
-
-      <!-- ══ UPLOAD PANEL ══ -->
-      <div id="clPanelOverlay">
-        <div id="clPanelBox">
-          <div id="clPanelHead">
-            <span>📸 Add Photo / Video</span>
-            <button id="clPanelClose">✕</button>
-          </div>
-          <div id="clDrop">
-            <div class="cl-drop-ico">📁</div>
-            <p class="cl-drop-txt">Drag &amp; drop here<br /><span
-                style="color:#000066;font-weight:600;text-decoration:underline">or click to browse</span></p>
-            <input type="file" id="clFileInput" accept="image/*,video/*" multiple hidden />
-          </div>
-          <div class="cl-field">
-            <label>Caption (optional)</label>
-            <input type="text" id="clCapInput" placeholder="e.g. Annual Day 2025" maxlength="100" />
-          </div>
-          <div class="cl-field">
-            <label>Tag (optional)</label>
-            <input type="text" id="clTagInput" placeholder="e.g. 🎓 Students" maxlength="30" />
-          </div>
-          <button id="clPanelAdd" disabled>Add to Slideshow</button>
-          <div id="clMediaList"></div>
-        </div>
-      </div>
-
-      <!-- ══ CAMPUS LIVE SLIDESHOW ══ -->
-      <div class="cl-wrap">
-
-        <!-- Add File button -->
-        <button id="clAddBtn">＋ Add File</button>
-
-        <!-- Slider -->
-        <div id="clSlider">
-          <div id="clSlidesWrap">
-            <!-- default slide -->
-            <div class="cl-slide cl-active" data-default="1">
-              <img src="assets/images/mkz.jpeg" alt="Campus" />
-              <div class="cl-ov"></div>
-              <div class="cl-cap">
-                <span class="cl-cap-tag">📍 Campus</span>
-                <p class="cl-cap-text">The heart of Markazul Uloomi Islami — where knowledge and faith unite every day.
-                </p>
-              </div>
-            </div>
-          </div>
-          <button class="cl-arrow" id="clPrev">&#8592;</button>
-          <button class="cl-arrow" id="clNext">&#8594;</button>
-          <div id="clDots"><span class="cl-dot cl-dot-on" data-i="0"></span></div>
-          <div id="clProg">
-            <div id="clProgFill"></div>
-          </div>
-          <div id="clCount">1 / 1</div>
-        </div>
-      </div>
-      <!-- ════════════════════════════ -->
-
       <!-- ════════════════════════════════════════
      SECTION — NOTIFICATIONS & ADMISSIONS
 ════════════════════════════════════════ -->
@@ -6332,6 +5645,7 @@ COMPLETE RESPONSIVE DESIGN
                 <div class="notif-tag">Updates</div>
                 <h2 class="notif-heading">Latest <em>Notifications</em></h2>
               </div>
+              <a href="#" class="notif-all">All Notifications →</a>
             </div>
 
             <div class="notif-list">
@@ -6343,6 +5657,38 @@ COMPLETE RESPONSIVE DESIGN
                 <div class="notif-divider"></div>
                 <div class="notif-foot">
                   <div class="notif-category"><span class="notif-category-ico">📋</span> Notifications</div>
+                  <a href="#" class="notif-read">Read More ›</a>
+                </div>
+              </div>
+
+              <div class="notif-card">
+                <div class="notif-date"><span class="notif-date-ico">📅</span> February 20, 2025</div>
+                <div class="notif-card-title">Scholarship Applications Open for Deserving Students 2025--26
+                </div>
+                <div class="notif-divider"></div>
+                <div class="notif-foot">
+                  <div class="notif-category"><span class="notif-category-ico">🎓</span> Scholarships</div>
+                  <a href="#" class="notif-read">Read More ›</a>
+                </div>
+              </div>
+
+              <div class="notif-card">
+                <div class="notif-date"><span class="notif-date-ico">📅</span> January 10, 2025</div>
+                <div class="notif-card-title">Annual Exam Time Table Published — Semester I & II</div>
+                <div class="notif-divider"></div>
+                <div class="notif-foot">
+                  <div class="notif-category"><span class="notif-category-ico">📝</span> Examinations</div>
+                  <a href="#" class="notif-read">Read More ›</a>
+                </div>
+              </div>
+
+              <div class="notif-card">
+                <div class="notif-date"><span class="notif-date-ico">📅</span> December 15, 2024</div>
+                <div class="notif-card-title">New Hostel Block Inauguration — Applications Invited from Students
+                </div>
+                <div class="notif-divider"></div>
+                <div class="notif-foot">
+                  <div class="notif-category"><span class="notif-category-ico">🏠</span> Campus</div>
                   <a href="#" class="notif-read">Read More ›</a>
                 </div>
               </div>
@@ -6521,6 +5867,147 @@ COMPLETE RESPONSIVE DESIGN
 
       <div style="height:0px;background:none;"></div>
 
+      <!-- ════════════════════════════════════════
+     SECTION 3 — FACILITIES
+════════════════════════════════════════ -->
+
+      <section id="sec-subcommittee">
+        <div class="sub-section">
+
+          <div class="sub-header" id="facHeader">
+            <div class="s-tag fac-hdr-item" style="justify-content:center;animation-delay:.05s">Campus
+              Infrastructure</div>
+            <h2 class="s-title light fac-hdr-item" style="animation-delay:.18s">World-Class <em>Facilities</em></h2>
+            <div class="gold-rule center fac-hdr-item" style="max-width:400px;margin:1.2rem auto;animation-delay:.30s">
+              <span>المرافق الجامعية</span>
+            </div>
+            <p class="fac-hdr-item"
+              style="color:rgba(30,30,30,.5);font-size:.88rem;max-width:500px;margin:0 auto;line-height:1.85;animation-delay:.42s">
+              Every facility at Smaaraka Saudam is designed to nurture excellence — blending modern infrastructure
+              with a rich Islamic academic tradition.
+            </p>
+          </div>
+
+          <!-- TABS -->
+          <div class="sub-tabs" id="subTabs">
+            <div class="sub-tab active" data-tab="academic"> <span class="tab-ico">🎓</span> Academic</div>
+            <div class="sub-tab" data-tab="digital"> <span class="tab-ico">💻</span> Digital</div>
+            <div class="sub-tab" data-tab="library"> <span class="tab-ico">📚</span> Library</div>
+            <div class="sub-tab" data-tab="sports"> <span class="tab-ico">⚽</span> Sports</div>
+            <div class="sub-tab" data-tab="hostel"> <span class="tab-ico">🏠</span> Hostel</div>
+          </div>
+          <div id="facCardWrap"></div>
+
+          <!-- panels replaced by JS -->
+
+        </div>
+      </section>
+
+      <!-- ══ FOOTER ══ -->
+
+      <div class="sec-transition-line">
+        <div class="stl-inner">
+          <div class="stl-line"></div>
+          <div class="stl-gem"></div>
+          <div class="stl-line"></div>
+        </div>
+      </div>
+      <footer id="footer">
+        <div class="ft-inner">
+
+          <!-- col 1: brand -->
+          <div class="ft-col ft-brand">
+            <div class="ft-logo">🕌 <span>Markazul Uloomi Islami</span></div>
+            <p class="ft-tagline">Empowering generations through the perfect synthesis of timeless Islamic wisdom
+              and modern academic excellence.</p>
+            <div class="ft-socials">
+              <!-- Facebook -->
+              <a href="#" class="ft-soc ft-soc-fb" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.884v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="#" class="ft-soc ft-soc-ig" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+              <!-- YouTube -->
+              <a href="#" class="ft-soc ft-soc-yt" aria-label="YouTube">
+                <svg width="18" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- col 2: discover -->
+          <div class="ft-col">
+            <div class="ft-col-title">Discover</div>
+            <ul class="ft-links">
+              <li><a href="#">About Markaz</a></li>
+              <li><a href="#">Academic Programs</a></li>
+              <li><a href="#">Our Faculty</a></li>
+              <li><a href="#">Alumni Network</a></li>
+            </ul>
+          </div>
+
+          <!-- col 3: admissions -->
+          <div class="ft-col">
+            <div class="ft-col-title">Admissions</div>
+            <ul class="ft-links">
+              <li><a href="#">How to Apply</a></li>
+              <li><a href="#">Fee Structure</a></li>
+              <li><a href="#">Scholarships</a></li>
+              <li><a href="#">Campus Tour</a></li>
+            </ul>
+          </div>
+
+          <!-- col 4: contact + newsletter -->
+          <div class="ft-col ft-contact">
+            <div class="ft-col-title">Get In Touch</div>
+            <div class="ft-contact-items">
+              <div class="ft-contact-item">
+                <span class="ft-ci-ico">📍</span>
+                <span>Markazul Uloomi Islami Campus<br />Nilambur, Kerala 679329</span>
+              </div>
+              <div class="ft-contact-item">
+                <span class="ft-ci-ico">✉️</span>
+                <a href="/cdn-cgi/l/email-protection#7716131a1e04041e181904371a16051c160d021b021b18181a1e59121302"><span
+                    class="__cf_email__"
+                    data-cfemail="f190959c988282989e9f82b19c90839a908b849d849d9e9e9c98df949584">[email&#160;protected]</span></a>
+              </div>
+              <div class="ft-contact-item">
+                <span class="ft-ci-ico">📞</span>
+                <a href="tel:+919876543210">+91 98765 43210</a>
+              </div>
+            </div>
+            <p class="ft-newsletter-label">Subscribe for campus news and spiritual reminders.</p>
+            <div class="ft-newsletter">
+              <input type="email" placeholder="Your email" class="ft-email" />
+              <button class="ft-submit">→</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- bottom bar -->
+
+        <div class="ft-bottom">
+          <div class="ft-bottom-row">
+            <div class="footer-copy">&copy; 2026 <span>Markazul Uloomi Islami, Nilambur.</span> All rights reserved.
+            </div>
+            <div class="ft-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
 
       <!-- ════════════════════
      JAVASCRIPT
@@ -6811,8 +6298,8 @@ COMPLETE RESPONSIVE DESIGN
         function slNext() { goTo(current + 1); }
         function slPrev() { goTo(current - 1); }
         function goToReal(ri) { goTo(ri + CLONE_N); }
-        document.getElementById('next')?.addEventListener('click', () => { stopAuto(); slNext(); startAuto(); });
-        document.getElementById('prev')?.addEventListener('click', () => { stopAuto(); slPrev(); startAuto(); });
+        document.getElementById('next').addEventListener('click', () => { stopAuto(); slNext(); startAuto(); });
+        document.getElementById('prev').addEventListener('click', () => { stopAuto(); slPrev(); startAuto(); });
         const startAuto = () => { stopAuto(); autoTimer = setInterval(() => { if (!busy) slNext(); }, 3000); };
         const stopAuto = () => { clearInterval(autoTimer); };
         startAuto();
@@ -6862,6 +6349,122 @@ COMPLETE RESPONSIVE DESIGN
         });
 
         /* ── FACILITIES SINGLE CARD ── */
+        /*
+        📸 PHOTO CHANGE GUIDE:
+        ഓരോ facility-യുടെയും img: "…" ഭാഗത്ത് നിങ്ങളുടെ photo URL അല്ലെങ്കിൽ
+        local path മാറ്റിയാൽ മതി.
+        Example: img: 'images/smart-class.jpg'  അല്ലെങ്കിൽ  img: 'https://your-url.com/photo.jpg'
+        */
+        const FAC_DATA = {
+          academic: {
+            tag: 'Academic', ico: '🎓',
+            img: PHOTOS.FAC_ACADEMIC, /* 📸 CHANGE: PHOTOS.FAC_ACADEMIC */
+            title: 'Academic Facilities',
+            sub: 'State- of-the-art classrooms and lecture halls equipped with modern audio- visual technology for immersive learning.',
+            details: [
+              { title: '12 Smart Classrooms', desc: 'Fully AC with interactive boards, HD projectors & live streaming' },
+              { title: 'Science Laboratories', desc: '3 fully-equipped labs — Physics, Chemistry & Biology' },
+              { title: 'Language Lab', desc: '40 headset stations for Arabic, English & Malayalam' },
+              { title: 'Seminar & Exam Hall', desc: '200-seat seminar hall & 300-seat CCTV-monitored exam hall' },
+            ],
+            stats: [{ v: '12', l: 'Smart Rooms' }, { v: '3', l: 'Labs' }, { v: '200+', l: 'Seminar Seats' }, { v: 'AC', l: 'All Rooms' }],
+            sponsor: 'Al-Ameen Educational Trust'
+          },
+          digital: {
+            tag: 'Technology', ico: '💻',
+            img: PHOTOS.FAC_DIGITAL, /* 📸 CHANGE: PHOTOS.FAC_DIGITAL */
+            title: 'Digital & Tech Hub',
+            sub: 'High-speed internet, modern computer labs and a dedicated innovation centre to prepare students for the digital era.',
+            details: [
+              { title: 'Computer Lab — 80 Systems', desc: 'Latest hardware, licensed software & broadband internet' },
+              { title: 'Campus-Wide Wi-Fi', desc: '100 Mbps coverage across all buildings, 24 / 7' },
+              { title: 'Media Studio', desc: 'Soundproofed recording room with professional camera & editing workstations' },
+              { title: 'CCTV & Digital Boards', desc: '100 + HD cameras & real-time digital notice boards at all key locations' },
+            ],
+            stats: [{ v: '80', l: 'Computers' }, { v: '100Mbps', l: 'Speed' }, { v: '100+', l: 'Cameras' }, { v: '24/7', l: 'Wi-Fi' }],
+            sponsor: 'TechNilambur Pvt.Ltd.'
+          },
+          library: {
+            tag: 'Knowledge', ico: '📚',
+            img: PHOTOS.FAC_LIBRARY, /* 📸 CHANGE: PHOTOS.FAC_LIBRARY */
+            title: 'Library & Knowledge Centre',
+            sub: 'A vast collection of Islamic texts, academic journals and modern books in a serene, purpose-built study environment.',
+            details: [
+              {
+                title: 'Main Library — 10,000+ Books', desc: 'Open 8AM--9PM daily with catalogued digital index'
+              },
+              { title: 'Islamic Texts Section', desc: 'Rare manuscripts, classical Arabic texts & supervised access' },
+              { title: 'Digital Library', desc: '5,000 + e-books, JSTOR & EBSCO access from any device' },
+              { title: 'Silent Reading Room', desc: '80-seat AC cubicle study room with individual lighting' },
+            ],
+            stats: [{ v: '10K +', l: 'Books' }, { v: '5K +', l: 'Digital' }, { v: '80', l: 'Seats' }, { v: 'Daily', l: 'Open' }],
+            sponsor: 'Haji Abdurahiman Charitable Fund'
+          },
+          sports: {
+            tag: 'Sports & Fitness', ico: '⚽',
+            img: PHOTOS.FAC_SPORTS, /* 📸 CHANGE: PHOTOS.FAC_SPORTS */
+            title: 'Sports & Fitness Facilities',
+            sub: 'Promoting physical wellness and team spirit through a full range of indoor and outdoor sports for all students.',
+            details: [
+              {
+                title: 'Football & Cricket Grounds', desc: 'FIFA-standard floodlit pitch & BCCI-standard cricket ground with nets'
+              },
+              { title: 'Indoor Sports Complex', desc: '4 AC badminton courts, table tennis, chess & carrom room' },
+              { title: 'Fitness Centre', desc: 'Modern gym equipment with certified trainer, open 6AM--8PM' },
+              { title: 'Swimming Pool', desc: '25m Olympic pool with certified lifeguard & swimming classes' },
+            ],
+            stats: [{ v: '6+', l: 'Grounds' }, { v: '4', l: 'Courts' }, { v: 'Pool', l: 'Olympic' }, { v: 'Gym', l: 'Fitness' }],
+            sponsor: 'Nilambur Sports Club'
+          },
+          hostel: {
+            tag: 'Campus Life', ico: '🏠',
+            img: PHOTOS.FAC_HOSTEL, /* 📸 CHANGE: PHOTOS.FAC_HOSTEL */
+            title: 'Hostel & Campus Life',
+            sub: 'A safe, comfortable and spiritually enriching residential environment with all modern amenities for campus students.',
+            details: [
+              {
+                title: 'Student Hostel — 500 Capacity', desc: 'AC & non-AC rooms with 24 / 7 security and warden'
+              },
+              { title: 'Halal Dining Hall', desc: '3 balanced halal-certified meals daily, seats 300 + students' },
+              { title: 'Medical Centre', desc: 'Doctor on call 24 / 7, pharmacy, first aid & emergency ambulance' },
+              { title: 'Transport & Green Campus', desc: '10 + GPS-tracked bus routes & 200kW solar-powered zero-carbon campus' },
+            ],
+            stats: [{ v: '500', l: 'Capacity' }, { v: '3x', l: 'Meals' }, { v: '24/7', l: 'Medical' }, { v: '10+', l: 'Routes' }],
+            sponsor: 'Hajj Committee of Kerala'
+          }
+        };
+
+        function renderFacCard(key) {
+          const d = FAC_DATA[key];
+          if (!d) return;
+          const wrap = document.getElementById('facCardWrap');
+
+          // Build HTML with motion classes pre-applied
+          wrap.innerHTML = ` <div class="fac-single" id="facSingle"> <div class="fs-photo fac-anim-left"> <img src="${d.img}" alt="${d.title}"/> <div class="fs-photo-overlay"></div> <span class="fs-badge fac-anim-pop" style="animation-delay:.3s">${d.tag}</span> <div class="fs-ico fac-anim-pop" style="animation-delay:.45s">${d.ico}</div> </div> <div class="fs-body"> <div class="fs-top"> <div class="fs-tag fac-anim-right" style="animation-delay:.1s">${d.tag} Facility</div> <div class="fs-title fac-anim-right" style="animation-delay:.18s">${d.title}</div> <div class="fs-sub fac-anim-right" style="animation-delay:.26s">${d.sub}</div> <div class="fs-divider fac-anim-right" style="animation-delay:.32s"><div class="fs-divider-line"></div><div class="fs-divider-gem">◆</div></div> <div class="fs-details"> ${d.details.map((dt, i) => `
+<div class="fs-detail fac-anim-right" style="animation-delay:${.38 + i * .08}s">
+<div class="fs-detail-dot"></div>
+<div class="fs-detail-text"><strong>${dt.title}</strong>${dt.desc}</div>
+</div>`).join('')} </div> </div> <div class="fs-bottom"> <div class="fs-stats fac-anim-up" style="animation-delay:.72s"> ${d.stats.map(s => `<div class="fs-stat"><div class="fs-stat-val">${s.v}</div><div class="fs-stat-lbl">${s.l}</div></div>`).join('')} </div> <div class="fs-sponsor fac-anim-up" style="animation-delay:.84s"> <span class="fs-sponsor-ico">⭐</span> <div> <div class="fs-sponsor-label">Sponsored by</div> <div class="fs-sponsor-name">${d.sponsor}</div> </div> </div> </div> </div> </div>`;
+
+          // Trigger card wrapper fade+scale
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              document.getElementById('facSingle')?.classList.add('fs-in');
+            });
+          });
+        }
+
+        const stabs = document.querySelectorAll('.sub-tab');
+        renderFacCard('academic');
+        stabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            stabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const card = document.getElementById('facSingle');
+            if (card) { card.classList.remove('fs-in'); }
+            setTimeout(() => window.renderFacCard(tab.dataset.tab), 200);
+          });
+        });
 
         /* ── NOTIFICATIONS & ADMISSION observer ── */
         (function () {
@@ -6972,6 +6575,58 @@ COMPLETE RESPONSIVE DESIGN
           obs.observe(document.getElementById('sec-knowus'));
         })();
 
+        /* ── Intersection observer: trigger sub-committee fade on scroll ── */
+        const subHeader = document.querySelector('.sub-header');
+        const subTabsEl = document.querySelector('.sub-tabs');
+
+        /* Facility section scroll-triggered motion */
+        (function () {
+          const facSec = document.querySelector('#sec-subcommittee');
+          if (!facSec) return;
+
+          const hdrItems = document.querySelectorAll('.fac-hdr-item');
+          const tabs = document.querySelectorAll('.sub-tab');
+
+          function playFacMotion() {
+            // header items stagger
+            hdrItems.forEach((el, i) => {
+              el.classList.remove('fac-hdr-in');
+              void el.offsetHeight; // force reflow
+              el.classList.add('fac-hdr-in');
+            });
+            // tabs stagger
+            tabs.forEach((tab, i) => {
+              tab.classList.remove('fac-tab-in');
+              tab.style.animationDelay = (0.55 + i * 0.08) + 's';
+              void tab.offsetHeight;
+              tab.classList.add('fac-tab-in');
+            });
+          }
+
+          function resetFacMotion() {
+            hdrItems.forEach(el => {
+              el.classList.remove('fac-hdr-in');
+              el.style.opacity = '0';
+            });
+            tabs.forEach(tab => {
+              tab.classList.remove('fac-tab-in');
+              tab.style.opacity = '0';
+            });
+          }
+
+          new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) { playFacMotion(); }
+              else { resetFacMotion(); }
+            });
+          }, { threshold: .1 }).observe(facSec);
+        })();
+        if (subHeader) {
+          const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { subHeader.style.animation = 'fadeUp .7s .1s ease forwards'; subTabsEl.style.animation = 'fadeUp .7s .3s ease forwards'; } });
+          }, { threshold: .2 });
+          obs.observe(document.querySelector('#sec-subcommittee'));
+        }
 
         /* ══ MOTION EFFECTS ══ */
 
@@ -6994,17 +6649,20 @@ COMPLETE RESPONSIVE DESIGN
         /* 3. Committee section — header + dots/arrows + slider reset to 1st */
         const commSec = document.querySelector('#sec-committee');
         if (commSec) {
-          let commAnimDone = false;
+          let commHasPlayed = false;
           new IntersectionObserver((entries) => {
             entries.forEach(e => {
               if (e.isIntersecting) {
-                if (!commAnimDone) {
-                  commSec.classList.add('comm-visible'); // header animate — ഒരു തവണ മാത്രം
-                  commAnimDone = true;
-                }
-                // slider reset — every time (slider behaviour is ok to repeat)
-                stopAuto(); busy = false; goToReal(0);
+                commSec.classList.add('comm-visible');
+                // Reset slider to 1st member every time section comes into view
+                stopAuto();
+                busy = false;
+                goToReal(0);
                 setTimeout(() => startAuto(), 400);
+              } else {
+                // Reset flag when leaving so it resets again next time
+                commSec.classList.remove('comm-visible');
+                commHasPlayed = false;
               }
             });
           }, { threshold: .2 }).observe(commSec);
@@ -7025,6 +6683,64 @@ COMPLETE RESPONSIVE DESIGN
             entries.forEach(e => { if (e.isIntersecting) footerEl.classList.add('ft-vis'); });
           }, { threshold: .1 }).observe(footerEl);
         }
+
+        /* 6. Facilities stats counter pop on card render */
+        const origRender = renderFacCard;
+        window.renderFacCard = function (key) {
+          origRender(key);
+          setTimeout(() => {
+            document.querySelectorAll('.fs-stat-val').forEach((el, i) => {
+              el.style.animationDelay = i * 0.1 + 's';
+              el.classList.add('popped');
+            });
+          }, 300);
+        };
+        // re-run initial
+        setTimeout(() => {
+          document.querySelectorAll('.fs-stat-val').forEach((el, i) => {
+            el.style.animationDelay = i * 0.1 + 's';
+            el.classList.add('popped');
+          });
+        }, 600);
+
+        /* 7. Facilities section header + tabs re-trigger */
+        const facSec = document.querySelector('#sec-subcommittee');
+        if (facSec) {
+          new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                subHeader?.style && (subHeader.style.animation = 'fadeUp .7s .1s ease forwards');
+                subTabsEl?.style && (subTabsEl.style.animation = 'fadeUp .7s .3s ease forwards');
+              }
+            });
+          }, { threshold: .1 }).observe(facSec);
+        }
+
+        /* 8. Smooth counter animation for fs-stat-val numbers */
+        function animateCount(el) {
+          const raw = el.textContent.trim();
+          const num = parseFloat(raw.replace(/[^0-9.]/g, ''));
+          if (isNaN(num) || num === 0 || raw.length > 6) return;
+          const suffix = raw.replace(/[0-9.]/g, '');
+          let start = 0, dur = 1200, startTime = null;
+          function step(ts) {
+            if (!startTime) startTime = ts;
+            const p = Math.min((ts - startTime) / dur, 1);
+            const ease = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(num * ease) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else el.textContent = raw;
+          }
+          requestAnimationFrame(step);
+        }
+        const facCardObs = new MutationObserver(() => {
+          document.querySelectorAll('.fs-stat-val:not(.counted)').forEach(el => {
+            el.classList.add('counted');
+            setTimeout(() => animateCount(el), 300);
+          });
+        });
+        const facWrap = document.getElementById('facCardWrap');
+        if (facWrap) facCardObs.observe(facWrap, { childList: true, subtree: true });
 
         /* ── SCROLL TO TOP ── */
         (function () {
@@ -7069,16 +6785,25 @@ COMPLETE RESPONSIVE DESIGN
             evSec.classList.add('ev-ready');
             evCards.forEach((card, i) => {
               card.style.setProperty('--ev-delay', (i * 0.11) + 's');
+              card.classList.remove('ev-animate');
+              void card.offsetWidth; // force reflow
               card.classList.add('ev-animate');
             });
+          }
+          function resetEvents() {
+            evSec.classList.remove('ev-ready');
+            evCards.forEach(card => {
+              card.classList.remove('ev-animate');
+              card.style.opacity = '0';
+              card.style.transform = 'translateX(-32px)';
+            });
+            evSec.querySelectorAll('.ev-tag').forEach(t => t.style.opacity = '0');
           }
 
           const evObs = new IntersectionObserver((entries) => {
             entries.forEach(e => {
-              if (e.isIntersecting) {
-                playEvents();
-                evObs.disconnect(); // ഒരു തവണ മാത്രം — പിന്നെ observe ചെയ്യില്ല
-              }
+              if (e.isIntersecting) { playEvents(); }
+              else { resetEvents(); }
             });
           }, { threshold: .12 });
           evObs.observe(evSec);
@@ -7105,414 +6830,49 @@ COMPLETE RESPONSIVE DESIGN
             strip.classList.add('notif-ready');
             notifCards.forEach((card, i) => {
               card.style.setProperty('--notif-delay', (i * 0.12) + 's');
+              card.classList.remove('notif-animate');
+              void card.offsetWidth;
               card.classList.add('notif-animate');
             });
           }
-
-          const notifObs = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-              if (e.isIntersecting) {
-                playNotif();
-                notifObs.disconnect(); // ഒരു തവണ മാത്രം
-              }
+          function resetNotif() {
+            strip.classList.remove('notif-ready');
+            notifCards.forEach(card => {
+              card.classList.remove('notif-animate');
+              card.style.opacity = '0';
+              card.style.transform = 'translateX(-36px) scale(.97)';
             });
-          }, { threshold: .1 });
-          notifObs.observe(strip);
+            strip.querySelectorAll('.notif-tag').forEach(t => t.style.opacity = '0');
+          }
+
+          new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) { playNotif(); }
+              else { resetNotif(); }
+            });
+          }, { threshold: .1 }).observe(strip);
 
           // Admission CTA Banner — reveal on scroll into view
           if (admBanner) {
             function playAdm() { admBanner.classList.add('adm-ready'); }
-            const admObs = new IntersectionObserver((entries) => {
+            function resetAdm() {
+              admBanner.classList.remove('adm-ready');
+              ['adm-title', 'adm-desc', 'adm-btn'].forEach(cls => {
+                const el = admBanner.querySelector('.' + cls);
+                if (el) el.style.opacity = '0';
+              });
+            }
+            new IntersectionObserver((entries) => {
               entries.forEach(e => {
-                if (e.isIntersecting) {
-                  playAdm();
-                  admObs.disconnect(); // ഒരു തവണ മാത്രം
-                }
+                if (e.isIntersecting) { playAdm(); }
+                else { resetAdm(); }
               });
-            }, { threshold: .15 });
-            admObs.observe(admBanner);
+            }, { threshold: .15 }).observe(admBanner);
           }
         })();
-
-        /* ══════════════════════════════════════
-           CAMPUS LIVE — SLIDESHOW + UPLOAD
-        ══════════════════════════════════════ */
-        (function () {
-          var PASS = '4411';
-          var KEY = 'cl_v2';
-          var dur = 5000;
-          var cur = 0, raf = null, t0 = null, autotimer = null;
-          var list = [];
-          try { list = JSON.parse(localStorage.getItem(KEY)) || []; } catch (e) { }
-
-          var wrap = document.getElementById('clSlidesWrap');
-          var dotsWrap = document.getElementById('clDots');
-          var progFill = document.getElementById('clProgFill');
-          var countEl = document.getElementById('clCount');
-          var pendFiles = [];
-
-          /* ────── SLIDESHOW ────── */
-          function allSlides() { return wrap.querySelectorAll('.cl-slide'); }
-
-          function goTo(n) {
-            var ss = allSlides();
-            if (!ss.length) return;
-            var prevVid = ss[cur] && ss[cur].querySelector('video');
-            if (prevVid) { prevVid.pause(); prevVid.currentTime = 0; }
-            ss[cur].classList.remove('cl-active');
-            dotsWrap.querySelectorAll('.cl-dot')[cur] && dotsWrap.querySelectorAll('.cl-dot')[cur].classList.remove('cl-dot-on');
-
-            cur = ((n % ss.length) + ss.length) % ss.length;
-            ss[cur].classList.add('cl-active');
-            dotsWrap.querySelectorAll('.cl-dot')[cur] && dotsWrap.querySelectorAll('.cl-dot')[cur].classList.add('cl-dot-on');
-            if (countEl) countEl.textContent = (cur + 1) + ' / ' + ss.length;
-
-            var vid = ss[cur].querySelector('video');
-            if (vid) {
-              vid.muted = true;
-              vid.currentTime = 0;
-              var playPromise = vid.play();
-              if (playPromise !== undefined) {
-                playPromise.catch(function () {
-                  // retry once after short delay
-                  setTimeout(function () { vid.play().catch(function () { }); }, 300);
-                });
-              }
-              vid.onended = function () { goTo(cur + 1); };
-              startProg(true, vid);
-            } else {
-              startProg(false, null);
-            }
-          }
-
-          function startProg(isVid, vid) {
-            cancelAnimationFrame(raf); clearTimeout(autotimer); t0 = null;
-            if (progFill) progFill.style.width = '0%';
-            if (isVid && vid) {
-              vid.addEventListener('timeupdate', function () {
-                if (!vid.duration) return;
-                if (progFill) progFill.style.width = (vid.currentTime / vid.duration * 100) + '%';
-              });
-            } else {
-              raf = requestAnimationFrame(function tick(ts) {
-                if (!t0) t0 = ts;
-                var p = Math.min((ts - t0) / dur * 100, 100);
-                if (progFill) progFill.style.width = p + '%';
-                if (p < 100) { raf = requestAnimationFrame(tick); }
-                else { autotimer = setTimeout(function () { goTo(cur + 1); }, 0); }
-              });
-            }
-          }
-
-          function rebuildDots(n) {
-            dotsWrap.innerHTML = '';
-            for (var i = 0; i < n; i++) {
-              var d = document.createElement('span');
-              d.className = 'cl-dot' + (i === 0 ? ' cl-dot-on' : '');
-              d.dataset.i = i;
-              (function (idx) { d.addEventListener('click', function () { goTo(idx); }); })(i);
-              dotsWrap.appendChild(d);
-            }
-          }
-
-          function setControls(show) {
-            var prev = document.getElementById('clPrev');
-            var next = document.getElementById('clNext');
-            var disp = show ? '' : 'none';
-            if (prev) prev.style.display = disp;
-            if (next) next.style.display = disp;
-            if (dotsWrap) dotsWrap.style.display = show ? 'flex' : 'none';
-            if (progFill && progFill.parentElement) progFill.parentElement.style.display = disp;
-            if (countEl) countEl.style.display = disp;
-          }
-
-          function buildSlides() {
-            wrap.querySelectorAll('.cl-slide:not([data-default])').forEach(function (s) { s.remove(); });
-            var def = wrap.querySelector('[data-default]');
-            if (!list.length) {
-              if (def) def.style.display = '';
-              rebuildDots(0); setControls(false); cur = 0;
-              /* just show the default, no animation */
-              var ss = allSlides();
-              if (ss.length) { ss[0].classList.add('cl-active'); }
-              cancelAnimationFrame(raf); clearTimeout(autotimer);
-              if (progFill) progFill.style.width = '0%';
-              return;
-            }
-            if (def) def.style.display = 'none';
-            list.forEach(function (m, i) {
-              var d = document.createElement('div');
-              d.className = 'cl-slide' + (i === 0 ? ' cl-active' : '');
-              if (m.type === 'video') {
-                d.innerHTML = '<video muted playsinline autoplay src="' + m.src + '"></video>'
-                  + '<div class="cl-ov"></div>'
-                  + '<div class="cl-cap"><span class="cl-cap-tag">' + (m.tag || '🎬 Video') + '</span><p class="cl-cap-text">' + (m.caption || '') + '</p></div>'
-                  + '<div class="cl-vid-badge">▶ VIDEO</div>';
-              } else {
-                d.innerHTML = '<img src="' + m.src + '" alt="slide" />'
-                  + '<div class="cl-ov"></div>'
-                  + '<div class="cl-cap"><span class="cl-cap-tag">' + (m.tag || '📍 Campus') + '</span><p class="cl-cap-text">' + (m.caption || '') + '</p></div>';
-              }
-              wrap.appendChild(d);
-            });
-            var multi = list.length > 1;
-            rebuildDots(multi ? list.length : 0);
-            setControls(multi);
-            cur = 0;
-            if (multi) {
-              goTo(0);
-            } else {
-              /* 1 photo മാത്രം — show ചെയ്യുക, auto-advance വേണ്ട */
-              cancelAnimationFrame(raf); clearTimeout(autotimer);
-              if (progFill) progFill.style.width = '0%';
-              var ss = allSlides();
-              if (ss.length) { ss[0].classList.add('cl-active'); }
-            }
-          }
-
-          document.getElementById('clPrev')?.addEventListener('click', function () { goTo(cur - 1); });
-          document.getElementById('clNext')?.addEventListener('click', function () { goTo(cur + 1); });
-
-          /* swipe */
-          var tx = 0;
-          var sliderEl = document.getElementById('clSlider');
-          sliderEl.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
-          sliderEl.addEventListener('touchend', function (e) {
-            var dx = e.changedTouches[0].clientX - tx;
-            if (Math.abs(dx) > 40) goTo(cur + (dx < 0 ? 1 : -1));
-          });
-
-          /* ────── PASSWORD MODAL ────── */
-          var pwOverlay = document.getElementById('clPwOverlay');
-          var pwBox = document.getElementById('clPwBox');
-          var pwInput = document.getElementById('clPwInput');
-          var pwErr = document.getElementById('clPwErr');
-
-          function openPw() {
-            pwInput.value = ''; pwErr.textContent = '';
-            pwBox.classList.remove('cl-err', 'cl-shake');
-            pwOverlay.classList.add('cl-show');
-            setTimeout(function () { pwInput.focus(); }, 150);
-          }
-          function closePw() {
-            pwOverlay.classList.remove('cl-show');
-          }
-          function checkPw() {
-            if (pwInput.value === PASS) {
-              closePw(); openPanel();
-            } else {
-              pwErr.textContent = 'Wrong password. Try again.';
-              pwBox.classList.add('cl-err');
-              pwBox.classList.remove('cl-shake');
-              void pwBox.offsetWidth;
-              pwBox.classList.add('cl-shake');
-              pwInput.select();
-            }
-          }
-
-          document.getElementById('clAddBtn')?.addEventListener('click', openPw);
-          document.getElementById('clPwOk')?.addEventListener('click', checkPw);
-          document.getElementById('clPwCancel')?.addEventListener('click', closePw);
-          document.getElementById('clPwEye')?.addEventListener('click', function () {
-            pwInput.type = pwInput.type === 'password' ? 'text' : 'password';
-          });
-          pwInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') checkPw(); });
-          pwOverlay.addEventListener('click', function (e) { if (e.target === pwOverlay) closePw(); });
-
-          /* ────── UPLOAD PANEL ────── */
-          var panelOverlay = document.getElementById('clPanelOverlay');
-          var dropEl = document.getElementById('clDrop');
-          var fileInput = document.getElementById('clFileInput');
-          var capInput = document.getElementById('clCapInput');
-          var tagInput = document.getElementById('clTagInput');
-          var addBtn = document.getElementById('clPanelAdd');
-          var mediaList = document.getElementById('clMediaList');
-
-          function openPanel() { panelOverlay.classList.add('cl-show'); renderList(); }
-          function closePanel() {
-            panelOverlay.classList.remove('cl-show');
-            pendFiles = []; capInput.value = ''; tagInput.value = '';
-            addBtn.disabled = true; addBtn.textContent = 'Add to Slideshow';
-            dropEl.querySelector('.cl-drop-txt').innerHTML = 'Drag &amp; drop here<br/><span style="color:#000066;font-weight:600;text-decoration:underline">or click to browse</span>';
-            fileInput.value = '';
-          }
-
-          document.getElementById('clPanelClose')?.addEventListener('click', closePanel);
-          panelOverlay.addEventListener('click', function (e) { if (e.target === panelOverlay) closePanel(); });
-
-          dropEl.addEventListener('click', function () { fileInput.click(); });
-          dropEl.addEventListener('dragover', function (e) { e.preventDefault(); dropEl.classList.add('cl-over'); });
-          dropEl.addEventListener('dragleave', function () { dropEl.classList.remove('cl-over'); });
-          dropEl.addEventListener('drop', function (e) {
-            e.preventDefault(); dropEl.classList.remove('cl-over');
-            setFiles(e.dataTransfer.files);
-          });
-          fileInput.addEventListener('change', function () { setFiles(fileInput.files); });
-
-          function setFiles(files) {
-            pendFiles = Array.from(files);
-            if (pendFiles.length) {
-              addBtn.disabled = false;
-              addBtn.textContent = 'Add ' + pendFiles.length + ' file' + (pendFiles.length > 1 ? 's' : '') + ' →';
-              dropEl.querySelector('.cl-drop-txt').innerHTML = pendFiles.map(function (f) { return '<b>' + f.name + '</b>'; }).join('<br/>');
-            }
-          }
-
-          addBtn.addEventListener('click', function () {
-            if (!pendFiles.length) return;
-            addBtn.disabled = true; addBtn.textContent = 'Adding…';
-            var done = 0;
-            pendFiles.forEach(function (file) {
-              var r = new FileReader();
-              r.onload = function (e) {
-                list.push({
-                  type: file.type.startsWith('video') ? 'video' : 'image',
-                  src: e.target.result,
-                  caption: capInput.value.trim(),
-                  tag: tagInput.value.trim(),
-                  name: file.name
-                });
-                done++;
-                if (done === pendFiles.length) {
-                  try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (er) { }
-                  buildSlides(); renderList();
-                  pendFiles = []; capInput.value = ''; tagInput.value = '';
-                  addBtn.disabled = true; addBtn.textContent = 'Add to Slideshow';
-                  dropEl.querySelector('.cl-drop-txt').innerHTML = 'Drag &amp; drop here<br/><span style="color:#000066;font-weight:600;text-decoration:underline">or click to browse</span>';
-                  fileInput.value = '';
-                }
-              };
-              r.readAsDataURL(file);
-            });
-          });
-
-          function renderList() {
-            mediaList.innerHTML = '';
-            list.forEach(function (m, i) {
-              var item = document.createElement('div');
-              item.className = 'cl-mitem';
-              var thumb = m.type === 'video'
-                ? '<div class="cl-mthumb-vid">🎬</div>'
-                : '<img class="cl-mthumb" src="' + m.src + '" />';
-              item.innerHTML = thumb
-                + '<div class="cl-minfo"><div class="cl-mname">' + (m.name || 'File ' + (i + 1)) + '</div>'
-                + '<div class="cl-mcap">' + (m.caption || '—') + '</div></div>'
-                + '<button class="cl-mdel" data-i="' + i + '">🗑</button>';
-              mediaList.appendChild(item);
-            });
-            mediaList.querySelectorAll('.cl-mdel').forEach(function (btn) {
-              btn.addEventListener('click', function () {
-                list.splice(+btn.dataset.i, 1);
-                try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (er) { }
-                buildSlides(); renderList();
-              });
-            });
-          }
-
-          /* ── init ── */
-          buildSlides();
-
-        })();
-
       </script>
 
       <script src="assets/js/main.js"></script>
-
-
-      <!-- ══ FOOTER ══ -->
-
-      <footer id="footer" class="ft-vis">
-        <!-- Main content -->
-        <div class="ft-inner">
-
-          <!-- Logo circle -->
-          <div class="ft-logo-circle">
-            <img src="assets/images/logo.png" alt="Markazul Uloomi Islami Logo" onerror="this.style.display='none'" />
-          </div>
-
-          <!-- Brand name -->
-          <div class="ft-logo">🕌 <span>Markazul Uloomi Islami</span></div>
-
-          <!-- Tagline -->
-          <p class="ft-tagline">Empowering generations through the perfect synthesis of timeless Islamic wisdom
-            and modern academic excellence.</p>
-
-          <!-- Divider dot -->
-          <div class="ft-center-dot"></div>
-
-          <!-- Navigation links (horizontal) -->
-          <ul class="ft-links">
-            <li><a href="#">About Markaz</a></li>
-            <li><a href="#">Academic Programs</a></li>
-            <li><a href="#">Faculty</a></li>
-            <li><a href="#">Admissions</a></li>
-            <li><a href="#">Alumni</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-
-          <!-- Contact info row -->
-          <div class="ft-contact-row">
-            <div class="ft-contact-item">
-              <span class="ft-ci-ico">📍</span>
-              <span>Nilambur, Kerala 679329</span>
-            </div>
-            <div class="ft-contact-item">
-              <span class="ft-ci-ico">📞</span>
-              <a href="tel:+919876543210">+91 98765 43210</a>
-            </div>
-            <div class="ft-contact-item">
-              <span class="ft-ci-ico">✉️</span>
-              <a href="mailto:info@markazuloomi.edu.in">info@markazuloomi.edu.in</a>
-            </div>
-          </div>
-
-          <!-- FOLLOW US ON -->
-          <div class="ft-follow-row">
-            <div class="ft-follow-line"></div>
-            <div class="ft-follow-text">FOLLOW US ON</div>
-            <div class="ft-follow-line"></div>
-          </div>
-
-          <!-- Social icons -->
-          <div class="ft-socials">
-            <!-- Facebook -->
-            <a href="#" class="ft-soc ft-soc-fb" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.884v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
-              </svg>
-            </a>
-            <!-- Instagram -->
-            <a href="#" class="ft-soc ft-soc-ig" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-            </a>
-            <!-- YouTube -->
-            <a href="#" class="ft-soc ft-soc-yt" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z" />
-              </svg>
-            </a>
-          </div>
-
-        </div>
-
-        <!-- Bottom bar -->
-        <div class="ft-bottom">
-          <div class="ft-bottom-row">
-            <div class="footer-copy">&copy; 2026 <span>Markazul Uloomi Islami, Nilambur.</span> All rights reserved.
-            </div>
-            <div class="ft-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-
 </body>
 
 </html>

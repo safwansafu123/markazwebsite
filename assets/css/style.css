@@ -9,8 +9,8 @@
   --clr-glass: rgba(2, 6, 4, 0.85);
   --clr-glass-border: rgba(16, 185, 129, 0.15);
 
-  --clr-primary: #10b981;
-  /* Glowing Emerald */
+  --clr-primary: #000066;
+  /* Glowing Deep Blue */
   --clr-accent: #d4af37;
   /* Antique Gold */
   --clr-text: #f0f7f4;
@@ -20,7 +20,7 @@
   /* Premium Facilities Palette */
   --clr-sage-rich: #6b7c69;
   --clr-sage-light: #a1ad9f;
-  --clr-forest: #1b4d3e;
+  --clr-forest: #000066;
   --clr-gold-antique: #d4af37;
   --clr-gold-glow: rgba(212, 175, 55, 0.4);
 
@@ -475,7 +475,7 @@ p {
   padding: 0.8rem 1.5rem;
   z-index: 2000;
   border-radius: 100px;
-  background: rgba(4, 8, 10, 0.2);
+  background: rgb(248, 246, 246);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -485,8 +485,8 @@ p {
 
 .navbar.scrolled {
   top: 1rem;
-  background: rgba(4, 8, 10, 0.92);
-  border-color: rgba(16, 185, 129, 0.3);
+  background: #ffffff;
+  border-color: #00000021;
   padding: 0.6rem 1.5rem;
   box-shadow: 0 15px 50px -10px rgba(0, 0, 0, 0.6);
 }
@@ -500,36 +500,19 @@ p {
 
 .logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   text-decoration: none;
   transition: transform 0.4s var(--ease-spring);
 }
 
 .logo:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
-.logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--clr-white);
-  line-height: 1;
-}
-
-.m-accent {
-  color: var(--clr-primary);
-  text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-}
-
-.logo-tag {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--clr-text-muted);
-  margin-top: 0.2rem;
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 .nav-links-wrapper {
@@ -706,39 +689,7 @@ p {
   width: 100%;
 }
 
-/* Premium Logo */
-.logo {
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.4s var(--ease-spring);
-}
-
-.logo:hover {
-  transform: scale(1.02);
-}
-
-.logo-text {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: var(--clr-white);
-  line-height: 1;
-}
-
-.m-accent {
-  color: var(--clr-primary);
-  text-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
-}
-
-.logo-tag {
-  font-family: var(--font-body);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--clr-text-muted);
-  margin-top: 0.2rem;
-}
+/* Logo styles consolidated above */
 
 /* Nav Links Wrapper */
 .nav-links-wrapper {
