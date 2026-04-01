@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | Markazul Uloomi Islami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #eef3ff;
+      --panel: rgba(255, 255, 255, 0.92);
+      --ink: #10204f;
+      --muted: #64748b;
+      --line: rgba(0, 0, 102, 0.12);
+      --primary: #000066;
+      --danger: #c62828;
+      --success: #0f9d58;
+      --radius: 24px;
+      --shadow: 0 24px 60px -28px rgba(0, 0, 40, 0.25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: "Outfit", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(0, 0, 102, 0.1), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 102, 0.06), transparent 32%),
+        var(--bg);
+    }
+
+    .card {
+      width: min(460px, 100%);
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    input,
+    button {
+      font: inherit;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 14px;
+      outline: none;
+      margin-bottom: 14px;
+    }
+
+    input:focus {
+      border-color: rgba(0, 0, 102, 0.35);
+      box-shadow: 0 0 0 4px rgba(0, 0, 102, 0.08);
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      background: linear-gradient(135deg, #000066, #1d43c4);
+      box-shadow: 0 18px 30px -18px rgba(0, 0, 102, 0.7);
+    }
+
+    .status {
+      min-height: 24px;
+      margin-top: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .status.error { color: var(--danger); }
+    .status.success { color: var(--success); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Admin Login</h1>
+    <p>Enter the correct password to access the private dashboard and manage your website content securely.</p>
+
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input id="username" type="text" value="admin" required />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="Enter admin password" required />
+
+      <button type="submit">Open Dashboard</button>
+      <div id="loginStatus" class="status"></div>
+    </form>
+  </main>
+
+  <script>
+    const tokenKey = "mkz_admin_token";
+    const loginForm = document.getElementById("loginForm");
+    const loginStatus = document.getElementById("loginStatus");
+
+    function setStatus(message, type) {
+      loginStatus.textContent = message || "";
+      loginStatus.className = `status ${type || ""}`.trim();
+    }
+
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setStatus("Signing in...", "");
+
+      try {
+        const response = await fetch("/api/admin/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: document.getElementById("username").value.trim(),
+            password: document.getElementById("password").value
+          })
+        });
+
+        const payload = await response.json();
+        if (!response.ok) {
+          throw new Error(payload.error || "Login failed");
+        }
+
+        localStorage.setItem(tokenKey, payload.token);
+        setStatus("Login successful. Redirecting...", "success");
+        window.location.replace("/admin-dashboard.html");
+      } catch (error) {
+        setStatus(error.message, "error");
+      }
+    });
+  </script>
+</body>
+</html>
