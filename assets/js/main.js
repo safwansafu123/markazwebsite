@@ -258,6 +258,22 @@ document.addEventListener('DOMContentLoaded', () => {
     return lastSegment || 'index.html';
   }
 
+  function hasRenderableSectionContent(markup) {
+    if (typeof markup !== 'string') return false;
+
+    const trimmed = markup.trim();
+    if (!trimmed) return false;
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(`<section>${trimmed}</section>`, 'text/html');
+    const section = doc.querySelector('section');
+    if (!section) return false;
+
+    const text = (section.textContent || '').replace(/\s+/g, ' ').trim();
+    const media = section.querySelector('img, video, iframe, svg, canvas, form');
+    return Boolean(text || media);
+  }
+
   function applySectionOverrides(data) {
     const pageKey = getCurrentPageKey();
     const pageSections = data.sections?.[pageKey];
@@ -265,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-cms-section]').forEach((section) => {
       const sectionKey = section.getAttribute('data-cms-section');
-      if (sectionKey && typeof pageSections[sectionKey] === 'string') {
+      if (sectionKey && hasRenderableSectionContent(pageSections[sectionKey])) {
         section.innerHTML = pageSections[sectionKey];
       }
     });
@@ -562,12 +578,13 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   /* ── Particles ── */
   (() => {
-    const c = document.getElementById('particles'),
-      ctx = c.getContext('2d');
+    const c = document.getElementById('particles');
     if (!c) return;
+    const ctx = c.getContext('2d');
     let W, H, pts = [];
     const rs = () => {
       const section = document.getElementById('committee');
+      if (!section) return;
       W = c.width = section.offsetWidth;
       H = c.height = section.offsetHeight;
     };
@@ -615,7 +632,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const viewport = document.getElementById('viewport');
   const stage = document.getElementById('stage');
   const dotsWrap = document.getElementById('dots');
-  if (!viewport || !stage) return;
+  const nextButton = document.getElementById('next');
+  const prevButton = document.getElementById('prev');
+  if (!viewport || !stage || !dotsWrap || !nextButton || !prevButton) return;
 
   const members = Array.from(stage.querySelectorAll('.member'));
   const COUNT = members.length;
@@ -667,8 +686,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const next = () => goTo(current + 1);
   const prev = () => goTo(current - 1);
 
-  document.getElementById('next').addEventListener('click', next);
-  document.getElementById('prev').addEventListener('click', prev);
+  nextButton.addEventListener('click', next);
+  prevButton.addEventListener('click', prev);
   members.forEach((m, i) => m.addEventListener('click', () => goTo(i)));
 
   /* Auto-play */
