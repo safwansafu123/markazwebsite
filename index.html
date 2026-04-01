@@ -64,11 +64,11 @@ SECTION 1 — HERO
       bottom: 0;
       opacity: 0;
       transform: translateX(100%);
-      transition: transform 1.4s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.9s ease-in-out;
+      transition: transform 1.5s cubic-bezier(0.85, 0, 0.15, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      padding-right: 6vw;
+      padding-right: 8vw;
       z-index: 1;
     }
 
@@ -100,7 +100,7 @@ SECTION 1 — HERO
       object-position: center 25%;
       display: none;
       transform: scale(1.06);
-      transition: transform 9s linear;
+      transition: transform 10s cubic-bezier(0.1, 0, 0.9, 1);
     }
 
     .bs.on .bs-img {
@@ -194,23 +194,23 @@ SECTION 1 — HERO
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: var(--nav-buffer, 80px) 28px 7vh 28px;
-      gap: 3vh;
+      padding: var(--nav-buffer, 80px) 28px 8vh 28px;
+      gap: 3.5vh;
     }
 
     @media(min-width:600px) {
       #hero-content {
-        padding: var(--nav-buffer, 80px) 40px 0% 40px;
+        padding: var(--nav-buffer, 80px) 5vw 0% 5vw;
       }
     }
 
     @media(min-width:1024px) {
       #hero-content {
-        padding: var(--nav-buffer, 80px) 80px 10vh 80px;
+        padding: var(--nav-buffer, 80px) 7vw 12vh 7vw;
         display: grid;
-        grid-template-columns: 1.4fr 1fr;
+        grid-template-columns: 1.6fr 1fr;
         align-items: flex-end;
-        gap: 60px;
+        gap: 80px;
       }
     }
 
@@ -237,8 +237,8 @@ SECTION 1 — HERO
       font-weight: 700;
       letter-spacing: -.015em;
       color: #ffffff;
-      transform: translateY(108%);
-      animation: slideUp 1.1s cubic-bezier(.16, 1, .3, 1) forwards;
+      transform: translateY(115%);
+      animation: slideUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
       white-space: nowrap;
       overflow: visible;
     }
@@ -652,6 +652,36 @@ SECTION 1 — HERO
       }
     }
 
+    /* Scroll Reveal - Premium Entrance */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
+
+    .reveal-stagger.revealed > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0.1s; }
+    .reveal-stagger.revealed > *:nth-child(2) { transition-delay: 0.2s; }
+    .reveal-stagger.revealed > *:nth-child(3) { transition-delay: 0.3s; }
+    .reveal-stagger.revealed > *:nth-child(4) { transition-delay: 0.4s; }
+    .reveal-stagger.revealed > *:nth-child(5) { transition-delay: 0.5s; }
+
     /* ══════════════════════════════════════
 SECTION DIVIDER
 ══════════════════════════════════════ */
@@ -681,6 +711,17 @@ SECTION 2 — COMMITTEE MEMBERS
       background: #faf8f4;
       padding-top: 0;
       margin-top: 0;
+    }
+    
+    #sec-committee {
+      /* Ensure it starts hidden for reveal effect */
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.2s var(--ease-out-expo), transform 1.2s var(--ease-out-expo);
+    }
+    #sec-committee.revealed {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* transition strip between dark hero and cream committee */
@@ -729,7 +770,7 @@ SECTION 2 — COMMITTEE MEMBERS
       position: relative;
       z-index: 10;
       text-align: center;
-      padding: 55px 20px 24px;
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
     }
 
     .tag {
@@ -830,10 +871,10 @@ SECTION 2 — COMMITTEE MEMBERS
       align-items: center;
       text-align: center;
       cursor: pointer;
-      transition: transform .6s cubic-bezier(.77, 0, .18, 1), opacity .5s ease;
+      transition: transform 0.85s var(--ease-out-expo), opacity 0.7s var(--ease-out-expo);
       opacity: .42;
-      transform: translateX(-50%) scale(.84);
-      will-change: transform;
+      transform: translateX(-50%) scale(.8);
+      will-change: transform, opacity;
     }
 
     .member.active {
@@ -905,9 +946,9 @@ SECTION 2 — COMMITTEE MEMBERS
       overflow: hidden;
       border: 3px solid rgba(184, 134, 42, .38);
       background: #e8dfc8;
-      box-shadow: 0 8px 32px rgba(184, 134, 42, .13);
-      animation: glow 3.5s ease-in-out infinite;
-      transition: border-color .4s, box-shadow .4s;
+      box-shadow: var(--glow-card);
+      animation: glow 4s var(--ease-in-out-cubic) infinite;
+      transition: border-color .4s var(--ease-out-expo), box-shadow .4s var(--ease-out-expo);
     }
 
     .member.active .photo {
@@ -1064,9 +1105,19 @@ SECTION 3 — FACILITIES
 ══════════════════════════════════════ */
     #sec-subcommittee {
       background: #faf8f4;
-      padding: 5rem 2rem 6rem;
+      padding: var(--spacing-xxl) 0;
       position: relative;
       overflow: hidden;
+    }
+    
+    #sec-committee::before,
+    #sec-subcommittee::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
     }
 
     /* subtle light mesh bg */
@@ -1084,14 +1135,15 @@ SECTION 3 — FACILITIES
     #sec-subcommittee::after {
       content: ‘المرافق’;
       position: absolute;
-      bottom: 2rem;
-      right: -1rem;
+      bottom: -2rem;
+      right: -2rem;
       font-family: ‘Amiri’, serif;
-      font-size: 10rem;
-      color: rgba(0, 0, 102, .06);
+      font-size: 15rem;
+      color: rgba(0, 0, 102, .03);
       pointer-events: none;
       line-height: 1;
       z-index: 0;
+      transform: rotate(-12deg);
     }
 
     .sub-section {
@@ -1181,12 +1233,12 @@ SECTION 3 — FACILITIES
 
     .sub-tabs {
       display: flex;
-      gap: .55rem;
+      gap: .75rem;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+      margin-bottom: 4rem;
       opacity: 0;
-      animation: fadeUp .7s .3s ease forwards;
+      animation: fadeUp 0.9s 0.3s var(--ease-out-expo) forwards;
     }
 
     .sub-tab {
@@ -1203,8 +1255,8 @@ SECTION 3 — FACILITIES
       letter-spacing: .04em;
       cursor: pointer;
       user-select: none;
-      transition: all .3s cubic-bezier(.22, 1, .36, 1);
-      backdrop-filter: blur(4px);
+      transition: all .4s var(--ease-out-expo);
+      backdrop-filter: blur(8px);
     }
 
     .sub-tab .tab-ico {
@@ -1224,8 +1276,8 @@ SECTION 3 — FACILITIES
       color: #fff;
       border-color: #000066;
       font-weight: 600;
-      box-shadow: 0 4px 18px rgba(184, 134, 42, .35);
-      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 25px rgba(184, 134, 42, .4);
+      transform: translateY(-4px) scale(1.05);
     }
 
     .sub-tab.active .tab-ico {
@@ -1242,7 +1294,7 @@ SECTION 3 — FACILITIES
 
     .sub-panel.active {
       display: block;
-      animation: panelIn .45s cubic-bezier(.22, 1, .36, 1) both;
+      animation: panelIn 0.8s var(--ease-out-expo) both;
     }
 
     @keyframes panelIn {
@@ -1419,10 +1471,10 @@ SECTION 3 — FACILITIES
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid rgba(184, 134, 42, .18);
-      box-shadow: 0 16px 50px rgba(0, 0, 0, .1), 0 2px 8px rgba(184, 134, 42, .1);
+      box-shadow: var(--glow-card);
       opacity: 0;
-      transform: translateY(24px) scale(.98);
-      transition: opacity .5s cubic-bezier(.22, 1, .36, 1), transform .5s cubic-bezier(.22, 1, .36, 1);
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
     }
 
     .fac-single.fs-in {
@@ -3502,9 +3554,12 @@ SECTION 3 — FACILITIES
       background: #031b3e;
       display: block;
       position: relative;
-      width: 100%;
+      width: 100vw;
       max-width: none;
-      margin: 0;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       padding: 0;
       overflow: hidden;
       border-top: none;
@@ -3564,11 +3619,12 @@ SECTION 3 — FACILITIES
     }
 
     .ft-tagline {
-      font-size: 0.86rem;
-      line-height: 1.75;
+      font-size: 0.95rem;
+      line-height: 1.8;
       color: #adc0d8;
-      max-width: 640px;
+      max-width: 700px;
       margin-bottom: 0;
+      opacity: 0.85;
     }
 
     .ft-center-dot {
@@ -3585,7 +3641,7 @@ SECTION 3 — FACILITIES
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem 2.2rem;
+      gap: 0.4rem 1.4rem;
       margin-bottom: 2rem;
     }
 
@@ -3613,7 +3669,7 @@ SECTION 3 — FACILITIES
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.25rem;
       margin-bottom: 2.5rem;
     }
 
@@ -3737,7 +3793,7 @@ SECTION 3 — FACILITIES
     .footer-copy {
       font-size: 0.82rem;
       color: #7b8fae;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       opacity: 1;
       transform: none;
     }
@@ -3754,14 +3810,14 @@ SECTION 3 — FACILITIES
 
     .ft-bottom-links {
       display: flex;
-      gap: 1.8rem;
+      gap: 1.2rem;
     }
 
     .ft-bottom-links a {
       font-size: 0.82rem;
       color: #7b8fae;
       text-decoration: none;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.015em;
       transition: color 0.25s;
       opacity: 1;
       transform: none;
@@ -3783,7 +3839,7 @@ SECTION 3 — FACILITIES
       }
 
       .ft-links {
-        gap: 0.5rem 1.5rem;
+        gap: 0.4rem 1rem;
       }
 
       .ft-follow-row {
@@ -6001,16 +6057,9 @@ COMPLETE RESPONSIVE DESIGN
           <a href="alumni.html">Alumni Network</a>
           <a href="contact.html">Contact</a>
         </div>
-        <div class="nav-actions">
-          <a href="admissions.html" class="btn-nav-cta">
-            <span>Join Us</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="7" y1="17" x2="17" y2="7"></line>
-              <polyline points="7 7 17 7 17 17"></polyline>
-            </svg>
-          </a>
-        </div>
+        <a href="admissions.html" class="btn-nav-cta">
+          <span>Join Us</span>
+        </a>
       </div>
 
       <button class="mobile-toggle" aria-label="Toggle Menu">
@@ -6027,7 +6076,7 @@ COMPLETE RESPONSIVE DESIGN
      SECTION 1 — HERO
 ════════════════════════════════════════ -->
 
-  <section id="sec-hero">
+  <section id="sec-hero" data-cms-section="hero">
     <div id="bg">
       <!-- ══════════════════════════════════════════
          📸 HERO BACKGROUND PHOTOS — CHANGE GUIDE
@@ -6037,22 +6086,22 @@ COMPLETE RESPONSIVE DESIGN
                   src="https://your-url.com/photo.jpg"
     ══════════════════════════════════════════ -->
       <div class="bs on" id="bs0">
-        <img class="bs-img has-image" src="assets/images/mkz.jpeg"
+        <img class="bs-img has-image" id="heroSlide1Image" src="assets/images/mkz.jpeg"
           alt="Slide 1 — Replace with your photo" /><!-- 📸 SLIDE 1 -->
         <span class="slide-emoji"></span>
       </div>
       <div class="bs" id="bs1">
-        <img class="bs-img has-image" src="assets/images/mkz3.jpeg"
+        <img class="bs-img has-image" id="heroSlide2Image" src="assets/images/mkz3.jpeg"
           alt="Slide 2 — Replace with your photo" /><!-- 📸 SLIDE 2 -->
         <span class="slide-emoji"></span>
       </div>
       <div class="bs" id="bs2">
-        <img class="bs-img has-image" src="assets/images/mkz2.jpeg"
+        <img class="bs-img has-image" id="heroSlide3Image" src="assets/images/mkz2.jpeg"
           alt="Slide 3 — Replace with your photo" /><!-- 📸 SLIDE 3 -->
         <span class="slide-emoji"></span>
       </div>
       <div class="bs" id="bs3">
-        <img class="bs-img has-image" src="assets/images/hero-3.jpg"
+        <img class="bs-img has-image" id="heroSlide4Image" src="assets/images/hero-3.jpg"
           alt="Slide 4 — Replace with your photo" /><!-- 📸 SLIDE 4 -->
         <span class="slide-emoji"></span>
       </div>
@@ -6175,7 +6224,7 @@ COMPLETE RESPONSIVE DESIGN
      SECTION — GET TO KNOW US
 ════════════════════════════════════════ -->
 
-  <section id="sec-knowus">
+  <section id="sec-knowus" data-cms-section="knowus">
     <div class="knowus-watermark">معرفة</div>
     <div class="knowus-inner" id="knowusInner">
 
@@ -6190,11 +6239,11 @@ COMPLETE RESPONSIVE DESIGN
       </div>
       <!-- ════════════════════════════════════ -->
 
-      <div class="knowus-tag">✦ Markazul Uloomi Islami ✦</div>
+      <div class="knowus-tag" id="knowusTag">✦ Markazul Uloomi Islami ✦</div>
 
       <h2 class="knowus-title">
-        <span class="ku-line1">GET TO</span>
-        <span class="ku-line2"><em class="knowus-title-em">KNOW US</em></span>
+        <span class="ku-line1" id="knowusTitleLine1">GET TO</span>
+        <span class="ku-line2"><em class="knowus-title-em" id="knowusTitleLine2">KNOW US</em></span>
       </h2>
 
       <div class="knowus-divider">
@@ -6203,7 +6252,7 @@ COMPLETE RESPONSIVE DESIGN
         <div class="knowus-divider-line"></div>
       </div>
 
-      <p class="knowus-desc">
+      <p class="knowus-desc" id="knowusDesc">
         <strong>Markazul Uloomi Islami Nilambur is a vision for a purposeful future</strong> — an inspiring
         convergence of education, culture, health, and innovation. Proudly holding the distinction of being a
         premier institution celebrating a legacy of traditional learning. Situated in Nilambur, the center
@@ -6230,14 +6279,14 @@ COMPLETE RESPONSIVE DESIGN
      SECTION — LATEST EVENTS
 ════════════════════════════════════════ -->
 
-  <section id="sec-events">
+  <section id="sec-events" data-cms-section="events">
     <div class="ev-inner">
 
       <!-- header -->
       <div class="ev-header">
         <div class="ev-header-left">
           <div class="ev-tag"></div>
-          <h2 class="ev-title">campus <em>Live</em></h2>
+          <h2 class="ev-title" id="campusLiveTitle">campus <em>Live</em></h2>
         </div>
         <a href="#" class="ev-view-all">View All live →</a>
       </div>
@@ -6297,11 +6346,11 @@ COMPLETE RESPONSIVE DESIGN
           <div id="clSlidesWrap">
             <!-- default slide -->
             <div class="cl-slide cl-active" data-default="1">
-              <img src="assets/images/mkz.jpeg" alt="Campus" />
+              <img id="campusLiveImage" src="assets/images/mkz.jpeg" alt="Campus" />
               <div class="cl-ov"></div>
               <div class="cl-cap">
                 <span class="cl-cap-tag">📍 Campus</span>
-                <p class="cl-cap-text">The heart of Markazul Uloomi Islami — where knowledge and faith unite every day.
+                <p class="cl-cap-text" id="campusLiveCaption">The heart of Markazul Uloomi Islami — where knowledge and faith unite every day.
                 </p>
               </div>
             </div>
@@ -6321,7 +6370,7 @@ COMPLETE RESPONSIVE DESIGN
      SECTION — NOTIFICATIONS & ADMISSIONS
 ════════════════════════════════════════ -->
 
-      <section id="sec-notif">
+      <section id="sec-notif" data-cms-section="notifications">
 
         <!-- TOP: Notifications -->
 
@@ -6330,15 +6379,15 @@ COMPLETE RESPONSIVE DESIGN
             <div class="notif-header-row">
               <div class="notif-title-wrap">
                 <div class="notif-tag">Updates</div>
-                <h2 class="notif-heading">Latest <em>Notifications</em></h2>
+                <h2 class="notif-heading" id="notificationHeading">Latest <em>Notifications</em></h2>
               </div>
             </div>
 
             <div class="notif-list">
 
               <div class="notif-card">
-                <div class="notif-date"><span class="notif-date-ico">📅</span> March 28, 2025</div>
-                <div class="notif-card-title">Admission Started for Markazul Uloomi Islami — Academic Year
+                <div class="notif-date" id="notificationDate"><span class="notif-date-ico">📅</span> March 28, 2025</div>
+                <div class="notif-card-title" id="notificationTitle">Admission Started for Markazul Uloomi Islami — Academic Year
                   2025--26</div>
                 <div class="notif-divider"></div>
                 <div class="notif-foot">
@@ -6369,11 +6418,11 @@ COMPLETE RESPONSIVE DESIGN
           <div class="adm-ring adm-ring3"></div>
 
           <div class="adm-inner" id="admInner">
-            <div class="adm-tag">✦ Admission Open ✦</div>
-            <h2 class="adm-title">Markazul Uloomi Islami<br />Admission 2025--26 Started</h2>
-            <p class="adm-desc">Online Admissions are now open for Junior Colleges, Muqthasar, Muthavval, and
+            <div class="adm-tag" id="admissionTag">✦ Admission Open ✦</div>
+            <h2 class="adm-title" id="admissionTitle">Markazul Uloomi Islami<br />Admission 2025--26 Started</h2>
+            <p class="adm-desc" id="admissionDescription">Online Admissions are now open for Junior Colleges, Muqthasar, Muthavval, and
               Kulliyathul Quran programs. Limited seats available — apply early to secure your place.</p>
-            <a href="#" class="adm-btn"><span>Apply Now</span><span>→</span></a>
+            <a href="#" class="adm-btn" id="admissionButton"><span id="admissionButtonText">Apply Now</span><span>→</span></a>
           </div>
 
         </div>
@@ -6384,7 +6433,7 @@ COMPLETE RESPONSIVE DESIGN
      SECTION 2 — COMMITTEE MEMBERS
 ════════════════════════════════════════ -->
 
-      <section id="sec-committee">
+      <section id="sec-committee" data-cms-section="committee">
         <div class="committee-inner">
           <canvas id="particles"></canvas>
 
@@ -6983,13 +7032,16 @@ COMPLETE RESPONSIVE DESIGN
           el.style.width = pct + '%';
         }, { passive: true });
 
-        /* 2. Universal reveal observer */
+        /* 2. Universal reveal observer - Enhanced */
         const revealObs = new IntersectionObserver((entries) => {
           entries.forEach(e => {
-            if (e.isIntersecting) e.target.classList.add('visible');
+            if (e.isIntersecting) {
+              e.target.classList.add('visible');
+              e.target.classList.add('revealed');
+            }
           });
-        }, { threshold: .15 });
-        document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+        }, { threshold: .1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal, .reveal-on-scroll, .reveal-stagger, #sec-committee, #sec-subcommittee').forEach(el => revealObs.observe(el));
 
         /* 3. Committee section — header + dots/arrows + slider reset to 1st */
         const commSec = document.querySelector('#sec-committee');
@@ -7421,7 +7473,7 @@ COMPLETE RESPONSIVE DESIGN
 
       <!-- ══ FOOTER ══ -->
 
-      <footer id="footer" class="ft-vis">
+      <footer id="footer" class="ft-vis" data-cms-section="footer">
         <!-- Main content -->
         <div class="ft-inner">
 
@@ -7516,3 +7568,5 @@ COMPLETE RESPONSIVE DESIGN
 </body>
 
 </html>
+
+

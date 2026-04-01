@@ -173,6 +173,182 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ========================================================================= */
+/* SECTION: DYNAMIC CMS CONTENT                                              */
+/* ========================================================================= */
+document.addEventListener('DOMContentLoaded', () => {
+  const apiEndpoint = '/api/content';
+  const streamEndpoint = '/api/content/stream';
+  let latestUpdatedAt = '';
+
+  const textTargets = {
+    heroLine1: document.getElementById('hl1'),
+    heroLine2: document.getElementById('hl2'),
+    heroLine3: document.getElementById('hl3'),
+    heroDescription: document.getElementById('hDesc'),
+    knowusTag: document.getElementById('knowusTag'),
+    knowusTitleLine1: document.getElementById('knowusTitleLine1'),
+    knowusTitleLine2: document.getElementById('knowusTitleLine2'),
+    knowusDescription: document.getElementById('knowusDesc'),
+    campusLiveCaption: document.getElementById('campusLiveCaption'),
+    notificationDate: document.getElementById('notificationDate'),
+    notificationTitle: document.getElementById('notificationTitle'),
+    admissionTag: document.getElementById('admissionTag'),
+    admissionDescription: document.getElementById('admissionDescription'),
+    admissionButtonText: document.getElementById('admissionButtonText')
+  };
+
+  const imageTargets = {
+    heroSlide1: document.getElementById('heroSlide1Image'),
+    heroSlide2: document.getElementById('heroSlide2Image'),
+    heroSlide3: document.getElementById('heroSlide3Image'),
+    heroSlide4: document.getElementById('heroSlide4Image'),
+    campusLiveImage: document.getElementById('campusLiveImage')
+  };
+
+  function setTextContent(target, value) {
+    if (!target || !value) return;
+    target.textContent = value;
+  }
+
+  function setDecoratedText(target, value, decorator) {
+    if (!target || !value) return;
+    target.textContent = decorator ? decorator(value) : value;
+  }
+
+  function setMultilineContent(target, value) {
+    if (!target || !value) return;
+    target.innerHTML = '';
+
+    const lines = String(value).split(/\r?\n/);
+    lines.forEach((line, index) => {
+      if (index > 0) {
+        target.appendChild(document.createElement('br'));
+      }
+      target.appendChild(document.createTextNode(line));
+    });
+  }
+
+  function setHeadingWithEmphasis(target, value) {
+    if (!target || !value) return;
+    const parts = String(value).trim().split(/\s+/);
+    if (parts.length < 2) {
+      target.textContent = value;
+      return;
+    }
+
+    const lastWord = parts.pop();
+    target.innerHTML = `${parts.join(' ')} <em>${lastWord}</em>`;
+  }
+
+  function updateImage(target, url) {
+    if (!target || !url) return;
+    target.src = url;
+  }
+
+  function updateLogoImages(url) {
+    if (!url) return;
+    document.querySelectorAll('.logo img, .knowus-logo, .ft-logo-circle img').forEach((img) => {
+      img.src = url;
+    });
+  }
+
+  function getCurrentPageKey() {
+    const pathname = window.location.pathname;
+    const lastSegment = pathname.split('/').filter(Boolean).pop();
+    return lastSegment || 'index.html';
+  }
+
+  function applySectionOverrides(data) {
+    const pageKey = getCurrentPageKey();
+    const pageSections = data.sections?.[pageKey];
+    if (!pageSections) return;
+
+    document.querySelectorAll('[data-cms-section]').forEach((section) => {
+      const sectionKey = section.getAttribute('data-cms-section');
+      if (sectionKey && typeof pageSections[sectionKey] === 'string') {
+        section.innerHTML = pageSections[sectionKey];
+      }
+    });
+  }
+
+  function applyContent(data) {
+    if (!data) return;
+
+    applySectionOverrides(data);
+
+    latestUpdatedAt = data.updatedAt || latestUpdatedAt;
+
+    setTextContent(textTargets.heroLine1, data.text?.heroLine1);
+    setTextContent(textTargets.heroLine2, data.text?.heroLine2);
+    setTextContent(textTargets.heroLine3, data.text?.heroLine3);
+    setTextContent(textTargets.heroDescription, data.text?.heroDescription);
+    setDecoratedText(textTargets.knowusTag, data.text?.knowusTag, (value) => `✦ ${value} ✦`);
+    setTextContent(textTargets.knowusTitleLine1, data.text?.knowusTitleLine1);
+    setTextContent(textTargets.knowusTitleLine2, data.text?.knowusTitleLine2);
+    setTextContent(textTargets.knowusDescription, data.text?.knowusDescription);
+    setTextContent(textTargets.campusLiveCaption, data.text?.campusLiveCaption);
+    setHeadingWithEmphasis(document.getElementById('campusLiveTitle'), data.text?.campusLiveTitle);
+    setHeadingWithEmphasis(document.getElementById('notificationHeading'), data.text?.notificationHeading);
+
+    if (textTargets.notificationDate && data.text?.notificationDate) {
+      textTargets.notificationDate.innerHTML = `<span class="notif-date-ico">📅</span> ${data.text.notificationDate}`;
+    }
+
+    setTextContent(textTargets.notificationTitle, data.text?.notificationTitle);
+    setDecoratedText(textTargets.admissionTag, data.text?.admissionTag, (value) => `✦ ${value} ✦`);
+    setMultilineContent(document.getElementById('admissionTitle'), data.text?.admissionTitle);
+    setTextContent(textTargets.admissionDescription, data.text?.admissionDescription);
+    setTextContent(textTargets.admissionButtonText, data.text?.admissionButtonText);
+
+    const admissionButton = document.getElementById('admissionButton');
+    if (admissionButton && data.text?.admissionButtonUrl) {
+      admissionButton.href = data.text.admissionButtonUrl;
+    }
+
+    updateLogoImages(data.images?.siteLogo);
+    updateImage(imageTargets.heroSlide1, data.images?.heroSlide1);
+    updateImage(imageTargets.heroSlide2, data.images?.heroSlide2);
+    updateImage(imageTargets.heroSlide3, data.images?.heroSlide3);
+    updateImage(imageTargets.heroSlide4, data.images?.heroSlide4);
+    updateImage(imageTargets.campusLiveImage, data.images?.campusLiveImage);
+  }
+
+  async function loadContent() {
+    try {
+      const response = await fetch(apiEndpoint, { cache: 'no-store' });
+      if (!response.ok) return;
+      const data = await response.json();
+      applyContent(data);
+    } catch (_error) {
+      // Keep static fallback content when the API is unavailable.
+    }
+  }
+
+  function bindRealtimeUpdates() {
+    if (typeof EventSource === 'undefined') return;
+
+    try {
+      const source = new EventSource(streamEndpoint);
+      source.onmessage = (event) => {
+        try {
+          const payload = JSON.parse(event.data);
+          if (payload.updatedAt && payload.updatedAt !== latestUpdatedAt) {
+            loadContent();
+          }
+        } catch (_error) {
+          // Ignore malformed stream payloads.
+        }
+      };
+    } catch (_error) {
+      // Ignore stream setup failure and keep one-time content loading.
+    }
+  }
+
+  loadContent();
+  bindRealtimeUpdates();
+});
+
+/* ========================================================================= */
 /* SECTION: FACILITIES SLIDER GALLERY                                        */
 /* ========================================================================= */
 // NEW Facilities Slider Logic (Infinite Loop)
@@ -567,4 +743,3 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Re-layout after full load to handle any reflow */
   window.addEventListener('load', () => layout(false));
 });
-

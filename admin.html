@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | Markazul Uloomi Islami</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f4f7ff;
+      --panel: rgba(255, 255, 255, 0.9);
+      --ink: #10204f;
+      --muted: #64748b;
+      --line: rgba(0, 0, 102, 0.12);
+      --primary: #000066;
+      --primary-soft: rgba(0, 0, 102, 0.08);
+      --success: #0f9d58;
+      --danger: #c62828;
+      --radius: 22px;
+      --shadow: 0 24px 60px -28px rgba(0, 0, 40, 0.25);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Outfit", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(0, 0, 102, 0.08), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(0, 0, 102, 0.05), transparent 30%),
+        var(--bg);
+    }
+
+    .page {
+      width: min(1280px, calc(100% - 32px));
+      margin: 32px auto;
+    }
+
+    .hero,
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      border-radius: var(--radius);
+    }
+
+    .hero {
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--primary);
+    }
+
+    .hero p,
+    .helper {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .panel h2 {
+      margin: 0 0 16px;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    input,
+    textarea,
+    button {
+      font: inherit;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(0, 0, 102, 0.35);
+      box-shadow: 0 0 0 4px rgba(0, 0, 102, 0.08);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .editor-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, #fff, rgba(247, 249, 255, 0.9));
+      padding: 18px;
+    }
+
+    .section-card h3 {
+      margin: 0 0 14px;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .image-row {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px dashed rgba(0, 0, 102, 0.18);
+      border-radius: 16px;
+      background: var(--primary-soft);
+    }
+
+    .image-preview {
+      width: 100%;
+      height: 160px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: #dde5ff;
+      border: 1px solid rgba(0, 0, 102, 0.1);
+    }
+
+    .btn {
+      border: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #000066, #1d43c4);
+      color: #fff;
+      box-shadow: 0 18px 30px -18px rgba(0, 0, 102, 0.7);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--primary);
+      border: 1px solid var(--line);
+    }
+
+    .status {
+      min-height: 24px;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .status.success { color: var(--success); }
+    .status.error { color: var(--danger); }
+
+    .hidden {
+      display: none;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .section-helper {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .page-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .page-tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--primary);
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .page-tab.active {
+      background: linear-gradient(135deg, #000066, #1d43c4);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .page-panel {
+      display: none;
+      gap: 16px;
+    }
+
+    .page-panel.active {
+      display: grid;
+    }
+
+    .section-editor textarea {
+      min-height: 220px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.86rem;
+      line-height: 1.6;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .section-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 960px) {
+      .layout,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>Website Admin Panel</h1>
+      <p>Manage the homepage fields, upload replacement images, and edit the major sections of every page from one place.</p>
+    </section>
+
+    <div class="layout">
+      <aside class="panel">
+        <h2>Secure Login</h2>
+        <form id="loginForm" class="stack">
+          <div>
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" placeholder="admin" required />
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter admin password" required />
+          </div>
+          <button class="btn btn-primary" type="submit">Login</button>
+          <div id="loginStatus" class="status"></div>
+        </form>
+        <p class="helper" style="margin-top: 14px;">Default login is controlled by ADMIN_USERNAME and ADMIN_PASSWORD in server.js. Change the password before production use.</p>
+      </aside>
+
+      <main id="editorPanel" class="panel hidden">
+        <div class="top-actions">
+          <div>
+            <h2 style="margin-bottom: 6px;">Site Content Editor</h2>
+            <div class="pill">Real-time update stream enabled</div>
+          </div>
+          <button id="logoutButton" class="btn btn-secondary" type="button">Logout</button>
+        </div>
+
+        <form id="contentForm" class="editor-grid">
+          <section class="section-card">
+            <h3>Homepage Quick Fields</h3>
+            <p class="section-helper">Use these for the most common homepage text updates. For deeper changes, use the page section editor below.</p>
+            <div class="two-col">
+              <div>
+                <label for="heroLine1">Hero Title Line 1</label>
+                <input id="heroLine1" name="heroLine1" type="text" />
+              </div>
+              <div>
+                <label for="heroLine2">Hero Title Line 2</label>
+                <input id="heroLine2" name="heroLine2" type="text" />
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div>
+                <label for="heroLine3">Hero Title Line 3</label>
+                <input id="heroLine3" name="heroLine3" type="text" />
+              </div>
+              <div>
+                <label for="heroDescription">Hero Description</label>
+                <textarea id="heroDescription" name="heroDescription"></textarea>
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div>
+                <label for="knowusTag">Know Us Tagline</label>
+                <input id="knowusTag" name="knowusTag" type="text" />
+              </div>
+              <div>
+                <label for="knowusTitleLine1">Know Us Title Line 1</label>
+                <input id="knowusTitleLine1" name="knowusTitleLine1" type="text" />
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div>
+                <label for="knowusTitleLine2">Know Us Title Line 2</label>
+                <input id="knowusTitleLine2" name="knowusTitleLine2" type="text" />
+              </div>
+              <div>
+                <label for="knowusDescription">Know Us Description</label>
+                <textarea id="knowusDescription" name="knowusDescription"></textarea>
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div>
+                <label for="notificationHeading">Notification Heading</label>
+                <input id="notificationHeading" name="notificationHeading" type="text" />
+              </div>
+              <div>
+                <label for="notificationDate">Notification Date</label>
+                <input id="notificationDate" name="notificationDate" type="text" />
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <label for="notificationTitle">Notification Title</label>
+              <textarea id="notificationTitle" name="notificationTitle"></textarea>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div>
+                <label for="admissionTag">Admission Tag</label>
+                <input id="admissionTag" name="admissionTag" type="text" />
+              </div>
+              <div>
+                <label for="admissionButtonText">Admission Button Text</label>
+                <input id="admissionButtonText" name="admissionButtonText" type="text" />
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div>
+                <label for="admissionTitle">Admission Title</label>
+                <textarea id="admissionTitle" name="admissionTitle"></textarea>
+              </div>
+              <div>
+                <label for="admissionDescription">Admission Description</label>
+                <textarea id="admissionDescription" name="admissionDescription"></textarea>
+              </div>
+            </div>
+            <div style="margin-top: 14px;">
+              <label for="admissionButtonUrl">Admission Button Link</label>
+              <input id="admissionButtonUrl" name="admissionButtonUrl" type="text" />
+            </div>
+          </section>
+
+          <section class="section-card">
+            <h3>Homepage Image Uploads</h3>
+            <p class="section-helper">Upload here to replace key homepage images and the shared logo. Uploaded files are stored in /uploads and their URLs are saved automatically.</p>
+            <div class="two-col">
+              <div class="image-row">
+                <label for="siteLogoUrl">Site Logo</label>
+                <img class="image-preview" id="preview-siteLogo" alt="Site logo preview" />
+                <input id="siteLogoUrl" name="siteLogo" type="text" placeholder="/uploads/logo.png" />
+                <input class="upload-input" data-target="siteLogo" type="file" accept="image/*" />
+              </div>
+              <div class="image-row">
+                <label for="campusLiveImageUrl">Campus Live Image</label>
+                <img class="image-preview" id="preview-campusLiveImage" alt="Campus image preview" />
+                <input id="campusLiveImageUrl" name="campusLiveImage" type="text" />
+                <input class="upload-input" data-target="campusLiveImage" type="file" accept="image/*" />
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div class="image-row">
+                <label for="heroSlide1Url">Hero Slide 1</label>
+                <img class="image-preview" id="preview-heroSlide1" alt="Hero slide 1 preview" />
+                <input id="heroSlide1Url" name="heroSlide1" type="text" />
+                <input class="upload-input" data-target="heroSlide1" type="file" accept="image/*" />
+              </div>
+              <div class="image-row">
+                <label for="heroSlide2Url">Hero Slide 2</label>
+                <img class="image-preview" id="preview-heroSlide2" alt="Hero slide 2 preview" />
+                <input id="heroSlide2Url" name="heroSlide2" type="text" />
+                <input class="upload-input" data-target="heroSlide2" type="file" accept="image/*" />
+              </div>
+            </div>
+            <div class="two-col" style="margin-top: 14px;">
+              <div class="image-row">
+                <label for="heroSlide3Url">Hero Slide 3</label>
+                <img class="image-preview" id="preview-heroSlide3" alt="Hero slide 3 preview" />
+                <input id="heroSlide3Url" name="heroSlide3" type="text" />
+                <input class="upload-input" data-target="heroSlide3" type="file" accept="image/*" />
+              </div>
+              <div class="image-row">
+                <label for="heroSlide4Url">Hero Slide 4</label>
+                <img class="image-preview" id="preview-heroSlide4" alt="Hero slide 4 preview" />
+                <input id="heroSlide4Url" name="heroSlide4" type="text" />
+                <input class="upload-input" data-target="heroSlide4" type="file" accept="image/*" />
+              </div>
+            </div>
+          </section>
+
+          <section class="section-card">
+            <div class="section-head">
+              <div>
+                <h3 style="margin-bottom: 6px;">All Pages and All Sections</h3>
+                <p class="section-helper">Each section is broken into editable text, links, and images. No raw code editor is shown here.</p>
+              </div>
+              <span class="section-chip">Visual Section Editor</span>
+            </div>
+            <div id="pageTabs" class="page-tabs"></div>
+            <div id="pagePanels" class="editor-grid"></div>
+          </section>
+
+          <div class="stack">
+            <button class="btn btn-primary" type="submit">Save Changes</button>
+            <div id="saveStatus" class="status"></div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const tokenKey = "mkz_admin_token";
+    const loginForm = document.getElementById("loginForm");
+    const contentForm = document.getElementById("contentForm");
+    const editorPanel = document.getElementById("editorPanel");
+    const loginStatus = document.getElementById("loginStatus");
+    const saveStatus = document.getElementById("saveStatus");
+    const logoutButton = document.getElementById("logoutButton");
+    const pageTabs = document.getElementById("pageTabs");
+    const pagePanels = document.getElementById("pagePanels");
+
+    const textKeys = [
+      "heroLine1", "heroLine2", "heroLine3", "heroDescription",
+      "knowusTag", "knowusTitleLine1", "knowusTitleLine2", "knowusDescription",
+      "notificationHeading", "notificationDate", "notificationTitle",
+      "admissionTag", "admissionTitle", "admissionDescription",
+      "admissionButtonText", "admissionButtonUrl"
+    ];
+
+    const imageKeys = [
+      "siteLogo", "heroSlide1", "heroSlide2", "heroSlide3", "heroSlide4", "campusLiveImage"
+    ];
+
+    const pageConfigs = [
+      { page: "index.html", label: "Home", sections: [
+        { key: "hero", label: "Hero" },
+        { key: "knowus", label: "Know Us" },
+        { key: "events", label: "Campus Live" },
+        { key: "notifications", label: "Notifications & Admission" },
+        { key: "committee", label: "Committee" },
+        { key: "footer", label: "Footer" }
+      ]},
+      { page: "about.html", label: "About", sections: [
+        { key: "hero", label: "Hero" },
+        { key: "intro", label: "Intro" },
+        { key: "history", label: "History" },
+        { key: "mission", label: "Mission & Vision" },
+        { key: "stats", label: "Stats" },
+        { key: "programs", label: "Programs" },
+        { key: "facilities", label: "Facilities" },
+        { key: "leadership", label: "Leadership" },
+        { key: "values", label: "Values" },
+        { key: "affiliation", label: "Affiliation" },
+        { key: "cta", label: "CTA" },
+        { key: "footer", label: "Footer" }
+      ]},
+      { page: "academics.html", label: "Academics", sections: [
+        { key: "hero", label: "Header" },
+        { key: "programs", label: "Programs Section" },
+        { key: "footer", label: "Footer" }
+      ]},
+      { page: "admissions.html", label: "Admissions", sections: [
+        { key: "hero", label: "Hero" },
+        { key: "why", label: "Why Markaz" },
+        { key: "programs", label: "Programs" },
+        { key: "process", label: "Process" },
+        { key: "dates", label: "Dates" },
+        { key: "form", label: "Application Form" },
+        { key: "footer", label: "Footer" }
+      ]},
+      { page: "alumni.html", label: "Alumni", sections: [
+        { key: "hero", label: "Hero" },
+        { key: "about", label: "About" },
+        { key: "committee", label: "Committee" },
+        { key: "timeline", label: "Timeline" },
+        { key: "social", label: "Social" },
+        { key: "events", label: "Events" },
+        { key: "testimonials", label: "Testimonials" },
+        { key: "cta", label: "CTA" },
+        { key: "footer", label: "Footer" }
+      ]},
+      { page: "contact.html", label: "Contact", sections: [
+        { key: "hero", label: "Hero" },
+        { key: "contact", label: "Contact Section" },
+        { key: "map", label: "Map" },
+        { key: "faq", label: "FAQ" },
+        { key: "footer", label: "Footer" }
+      ]}
+    ];
+
+    let latestContent = null;
+    let extractedSections = {};
+
+    function setStatus(target, message, type) {
+      target.textContent = message || "";
+      target.className = `status ${type || ""}`.trim();
+    }
+
+    function getToken() {
+      return localStorage.getItem(tokenKey) || "";
+    }
+
+    function showEditor() {
+      editorPanel.classList.remove("hidden");
+    }
+
+    function hideEditor() {
+      editorPanel.classList.add("hidden");
+    }
+
+    function setPreview(key, url) {
+      const preview = document.getElementById(`preview-${key}`);
+      if (preview) preview.src = url || "";
+    }
+
+    async function fetchContent() {
+      const response = await fetch("/api/content");
+      if (!response.ok) throw new Error("Failed to load content");
+      return response.json();
+    }
+
+    function buildSelector(root, element) {
+      const path = [];
+      let current = element;
+
+      while (current && current !== root) {
+        const tag = current.tagName.toLowerCase();
+        const parent = current.parentElement;
+        if (!parent) break;
+        const siblings = Array.from(parent.children).filter((child) => child.tagName === current.tagName);
+        const index = siblings.indexOf(current) + 1;
+        path.unshift(`${tag}:nth-of-type(${index})`);
+        current = parent;
+      }
+
+      return path.join(" > ");
+    }
+
+    function getDirectText(element) {
+      return Array.from(element.childNodes)
+        .filter((node) => node.nodeType === Node.TEXT_NODE)
+        .map((node) => node.textContent.replace(/\s+/g, " ").trim())
+        .join(" ")
+        .trim();
+    }
+
+    function makeLabel(element, fallback) {
+      const tag = element.tagName.toLowerCase();
+      const className = element.className && typeof element.className === "string"
+        ? element.className.trim().split(/\s+/)[0]
+        : "";
+      const snippet = (fallback || element.textContent || "").replace(/\s+/g, " ").trim().slice(0, 40);
+      return className ? `${tag}.${className} - ${snippet}` : `${tag} - ${snippet}`;
+    }
+
+    function extractSectionParts(sectionElement) {
+      const items = [];
+      let counter = 0;
+
+      sectionElement.querySelectorAll("img").forEach((img) => {
+        counter += 1;
+        items.push({
+          id: `part-${counter}`,
+          type: "image",
+          selector: buildSelector(sectionElement, img),
+          label: makeLabel(img, "Image"),
+          value: img.getAttribute("src") || ""
+        });
+      });
+
+      sectionElement.querySelectorAll("a").forEach((link) => {
+        const text = link.textContent.replace(/\s+/g, " ").trim();
+        const href = link.getAttribute("href") || "";
+        if (!text && !href) return;
+
+        counter += 1;
+        items.push({
+          id: `part-${counter}`,
+          type: "link",
+          selector: buildSelector(sectionElement, link),
+          label: makeLabel(link, "Link"),
+          text,
+          href
+        });
+      });
+
+      sectionElement.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li,span,div,strong,em,label").forEach((element) => {
+        if (element.closest("a") || element.querySelector("img")) return;
+        const value = getDirectText(element);
+        if (!value || value.length < 2) return;
+
+        counter += 1;
+        items.push({
+          id: `part-${counter}`,
+          type: "text",
+          selector: buildSelector(sectionElement, element),
+          label: makeLabel(element, value),
+          value
+        });
+      });
+
+      return items;
+    }
+
+    async function extractSectionsFromPage(pageName) {
+      if (extractedSections[pageName]) return extractedSections[pageName];
+      const response = await fetch(`/${pageName}`, { cache: "no-store" });
+      if (!response.ok) throw new Error(`Failed to load ${pageName}`);
+      const html = await response.text();
+      const doc = new DOMParser().parseFromString(html, "text/html");
+      const map = {};
+
+      doc.querySelectorAll("[data-cms-section]").forEach((section) => {
+        const key = section.getAttribute("data-cms-section");
+        const storedHtml = latestContent?.sections?.[pageName]?.[key];
+
+        if (storedHtml) {
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = `<section>${storedHtml}</section>`;
+          const storedSection = wrapper.querySelector("section");
+          map[key] = {
+            originalHtml: storedHtml,
+            items: storedSection ? extractSectionParts(storedSection) : []
+          };
+        } else {
+          map[key] = {
+            originalHtml: section.innerHTML.trim(),
+            items: extractSectionParts(section)
+          };
+        }
+      });
+
+      extractedSections[pageName] = map;
+      return map;
+    }
+
+    function createPartField(pageName, sectionKey, item) {
+      const wrapper = document.createElement("div");
+      wrapper.className = "image-row";
+      wrapper.dataset.page = pageName;
+      wrapper.dataset.section = sectionKey;
+      wrapper.dataset.item = item.id;
+
+      const title = document.createElement("div");
+      title.style.fontWeight = "700";
+      title.style.color = "var(--primary)";
+      title.textContent = item.label;
+      wrapper.appendChild(title);
+
+      if (item.type === "image") {
+        const preview = document.createElement("img");
+        preview.className = "image-preview";
+        preview.src = item.value || "";
+        preview.alt = item.label;
+        wrapper.appendChild(preview);
+
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = item.value || "";
+        input.dataset.field = "value";
+        wrapper.appendChild(input);
+
+        const upload = document.createElement("input");
+        upload.type = "file";
+        upload.accept = "image/*";
+        upload.dataset.upload = "true";
+        wrapper.appendChild(upload);
+      } else if (item.type === "link") {
+        const textInput = document.createElement("input");
+        textInput.type = "text";
+        textInput.value = item.text || "";
+        textInput.dataset.field = "text";
+        wrapper.appendChild(textInput);
+
+        const hrefInput = document.createElement("input");
+        hrefInput.type = "text";
+        hrefInput.value = item.href || "";
+        hrefInput.dataset.field = "href";
+        wrapper.appendChild(hrefInput);
+      } else {
+        const textarea = document.createElement("textarea");
+        textarea.value = item.value || "";
+        textarea.dataset.field = "value";
+        textarea.style.minHeight = "90px";
+        wrapper.appendChild(textarea);
+      }
+
+      const note = document.createElement("div");
+      note.className = "section-note";
+      note.textContent = `Section: ${sectionKey}`;
+      wrapper.appendChild(note);
+
+      return wrapper;
+    }
+
+    function bindPartEditors() {
+      document.querySelectorAll("[data-page][data-section][data-item] input[data-field], [data-page][data-section][data-item] textarea[data-field]").forEach((field) => {
+        field.addEventListener("input", () => {
+          const card = field.closest("[data-page][data-section][data-item]");
+          const pageName = card.dataset.page;
+          const sectionKey = card.dataset.section;
+          const itemId = card.dataset.item;
+          const part = extractedSections?.[pageName]?.[sectionKey]?.items.find((entry) => entry.id === itemId);
+          if (!part) return;
+          part[field.dataset.field] = field.value;
+
+          if (part.type === "image" && field.dataset.field === "value") {
+            const preview = card.querySelector(".image-preview");
+            if (preview) preview.src = field.value;
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-upload='true']").forEach((input) => {
+        input.addEventListener("change", async (event) => {
+          const file = event.target.files && event.target.files[0];
+          if (!file) return;
+
+          const card = event.target.closest("[data-page][data-section][data-item]");
+          const pageName = card.dataset.page;
+          const sectionKey = card.dataset.section;
+          const itemId = card.dataset.item;
+
+          setStatus(saveStatus, `Uploading image for ${sectionKey}...`, "");
+
+          try {
+            const formData = new FormData();
+            formData.append("image", file);
+            const response = await fetch("/api/admin/upload", {
+              method: "POST",
+              headers: { Authorization: `Bearer ${getToken()}` },
+              body: formData
+            });
+            const payload = await response.json();
+            if (!response.ok) throw new Error(payload.error || "Image upload failed");
+
+            const part = extractedSections?.[pageName]?.[sectionKey]?.items.find((entry) => entry.id === itemId);
+            if (!part) return;
+            part.value = payload.url;
+
+            const urlInput = card.querySelector("input[data-field='value']");
+            const preview = card.querySelector(".image-preview");
+            if (urlInput) urlInput.value = payload.url;
+            if (preview) preview.src = payload.url;
+
+            setStatus(saveStatus, "Image uploaded. Click Save Changes to publish it.", "success");
+          } catch (error) {
+            setStatus(saveStatus, error.message, "error");
+          } finally {
+            event.target.value = "";
+          }
+        });
+      });
+    }
+
+    async function buildSectionEditors() {
+      pageTabs.innerHTML = "";
+      pagePanels.innerHTML = "";
+
+      for (const [index, config] of pageConfigs.entries()) {
+        const sourceSections = await extractSectionsFromPage(config.page);
+
+        const tab = document.createElement("button");
+        tab.type = "button";
+        tab.className = `page-tab${index === 0 ? " active" : ""}`;
+        tab.textContent = config.label;
+        tab.dataset.target = config.page;
+        pageTabs.appendChild(tab);
+
+        const panel = document.createElement("div");
+        panel.className = `page-panel${index === 0 ? " active" : ""}`;
+        panel.dataset.pagePanel = config.page;
+
+        config.sections.forEach((section) => {
+          const sectionData = sourceSections[section.key];
+          if (!sectionData) return;
+
+          const card = document.createElement("div");
+          card.className = "section-card";
+
+          const head = document.createElement("div");
+          head.className = "section-head";
+          head.innerHTML = `<h3 style="margin:0;">${section.label}</h3><span class="section-chip">${config.label}</span>`;
+
+          const editor = document.createElement("div");
+          editor.className = "two-col";
+          sectionData.items.forEach((item) => {
+            editor.appendChild(createPartField(config.page, section.key, item));
+          });
+
+          card.appendChild(head);
+          card.appendChild(editor);
+          panel.appendChild(card);
+        });
+
+        pagePanels.appendChild(panel);
+      }
+
+      pageTabs.querySelectorAll(".page-tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          pageTabs.querySelectorAll(".page-tab").forEach((item) => item.classList.remove("active"));
+          pagePanels.querySelectorAll(".page-panel").forEach((panel) => panel.classList.remove("active"));
+          tab.classList.add("active");
+          const panel = pagePanels.querySelector(`[data-page-panel="${tab.dataset.target}"]`);
+          if (panel) panel.classList.add("active");
+        });
+      });
+
+      bindPartEditors();
+    }
+
+    async function loadEditorData() {
+      latestContent = await fetchContent();
+
+      textKeys.forEach((key) => {
+        const input = document.getElementById(key);
+        if (input) input.value = latestContent.text[key] || "";
+      });
+
+      imageKeys.forEach((key) => {
+        const input = document.getElementById(`${key}Url`);
+        if (input) input.value = latestContent.images[key] || "";
+        setPreview(key, latestContent.images[key] || "");
+      });
+
+      extractedSections = {};
+      await buildSectionEditors();
+    }
+
+    async function login(username, password) {
+      const response = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Login failed");
+      localStorage.setItem(tokenKey, payload.token);
+    }
+
+    async function uploadImage(file, key) {
+      const formData = new FormData();
+      formData.append("image", file);
+      const response = await fetch("/api/admin/upload", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${getToken()}` },
+        body: formData
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Image upload failed");
+      const input = document.getElementById(`${key}Url`);
+      if (input) input.value = payload.url;
+      setPreview(key, payload.url);
+      setStatus(saveStatus, `${key} uploaded successfully. Click Save Changes to publish it.`, "success");
+    }
+
+    function buildPayload() {
+      const text = {};
+      const images = {};
+      const sections = {};
+
+      textKeys.forEach((key) => {
+        const input = document.getElementById(key);
+        text[key] = input ? input.value.trim() : "";
+      });
+
+      imageKeys.forEach((key) => {
+        const input = document.getElementById(`${key}Url`);
+        images[key] = input ? input.value.trim() : "";
+      });
+
+      Object.keys(extractedSections).forEach((pageName) => {
+        sections[pageName] = sections[pageName] || {};
+        Object.keys(extractedSections[pageName]).forEach((sectionKey) => {
+          const section = extractedSections[pageName][sectionKey];
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = `<section>${section.originalHtml}</section>`;
+          const sectionEl = wrapper.querySelector("section");
+          if (!sectionEl) return;
+
+          section.items.forEach((item) => {
+            const target = sectionEl.querySelector(item.selector);
+            if (!target) return;
+            if (item.type === "image") {
+              target.setAttribute("src", item.value || "");
+            } else if (item.type === "link") {
+              target.textContent = item.text || "";
+              target.setAttribute("href", item.href || "#");
+            } else {
+              target.textContent = item.value || "";
+            }
+          });
+
+          sections[pageName][sectionKey] = sectionEl.innerHTML.trim();
+        });
+      });
+
+      return { text, images, sections };
+    }
+
+    async function saveContent() {
+      const response = await fetch("/api/admin/content", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${getToken()}`
+        },
+        body: JSON.stringify(buildPayload())
+      });
+      const payload = await response.json();
+      if (!response.ok) throw new Error(payload.error || "Save failed");
+      latestContent = payload.data;
+      setStatus(saveStatus, "Changes saved. All tagged pages and sections will update through the live API.", "success");
+    }
+
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setStatus(loginStatus, "Signing in...", "");
+      try {
+        await login(document.getElementById("username").value.trim(), document.getElementById("password").value);
+        showEditor();
+        await loadEditorData();
+        setStatus(loginStatus, "Login successful.", "success");
+      } catch (error) {
+        setStatus(loginStatus, error.message, "error");
+      }
+    });
+
+    contentForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setStatus(saveStatus, "Saving changes...", "");
+      try {
+        await saveContent();
+      } catch (error) {
+        setStatus(saveStatus, error.message, "error");
+      }
+    });
+
+    document.querySelectorAll(".upload-input").forEach((input) => {
+      input.addEventListener("change", async (event) => {
+        const file = event.target.files && event.target.files[0];
+        const targetKey = event.target.dataset.target;
+        if (!file || !targetKey) return;
+        setStatus(saveStatus, `Uploading ${targetKey}...`, "");
+        try {
+          await uploadImage(file, targetKey);
+        } catch (error) {
+          setStatus(saveStatus, error.message, "error");
+        } finally {
+          event.target.value = "";
+        }
+      });
+    });
+
+    imageKeys.forEach((key) => {
+      const input = document.getElementById(`${key}Url`);
+      if (!input) return;
+      input.addEventListener("input", () => setPreview(key, input.value.trim()));
+    });
+
+    logoutButton.addEventListener("click", () => {
+      localStorage.removeItem(tokenKey);
+      hideEditor();
+      setStatus(loginStatus, "Logged out.", "");
+      setStatus(saveStatus, "", "");
+    });
+
+    if (getToken()) {
+      showEditor();
+      loadEditorData().catch(() => {
+        hideEditor();
+        localStorage.removeItem(tokenKey);
+      });
+    }
+  </script>
+</body>
+</html>
