@@ -290,8 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyContent(data) {
     if (!data) return;
 
-    applySectionOverrides(data);
-
     latestUpdatedAt = data.updatedAt || latestUpdatedAt;
 
     setTextContent(textTargets.heroLine1, data.text?.heroLine1);

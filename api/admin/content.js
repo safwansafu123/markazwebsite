@@ -29,10 +29,7 @@ module.exports = async (req, res) => {
         ...current.images,
         ...(body.images || {})
       },
-      sections: {
-        ...(current.sections || {}),
-        ...(body.sections || {})
-      },
+      sections: {},
       updatedAt: new Date().toISOString()
     };
 

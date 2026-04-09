@@ -952,32 +952,6 @@
         images[key] = input ? input.value.trim() : "";
       });
 
-      Object.keys(extractedSections).forEach((pageName) => {
-        sections[pageName] = sections[pageName] || {};
-        Object.keys(extractedSections[pageName]).forEach((sectionKey) => {
-          const section = extractedSections[pageName][sectionKey];
-          const wrapper = document.createElement("div");
-          wrapper.innerHTML = `<section>${section.originalHtml}</section>`;
-          const sectionEl = wrapper.querySelector("section");
-          if (!sectionEl) return;
-
-          section.items.forEach((item) => {
-            const target = sectionEl.querySelector(item.selector);
-            if (!target) return;
-            if (item.type === "image") {
-              target.setAttribute("src", item.value || "");
-            } else if (item.type === "link") {
-              target.textContent = item.text || "";
-              target.setAttribute("href", item.href || "#");
-            } else {
-              target.textContent = item.value || "";
-            }
-          });
-
-          sections[pageName][sectionKey] = sectionEl.innerHTML.trim();
-        });
-      });
-
       return { text, images, sections };
     }
 
@@ -993,7 +967,7 @@
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.error || "Save failed");
       latestContent = payload.data;
-      setStatus(saveStatus, "Changes saved. All tagged pages and sections will update through the live API.", "success");
+      setStatus(saveStatus, "Changes saved. Updated text and images will reflect through the live API.", "success");
     }
 
     contentForm.addEventListener("submit", async (event) => {
