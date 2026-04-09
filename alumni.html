@@ -2015,11 +2015,11 @@
         /* ════════════════════════
    FOOTER
 ════════════════════════ */
-        footer {
-            background: var(--g1);
-            border-top: 1px solid rgba(201, 168, 76, .09);
+        footer:not(.site-footer) {
+            background: #000066;
+            border-top: 1px solid rgba(173, 200, 255, .14);
             padding: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 4vw, 2rem) 2rem;
-            color: rgba(255, 255, 255, .48)
+            color: rgba(233, 240, 255, .76)
         }
 
         .foot-grid {
@@ -2032,7 +2032,7 @@
         .foot-brand {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.25rem;
-            color: var(--gold);
+            color: #ffffff;
             margin-bottom: .7rem;
             font-weight: 600
         }
@@ -2052,23 +2052,23 @@
             width: 34px;
             height: 34px;
             border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, .09);
+            border: 1px solid rgba(173, 200, 255, .18);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: .78rem;
-            color: rgba(255, 255, 255, .38);
+            color: rgba(233, 240, 255, .76);
             transition: all .2s
         }
 
         .foot-soc:hover {
-            border-color: var(--gold);
-            color: var(--gold)
+            border-color: #dbe8ff;
+            color: #ffffff
         }
 
         .foot-col h4 {
             font-size: .68rem;
-            color: var(--gold);
+            color: #c7daff;
             letter-spacing: .14em;
             text-transform: uppercase;
             margin-bottom: .9rem
@@ -2078,16 +2078,16 @@
             display: block;
             font-size: .78rem;
             margin-bottom: .45rem;
-            color: rgba(255, 255, 255, .38);
+            color: rgba(233, 240, 255, .8);
             transition: color .2s
         }
 
         .foot-col a:hover {
-            color: var(--gold)
+            color: #ffffff
         }
 
         .foot-bottom {
-            border-top: 1px solid rgba(255, 255, 255, .05);
+            border-top: 1px solid rgba(173, 200, 255, .14);
             padding-top: 1.4rem;
             display: flex;
             justify-content: space-between;
@@ -2097,12 +2097,12 @@
         }
 
         .foot-bottom a {
-            color: rgba(255, 255, 255, .28);
+            color: rgba(214, 228, 255, .72);
             margin-left: .8rem
         }
 
         .foot-bottom a:hover {
-            color: var(--gold)
+            color: #ffffff
         }
 
         /* ════════════════════════
@@ -2710,7 +2710,7 @@
                 padding-right: max(.9rem, env(safe-area-inset-right))
             }
 
-            footer {
+            footer:not(.site-footer) {
                 padding-bottom: max(2rem, env(safe-area-inset-bottom))
             }
         }
@@ -3770,39 +3770,57 @@
 
     <!-- FOOTER -->
 
-    <footer data-cms-section="footer">
-        <div class="container">
-            <div class="foot-grid">
-                <div>
-                    <div class="foot-brand">Markazul Uloomi Islami</div>
-                    <p class="foot-desc">Empowering generations through the perfect synthesis of timeless Islamic wisdom
-                        and modern academic excellence. Nilambur, Kerala — since 1993.</p>
-                    <div class="foot-socials">
-                        <a href="#" class="foot-soc">f</a>
-                        <a href="https://www.instagram.com/muaawina_updates" target="_blank" class="foot-soc">ig</a>
-                        <a href="#" class="foot-soc">yt</a>
+    <footer class="site-footer" data-cms-section="footer">
+        <div class="footer-body">
+            <div class="footer-body-inner">
+                <div class="footer-col footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <div class="footer-logo-icon">🕌</div>
+                        <div class="footer-logo-text"><strong>Markazul Uloomi Islami</strong><span>Nilambur · Established 1993</span></div>
+                    </a>
+                    <p class="footer-desc">Empowering generations through the perfect synthesis of timeless Islamic wisdom and modern academic excellence.</p>
+                    <div class="newsletter-label">NEWSLETTER</div>
+                    <div class="newsletter-row">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" />
+                        <button class="newsletter-btn">Subscribe</button>
                     </div>
                 </div>
-                <div class="foot-col">
-                    <h4>Discover</h4><a href="https://markazwebsite.vercel.app/about.html">About Markaz</a><a
-                        href="https://markazwebsite.vercel.app/academics.html">Academic Programs</a><a href="#">Our
-                        Faculty</a><a href="#">Alumni Network</a>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Discover</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Markaz</a></li>
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="#">Our Faculty</a></li>
+                        <li><a href="alumni.html">Alumni Network</a></li>
+                    </ul>
                 </div>
-                <div class="foot-col">
-                    <h4>Admissions</h4><a href="https://markazwebsite.vercel.app/admissions.html">How to Apply</a><a
-                        href="#">Fee Structure</a><a href="#">Scholarships</a><a href="#">Campus Tour</a>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Admissions</h4>
+                    <ul class="footer-links">
+                        <li><a href="admissions.html">How to Apply</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">Scholarships</a></li>
+                        <li><a href="#">Campus Tour</a></li>
+                    </ul>
                 </div>
-                <div class="foot-col">
-                    <h4>Contact</h4><a href="#">Markaz Campus, Nilambur</a><a href="#">Kerala 679329</a><a
-                        href="/cdn-cgi/l/email-protection#fc95929a93bc919d8e979d86d2999889d29592"><span
-                            class="__cf_email__"
-                            data-cfemail="3d54535b527d505c4f565c4713585948135453">[email&#160;protected]</span></a><a
-                        href="tel:+919876543210">+91 98765 43210</a>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Get in Touch</h4>
+                    <ul class="footer-links footer-contact">
+                        <li><span class="fc-icon">📍</span><span>Markazul Uloomi Islami Campus<br>Nilambur, Kerala 679329</span></li>
+                        <li><span class="fc-icon">✉️</span><a href="mailto:admissions@markazululoomi.edu">admissions@markazululoomi.edu</a></li>
+                        <li><span class="fc-icon">📞</span><a href="tel:+919876543210">+91 98765 43210</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="foot-bottom">
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
                 <span>© 2026 Markazul Uloomi Islami, Nilambur. All rights reserved.</span>
-                <span><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="sep">·</span>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
